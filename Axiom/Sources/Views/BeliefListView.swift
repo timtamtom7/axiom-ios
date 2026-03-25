@@ -23,7 +23,10 @@ struct BeliefListView: View {
                         LazyVStack(spacing: Theme.spacingM) {
                             ForEach(viewModel.filteredBeliefs) { belief in
                                 NavigationLink(destination: BeliefDetailView(belief: belief)) {
-                                    BeliefCard(belief: belief)
+                                    BeliefCard(
+                                        belief: belief,
+                                        connectionCount: viewModel.connectionCount(for: belief.id)
+                                    )
                                 }
                                 .buttonStyle(.plain)
                             }
@@ -47,8 +50,8 @@ struct BeliefListView: View {
             }
             .searchable(text: $viewModel.searchText, prompt: "Search beliefs")
             .sheet(isPresented: $showingAddBelief) {
-                AddBeliefView { text in
-                    viewModel.addBelief(text: text)
+                AddBeliefView { text, isCore, rootCause in
+                    viewModel.addBelief(text: text, isCore: isCore, rootCause: rootCause)
                 }
             }
         }

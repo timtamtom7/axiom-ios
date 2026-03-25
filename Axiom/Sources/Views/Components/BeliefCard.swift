@@ -2,16 +2,28 @@ import SwiftUI
 
 struct BeliefCard: View {
     let belief: Belief
+    var connectionCount: Int = 0
 
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.spacingM) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: Theme.spacingXS) {
-                    Text(belief.text)
-                        .font(.headline)
-                        .foregroundColor(Theme.textPrimary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
+                    HStack(spacing: Theme.spacingXS) {
+                        if belief.isCore {
+                            Text("CORE")
+                                .font(.system(size: 9, weight: .bold))
+                                .foregroundColor(Theme.accentGold)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Theme.accentGold.opacity(0.15))
+                                .cornerRadius(4)
+                        }
+                        Text(belief.text)
+                            .font(.headline)
+                            .foregroundColor(Theme.textPrimary)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                    }
 
                     Text("Updated \(belief.updatedAt.formatted(date: .abbreviated, time: .omitted))")
                         .font(.caption2)
@@ -32,6 +44,18 @@ struct BeliefCard: View {
                     .font(.caption)
                     .foregroundColor(Theme.accentRed)
 
+                if connectionCount > 0 {
+                    Label("\(connectionCount)", systemImage: "link")
+                        .font(.caption)
+                        .foregroundColor(Theme.accentBlue)
+                }
+
+                if let checkIn = belief.checkInScheduledAt, checkIn > Date() {
+                    Label("Check-in", systemImage: "clock.arrow.circlepath")
+                        .font(.caption)
+                        .foregroundColor(Theme.accentGold)
+                }
+
                 Spacer()
 
                 Image(systemName: "chevron.right")
@@ -47,8 +71,8 @@ struct BeliefCard: View {
 
 #Preview {
     VStack {
-        BeliefCard(belief: .preview)
-        BeliefCard(belief: Belief(text: "I'm not creative enough"))
+        BeliefCard(belief: .preview, connectionCount: 2)
+        BeliefCard(belief: Belief(text: "I'm not creative enough"), connectionCount: 0)
     }
     .padding()
     .background(Theme.background)

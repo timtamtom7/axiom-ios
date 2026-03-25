@@ -64,8 +64,7 @@ struct AIStressTestView: View {
                             Button {
                                 Task {
                                     let analysis = await aiService.getAnalysis(for: belief)
-                                    // Would show analysis in an alert or sheet
-                                    print(analysis)
+                                    await showAnalysis(analysis)
                                 }
                             } label: {
                                 HStack {
@@ -96,6 +95,12 @@ struct AIStressTestView: View {
         }
         .presentationDetents([.large])
         .presentationDragIndicator(.visible)
+    }
+
+    @MainActor
+    private func showAnalysis(_ analysis: String) async {
+        // Would show analysis in a sheet or alert
+        print(analysis)
     }
 }
 

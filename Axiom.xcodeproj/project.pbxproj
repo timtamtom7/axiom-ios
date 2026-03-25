@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06D7EA02DC26C94E55C0E7F1 /* AIDeepDiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91127DC169A7A945550C4C0E /* AIDeepDiveView.swift */; };
 		0D276881933AF3278743C6B3 /* AIStressTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */; };
 		0DFB3453AF12C6868F1A9CEA /* BeliefListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */; };
 		0FD0DF0CEEDFEA23DDE2C552 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
@@ -24,6 +25,7 @@
 		A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
 		B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
+		CEE26951AFA383B7AB05BBDD /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
 		D48E5583158C76828A82154E /* BeliefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */; };
 		EAAD67ABFB9889468A184C6B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A61E28D32758E634DE6F3652 /* SQLite */; };
 		F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE80DF76D47DD266FBBB012D /* Assets.xcassets */; };
@@ -39,9 +41,11 @@
 		63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefMapView.swift; sourceTree = "<group>"; };
 		6A7D98FDBA0803298587A269 /* BeliefListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefListView.swift; sourceTree = "<group>"; };
 		6C653C759806B287BCE3B7EC /* AxiomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomApp.swift; sourceTree = "<group>"; };
+		84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefCheckpoint.swift; sourceTree = "<group>"; };
 		87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeliefView.swift; sourceTree = "<group>"; };
 		87E161A47E08ABFC7B79457D /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefListViewModel.swift; sourceTree = "<group>"; };
+		91127DC169A7A945550C4C0E /* AIDeepDiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDeepDiveView.swift; sourceTree = "<group>"; };
 		9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestView.swift; sourceTree = "<group>"; };
 		9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestService.swift; sourceTree = "<group>"; };
 		A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefConnection.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				14100B3B7A0E067F5B2DC6CD /* Belief.swift */,
+				84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */,
 				A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */,
 				E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */,
 			);
@@ -140,6 +145,7 @@
 			children = (
 				87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */,
 				C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */,
+				91127DC169A7A945550C4C0E /* AIDeepDiveView.swift */,
 				9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */,
 				4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */,
 				6A7D98FDBA0803298587A269 /* BeliefListView.swift */,
@@ -243,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D7EA02DC26C94E55C0E7F1 /* AIDeepDiveView.swift in Sources */,
 				72FC803EDE894E64D028DB49 /* AIStressTestService.swift in Sources */,
 				0D276881933AF3278743C6B3 /* AIStressTestView.swift in Sources */,
 				28613C0F8B458C0A7ABDF090 /* AddBeliefView.swift in Sources */,
@@ -250,6 +257,7 @@
 				65D3DD41D77D6B408D902F89 /* AxiomApp.swift in Sources */,
 				6FD2EFCF76269017F79C6E0A /* Belief.swift in Sources */,
 				6EB9AB0F05506E85B5138C17 /* BeliefCard.swift in Sources */,
+				CEE26951AFA383B7AB05BBDD /* BeliefCheckpoint.swift in Sources */,
 				656F9B2965D87AAA80E70317 /* BeliefConnection.swift in Sources */,
 				1DA8F8C1054660C43E4EE78C /* BeliefDetailView.swift in Sources */,
 				D48E5583158C76828A82154E /* BeliefDetailViewModel.swift in Sources */,

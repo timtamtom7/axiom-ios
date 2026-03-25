@@ -19,17 +19,19 @@ struct BeliefMapView: View {
                 } else {
                     GeometryReader { geometry in
                         let beliefs = databaseService.allBeliefs
+                        let connections = databaseService.allConnections
                         let centerX = geometry.size.width / 2
                         let centerY = geometry.size.height / 2
-                        let radius = min(geometry.size.width, geometry.size.height) * 0.35
+                        let radius = min(geometry.size.width, geometry.size.height) * 0.3
 
                         ZStack {
-                            // Connection lines
-                            ForEach(0..<beliefs.count, id: \.self) { i in
-                                ForEach((i+1)..<beliefs.count, id: \.self) { j in
-                                    let p1 = position(for: i, count: beliefs.count, centerX: centerX, centerY: centerY, radius: radius)
-                                    let p2 = position(for: j, count: beliefs.count, centerX: centerX, centerY: centerY, radius: radius)
-                                    ConnectionLine(from: p1, to: p2)
+                            // Connection lines — only for actual connections
+                            ForEach(connections) { conn in
+                                if let fromIndex = beliefs.firstIndex(where: { $0.id == conn.fromBeliefId }),
+                                   let toIndex = beliefs.firstIndex(where: { $0.id == conn.toBeliefId }) {
+                                    let p1 = position(for: fromIndex, count: beliefs.count, centerX: centerX, centerY: centerY, radius: radius)
+                                    let p2 = position(for: toIndex, count: beliefs.count, centerX: centerX, centerY: centerY, radius: radius)
+                                    ConnectionLine(from: p1, to: p2, strength: conn.strength)
                                 }
                             }
 
@@ -75,6 +77,12 @@ struct BeliefNode: View {
                     .stroke(Theme.scoreColor(for: belief.score), lineWidth: 2)
                     .frame(width: nodeSize, height: nodeSize)
 
+                if belief.isCore {
+                    Circle()
+                        .stroke(Theme.accentGold, lineWidth: 3)
+                        .frame(width: nodeSize + 4, height: nodeSize + 4)
+                }
+
                 Image(systemName: "brain")
                     .font(.system(size: nodeSize * 0.35))
                     .foregroundColor(Theme.scoreColor(for: belief.score))
@@ -99,13 +107,14 @@ struct BeliefNode: View {
 struct ConnectionLine: View {
     let from: CGPoint
     let to: CGPoint
+    let strength: Double
 
     var body: some View {
         Path { path in
             path.move(to: from)
             path.addLine(to: to)
         }
-        .stroke(Theme.border, lineWidth: 1)
+        .stroke(Theme.accentBlue.opacity(strength), lineWidth: CGFloat(1 + strength * 2))
     }
 }
 

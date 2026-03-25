@@ -11,6 +11,7 @@ final class DatabaseService: ObservableObject {
     private let beliefs = Table("beliefs")
     private let evidence = Table("evidence")
     private let connections = Table("connections")
+    private let checkpoints = Table("checkpoints")
 
     // Belief columns
     private let id = SQLite.Expression<String>("id")
@@ -18,12 +19,27 @@ final class DatabaseService: ObservableObject {
     private let createdAt = SQLite.Expression<Date>("created_at")
     private let updatedAt = SQLite.Expression<Date>("updated_at")
 
+    // Belief extended columns
+    private let isCore = SQLite.Expression<Bool>("is_core")
+    private let rootCause = SQLite.Expression<String?>("root_cause")
+    private let derivedFrom = SQLite.Expression<String?>("derived_from")
+    private let checkInScheduledAt = SQLite.Expression<Date?>("checkin_scheduled_at")
+    private let checkInIntervalDays = SQLite.Expression<Int?>("checkin_interval_days")
+    private let isArchived = SQLite.Expression<Bool>("is_archived")
+    private let archivedAt = SQLite.Expression<Date?>("archived_at")
+    private let archiveReason = SQLite.Expression<String?>("archive_reason")
+
     // Evidence columns
     private let evidenceId = SQLite.Expression<String>("id")
     private let evidenceBeliefId = SQLite.Expression<String>("belief_id")
     private let evidenceText = SQLite.Expression<String>("text")
     private let evidenceType = SQLite.Expression<String>("type")
     private let evidenceCreatedAt = SQLite.Expression<Date>("created_at")
+    private let evidenceConfidence = SQLite.Expression<Double>("confidence")
+    private let sourceURL = SQLite.Expression<String?>("source_url")
+    private let sourceLabel = SQLite.Expression<String?>("source_label")
+    private let attachmentPath = SQLite.Expression<String?>("attachment_path")
+    private let attachmentType = SQLite.Expression<String?>("attachment_type")
 
     // Connection columns
     private let connId = SQLite.Expression<String>("id")
@@ -31,11 +47,20 @@ final class DatabaseService: ObservableObject {
     private let connToId = SQLite.Expression<String>("to_belief_id")
     private let connStrength = SQLite.Expression<Double>("strength")
 
+    // Checkpoint columns
+    private let checkpointId = SQLite.Expression<String>("id")
+    private let checkpointBeliefId = SQLite.Expression<String>("belief_id")
+    private let checkpointRecordedAt = SQLite.Expression<Date>("recorded_at")
+    private let checkpointScore = SQLite.Expression<Double>("score")
+    private let checkpointNote = SQLite.Expression<String?>("note")
+
     @Published var allBeliefs: [Belief] = []
+    @Published var allConnections: [BeliefConnection] = []
 
     private init() {
         setupDatabase()
         loadBeliefs()
+        loadConnections()
     }
 
     private func setupDatabase() {
@@ -50,11 +75,20 @@ final class DatabaseService: ObservableObject {
     }
 
     private func createTables() throws {
+        // Beliefs — add new columns if missing
         try db?.run(beliefs.create(ifNotExists: true) { t in
             t.column(id, primaryKey: true)
             t.column(text)
             t.column(createdAt)
             t.column(updatedAt)
+            t.column(isCore, defaultValue: false)
+            t.column(rootCause)
+            t.column(derivedFrom)
+            t.column(checkInScheduledAt)
+            t.column(checkInIntervalDays)
+            t.column(isArchived, defaultValue: false)
+            t.column(archivedAt)
+            t.column(archiveReason)
         })
 
         try db?.run(evidence.create(ifNotExists: true) { t in
@@ -63,6 +97,11 @@ final class DatabaseService: ObservableObject {
             t.column(evidenceText)
             t.column(evidenceType)
             t.column(evidenceCreatedAt)
+            t.column(evidenceConfidence, defaultValue: 0.7)
+            t.column(sourceURL)
+            t.column(sourceLabel)
+            t.column(attachmentPath)
+            t.column(attachmentType)
         })
 
         try db?.run(connections.create(ifNotExists: true) { t in
@@ -71,6 +110,76 @@ final class DatabaseService: ObservableObject {
             t.column(connToId)
             t.column(connStrength)
         })
+
+        try db?.run(checkpoints.create(ifNotExists: true) { t in
+            t.column(checkpointId, primaryKey: true)
+            t.column(checkpointBeliefId)
+            t.column(checkpointRecordedAt)
+            t.column(checkpointScore)
+            t.column(checkpointNote)
+        })
+
+        // Migration: add missing columns to existing tables
+        migrateBeliefsTable()
+        migrateEvidenceTable()
+    }
+
+    private func migrateBeliefsTable() {
+        guard let db = db else { return }
+        do {
+            // Add columns if they don't exist (SQLite without ALTER TABLE ADD COLUMN if not exists workaround via PRAGMA)
+            let cols = try db.prepare("PRAGMA table_info(beliefs)").map { $0[1] as! String }
+            if !cols.contains("is_core") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN is_core INTEGER DEFAULT 0")
+            }
+            if !cols.contains("root_cause") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN root_cause TEXT")
+            }
+            if !cols.contains("derived_from") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN derived_from TEXT")
+            }
+            if !cols.contains("checkin_scheduled_at") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN checkin_scheduled_at TEXT")
+            }
+            if !cols.contains("checkin_interval_days") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN checkin_interval_days INTEGER")
+            }
+            if !cols.contains("is_archived") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN is_archived INTEGER DEFAULT 0")
+            }
+            if !cols.contains("archived_at") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN archived_at TEXT")
+            }
+            if !cols.contains("archive_reason") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN archive_reason TEXT")
+            }
+        } catch {
+            print("Migration error: \(error)")
+        }
+    }
+
+    private func migrateEvidenceTable() {
+        guard let db = db else { return }
+        do {
+            let cols = try db.prepare("PRAGMA table_info(evidence)").map { $0[1] as! String }
+            if !cols.contains("confidence") {
+                try db.execute("ALTER TABLE evidence ADD COLUMN confidence REAL DEFAULT 0.7")
+            }
+            if !cols.contains("source_url") {
+                try db.execute("ALTER TABLE evidence ADD COLUMN source_url TEXT")
+            }
+            if !cols.contains("source_label") {
+                try db.execute("ALTER TABLE evidence ADD COLUMN source_label TEXT")
+            }
+            if !cols.contains("attachment_path") {
+                try db.execute("ALTER TABLE evidence ADD COLUMN attachment_path TEXT")
+            }
+            if !cols.contains("attachment_type") {
+                try db.execute("ALTER TABLE evidence ADD COLUMN attachment_type TEXT")
+            }
+        } catch {
+            print("Evidence migration error: \(error)")
+        }
     }
 
     // MARK: - Belief CRUD
@@ -79,7 +188,7 @@ final class DatabaseService: ObservableObject {
         guard let db = db else { return }
         do {
             var loaded: [Belief] = []
-            for row in try db.prepare(beliefs) {
+            for row in try db.prepare(beliefs.filter(isArchived == false)) {
                 let beliefId = UUID(uuidString: row[id])!
                 let beliefEvidence = loadEvidence(for: beliefId)
                 let belief = Belief(
@@ -87,13 +196,19 @@ final class DatabaseService: ObservableObject {
                     text: row[text],
                     createdAt: row[createdAt],
                     updatedAt: row[updatedAt],
-                    evidenceItems: beliefEvidence
+                    evidenceItems: beliefEvidence,
+                    isCore: row[isCore],
+                    rootCause: row[rootCause],
+                    derivedFrom: row[derivedFrom].flatMap { UUID(uuidString: $0) },
+                    checkInScheduledAt: row[checkInScheduledAt],
+                    checkInIntervalDays: row[checkInIntervalDays],
+                    isArchived: row[isArchived],
+                    archivedAt: row[archivedAt],
+                    archiveReason: row[archiveReason]
                 )
                 loaded.append(belief)
             }
-            DispatchQueue.main.async {
-                self.allBeliefs = loaded.sorted { $0.updatedAt > $1.updatedAt }
-            }
+            allBeliefs = loaded.sorted { $0.updatedAt > $1.updatedAt }
         } catch {
             print("Load beliefs error: \(error)")
         }
@@ -106,7 +221,15 @@ final class DatabaseService: ObservableObject {
                 id <- belief.id.uuidString,
                 text <- belief.text,
                 createdAt <- belief.createdAt,
-                updatedAt <- belief.updatedAt
+                updatedAt <- belief.updatedAt,
+                isCore <- belief.isCore,
+                rootCause <- belief.rootCause,
+                derivedFrom <- belief.derivedFrom?.uuidString,
+                checkInScheduledAt <- belief.checkInScheduledAt,
+                checkInIntervalDays <- belief.checkInIntervalDays,
+                isArchived <- belief.isArchived,
+                archivedAt <- belief.archivedAt,
+                archiveReason <- belief.archiveReason
             ))
             loadBeliefs()
         } catch {
@@ -120,7 +243,15 @@ final class DatabaseService: ObservableObject {
         do {
             try db.run(target.update(
                 text <- belief.text,
-                updatedAt <- Date()
+                updatedAt <- Date(),
+                isCore <- belief.isCore,
+                rootCause <- belief.rootCause,
+                derivedFrom <- belief.derivedFrom?.uuidString,
+                checkInScheduledAt <- belief.checkInScheduledAt,
+                checkInIntervalDays <- belief.checkInIntervalDays,
+                isArchived <- belief.isArchived,
+                archivedAt <- belief.archivedAt,
+                archiveReason <- belief.archiveReason
             ))
             loadBeliefs()
         } catch {
@@ -132,19 +263,35 @@ final class DatabaseService: ObservableObject {
         guard let db = db else { return }
         let target = beliefs.filter(id == belief.id.uuidString)
         do {
-            // Delete associated evidence
             let evidenceTarget = evidence.filter(evidenceBeliefId == belief.id.uuidString)
             try db.run(evidenceTarget.delete())
-            // Delete associated connections
             let connFrom = connections.filter(connFromId == belief.id.uuidString)
             let connTo = connections.filter(connToId == belief.id.uuidString)
             try db.run(connFrom.delete())
             try db.run(connTo.delete())
-            // Delete belief
+            let checkpointTarget = checkpoints.filter(checkpointBeliefId == belief.id.uuidString)
+            try db.run(checkpointTarget.delete())
             try db.run(target.delete())
             loadBeliefs()
+            loadConnections()
         } catch {
             print("Delete belief error: \(error)")
+        }
+    }
+
+    func archiveBelief(_ belief: Belief, reason: String) {
+        guard let db = db else { return }
+        let target = beliefs.filter(id == belief.id.uuidString)
+        do {
+            try db.run(target.update(
+                isArchived <- true,
+                archivedAt <- Date(),
+                archiveReason <- reason,
+                updatedAt <- Date()
+            ))
+            loadBeliefs()
+        } catch {
+            print("Archive belief error: \(error)")
         }
     }
 
@@ -161,7 +308,12 @@ final class DatabaseService: ObservableObject {
                     beliefId: UUID(uuidString: row[evidenceBeliefId])!,
                     text: row[evidenceText],
                     type: EvidenceType(rawValue: row[evidenceType]) ?? .support,
-                    createdAt: row[evidenceCreatedAt]
+                    createdAt: row[evidenceCreatedAt],
+                    confidence: row[evidenceConfidence],
+                    sourceURL: row[sourceURL],
+                    sourceLabel: row[sourceLabel],
+                    attachmentPath: row[attachmentPath],
+                    attachmentType: row[attachmentType].flatMap { AttachmentType(rawValue: $0) }
                 )
                 items.append(ev)
             }
@@ -179,9 +331,13 @@ final class DatabaseService: ObservableObject {
                 evidenceBeliefId <- item.beliefId.uuidString,
                 evidenceText <- item.text,
                 evidenceType <- item.type.rawValue,
-                evidenceCreatedAt <- item.createdAt
+                evidenceCreatedAt <- item.createdAt,
+                evidenceConfidence <- item.confidence,
+                sourceURL <- item.sourceURL,
+                sourceLabel <- item.sourceLabel,
+                attachmentPath <- item.attachmentPath,
+                attachmentType <- item.attachmentType?.rawValue
             ))
-            // Update belief updatedAt
             let target = beliefs.filter(id == item.beliefId.uuidString)
             try db.run(target.update(updatedAt <- Date()))
             loadBeliefs()
@@ -200,6 +356,95 @@ final class DatabaseService: ObservableObject {
             loadBeliefs()
         } catch {
             print("Delete evidence error: \(error)")
+        }
+    }
+
+    // MARK: - Connection CRUD
+
+    func loadConnections() {
+        guard let db = db else { return }
+        do {
+            var loaded: [BeliefConnection] = []
+            for row in try db.prepare(connections) {
+                let conn = BeliefConnection(
+                    id: UUID(uuidString: row[connId])!,
+                    fromBeliefId: UUID(uuidString: row[connFromId])!,
+                    toBeliefId: UUID(uuidString: row[connToId])!,
+                    strength: row[connStrength]
+                )
+                loaded.append(conn)
+            }
+            allConnections = loaded
+        } catch {
+            print("Load connections error: \(error)")
+        }
+    }
+
+    func addConnection(_ connection: BeliefConnection) {
+        guard let db = db else { return }
+        do {
+            try db.run(connections.insert(
+                connId <- connection.id.uuidString,
+                connFromId <- connection.fromBeliefId.uuidString,
+                connToId <- connection.toBeliefId.uuidString,
+                connStrength <- connection.strength
+            ))
+            loadConnections()
+        } catch {
+            print("Add connection error: \(error)")
+        }
+    }
+
+    func deleteConnection(_ connection: BeliefConnection) {
+        guard let db = db else { return }
+        let target = connections.filter(connId == connection.id.uuidString)
+        do {
+            try db.run(target.delete())
+            loadConnections()
+        } catch {
+            print("Delete connection error: \(error)")
+        }
+    }
+
+    func connectionsFor(beliefId: UUID) -> [BeliefConnection] {
+        allConnections.filter { $0.fromBeliefId == beliefId || $0.toBeliefId == beliefId }
+    }
+
+    // MARK: - Checkpoint CRUD
+
+    func checkpointsFor(beliefId: UUID) -> [BeliefCheckpoint] {
+        guard let db = db else { return [] }
+        var items: [BeliefCheckpoint] = []
+        do {
+            let query = checkpoints.filter(checkpointBeliefId == beliefId.uuidString)
+            for row in try db.prepare(query) {
+                let cp = BeliefCheckpoint(
+                    id: UUID(uuidString: row[checkpointId])!,
+                    beliefId: UUID(uuidString: row[checkpointBeliefId])!,
+                    recordedAt: row[checkpointRecordedAt],
+                    score: row[checkpointScore],
+                    note: row[checkpointNote]
+                )
+                items.append(cp)
+            }
+        } catch {
+            print("Load checkpoints error: \(error)")
+        }
+        return items.sorted { $0.recordedAt > $1.recordedAt }
+    }
+
+    func addCheckpoint(_ checkpoint: BeliefCheckpoint) {
+        guard let db = db else { return }
+        do {
+            try db.run(checkpoints.insert(
+                checkpointId <- checkpoint.id.uuidString,
+                checkpointBeliefId <- checkpoint.beliefId.uuidString,
+                checkpointRecordedAt <- checkpoint.recordedAt,
+                checkpointScore <- checkpoint.score,
+                checkpointNote <- checkpoint.note
+            ))
+        } catch {
+            print("Add checkpoint error: \(error)")
         }
     }
 }
