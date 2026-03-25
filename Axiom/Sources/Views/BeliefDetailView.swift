@@ -496,23 +496,35 @@ struct ConnectionsSheet: View {
                             .foregroundColor(Theme.textPrimary)
 
                         let otherBeliefs = DatabaseService.shared.allBeliefs.filter { $0.id != viewModel.belief.id }
-                        ForEach(otherBeliefs) { belief in
-                            Button {
-                                viewModel.addConnection(to: belief)
-                            } label: {
-                                HStack {
-                                    ScoreBadge(score: belief.score)
-                                    Text(belief.text)
-                                        .font(.callout)
-                                        .foregroundColor(Theme.textPrimary)
-                                        .lineLimit(2)
-                                    Spacer()
-                                    Image(systemName: "link")
-                                        .foregroundColor(Theme.accentBlue)
+                        if otherBeliefs.isEmpty {
+                            HStack {
+                                Image(systemName: "link.badge.plus")
+                                    .foregroundColor(Theme.textSecondary)
+                                Text("No other beliefs to link yet")
+                                    .font(.callout)
+                                    .foregroundColor(Theme.textSecondary)
+                                    .italic()
+                            }
+                            .padding(.vertical, Theme.spacingS)
+                        } else {
+                                ForEach(otherBeliefs) { belief in
+                                Button {
+                                    viewModel.addConnection(to: belief)
+                                } label: {
+                                    HStack {
+                                        ScoreBadge(score: belief.score)
+                                        Text(belief.text)
+                                            .font(.callout)
+                                            .foregroundColor(Theme.textPrimary)
+                                            .lineLimit(2)
+                                        Spacer()
+                                        Image(systemName: "link")
+                                            .foregroundColor(Theme.accentBlue)
+                                    }
+                                    .padding(Theme.spacingS)
+                                    .background(Theme.surfaceElevated)
+                                    .cornerRadius(8)
                                 }
-                                .padding(Theme.spacingS)
-                                .background(Theme.surfaceElevated)
-                                .cornerRadius(8)
                             }
                         }
 
@@ -655,7 +667,9 @@ struct ArchiveBeliefSheet: View {
                     Spacer()
 
                     Button {
-                        viewModel.archiveBelief(reason: reason)
+                        let trimmedReason = reason.trimmingCharacters(in: .whitespacesAndNewlines)
+                        guard !trimmedReason.isEmpty else { return }
+                        viewModel.archiveBelief(reason: trimmedReason)
                         dismiss()
                     } label: {
                         Text("Archive Belief")

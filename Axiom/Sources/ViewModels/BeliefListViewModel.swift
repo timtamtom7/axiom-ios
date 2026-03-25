@@ -16,13 +16,6 @@ final class BeliefListViewModel: ObservableObject {
                 self?.beliefs = beliefs
             }
             .store(in: &cancellables)
-
-        databaseService.$allConnections
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.objectWillChange.send()
-            }
-            .store(in: &cancellables)
     }
 
     var filteredBeliefs: [Belief] {

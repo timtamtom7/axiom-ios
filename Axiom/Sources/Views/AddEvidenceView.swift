@@ -174,7 +174,7 @@ struct AddEvidenceView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        let url = sourceURL.isEmpty ? nil : sourceURL
+                        let url = sourceURL.isEmpty ? nil : (URL(string: sourceURL) != nil ? sourceURL : nil)
                         let label = sourceLabel.isEmpty ? nil : sourceLabel
                         onSave(evidenceText, selectedType, confidence, url, label)
                         dismiss()
