@@ -13,6 +13,7 @@ struct BeliefDetailView: View {
     @State private var opposingViewpoint = ""
     @State private var isLoadingOpposing = false
     @State private var showingEvolutionView = false
+    @State private var showingShareSheet = false
 
     init(belief: Belief) {
         _viewModel = StateObject(wrappedValue: BeliefDetailViewModel(belief: belief))
@@ -116,6 +117,14 @@ struct BeliefDetailView: View {
 
                     Divider()
 
+                    Button {
+                        showingShareSheet = true
+                    } label: {
+                        Label("Share Belief", systemImage: "square.and.arrow.up")
+                    }
+
+                    Divider()
+
                     Button(role: .destructive) {
                         showingArchiveSheet = true
                     } label: {
@@ -165,6 +174,9 @@ struct BeliefDetailView: View {
                 isLoading: isLoadingAIAnalysis,
                 error: aiAnalysisError
             )
+        }
+        .sheet(isPresented: $showingShareSheet) {
+            ShareBeliefSheet(belief: viewModel.belief)
         }
         .alert("Delete Belief?", isPresented: $showingDeleteAlert) {
             Button("Cancel", role: .cancel) {}
@@ -870,6 +882,217 @@ struct AIAnalysisSheet: View {
             }
         }
         .presentationDetents([.large])
+    }
+}
+
+// MARK: - Community Belief Sharing
+
+/// Exports a belief in shareable formats: plain text, detailed summary, or JSON.
+struct ShareBeliefSheet: View {
+    let belief: Belief
+    @Environment(\.dismiss) private var dismiss
+    @State private var selectedFormat: ShareFormat = .plainText
+
+    enum ShareFormat: String, CaseIterable {
+        case plainText = "Plain Text"
+        case detailed = "Detailed Summary"
+        case json = "JSON"
+    }
+
+    var shareText: String {
+        switch selectedFormat {
+        case .plainText:
+            return plainTextExport
+        case .detailed:
+            return detailedExport
+        case .json:
+            return jsonExport
+        }
+    }
+
+    private var plainTextExport: String {
+        """
+        My Belief: "\(belief.text)"
+
+        Evidence Score: \(Int(belief.score))/100 (\(scoreDescription))
+        Supporting: \(belief.supportingCount) · Contradicting: \(belief.contradictingCount)
+
+        #BeliefAudit #Axiom
+        """
+    }
+
+    private var detailedExport: String {
+        var lines = [
+            "═══ BELIEF AUDIT ═══",
+            "",
+            "BELIEF",
+            "\"\(belief.text)\"",
+            "",
+            "EVIDENCE SCORE: \(Int(belief.score))/100 — \(scoreDescription)",
+            "  Supporting: \(belief.supportingCount)",
+            "  Contradicting: \(belief.contradictingCount)",
+            "",
+        ]
+
+        if belief.isCore {
+            lines.append("⚡ CORE BELIEF")
+            lines.append("")
+        }
+
+        if !belief.evidenceItems.isEmpty {
+            lines.append("SUPPORTING EVIDENCE")
+            for ev in belief.evidenceItems.filter({ $0.type == .support }) {
+                lines.append("  ✓ \(ev.text)")
+                if let label = ev.sourceLabel { lines.append("    Source: \(label)") }
+            }
+            lines.append("")
+            lines.append("CONTRADICTING EVIDENCE")
+            for ev in belief.evidenceItems.filter({ $0.type == .contradict }) {
+                lines.append("  ✗ \(ev.text)")
+                if let label = ev.sourceLabel { lines.append("    Source: \(label)") }
+            }
+            lines.append("")
+        }
+
+        lines.append("Created: \(belief.createdAt.formatted(date: .long, time: .omitted))")
+        lines.append("")
+        lines.append("#BeliefAudit #Axiom")
+
+        return lines.joined(separator: "\n")
+    }
+
+    private var jsonExport: String {
+        let enc = JSONEncoder()
+        enc.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let export = BeliefExport(belief: belief)
+        if let data = try? enc.encode(export),
+           let string = String(data: data, encoding: .utf8) {
+            return string
+        }
+        return "{}"
+    }
+
+    private var scoreDescription: String {
+        if belief.score < 40 { return "Evidence leans against this belief"
+        } else if belief.score < 70 { return "Evidence is mixed"
+        } else { return "Evidence supports this belief" }
+    }
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Theme.background.ignoresSafeArea()
+
+                VStack(spacing: Theme.spacingL) {
+                    // Format picker
+                    VStack(alignment: .leading, spacing: Theme.spacingS) {
+                        Text("Export Format")
+                            .font(.headline)
+                            .foregroundColor(Theme.textPrimary)
+
+                        ForEach(ShareFormat.allCases, id: \.self) { format in
+                            Button {
+                                selectedFormat = format
+                            } label: {
+                                HStack {
+                                    Image(systemName: selectedFormat == format ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(selectedFormat == format ? Theme.accentGold : Theme.textSecondary)
+                                    Text(format.rawValue)
+                                        .font(.callout)
+                                        .foregroundColor(Theme.textPrimary)
+                                    Spacer()
+                                }
+                                .padding(Theme.spacingS)
+                                .background(selectedFormat == format ? Theme.accentGold.opacity(0.1) : Theme.surface)
+                                .cornerRadius(8)
+                            }
+                        }
+                    }
+
+                    // Preview
+                    VStack(alignment: .leading, spacing: Theme.spacingS) {
+                        HStack {
+                            Text("Preview")
+                                .font(.headline)
+                                .foregroundColor(Theme.textPrimary)
+                            Spacer()
+                        }
+
+                        ScrollView {
+                            Text(shareText)
+                                .font(.system(.caption, design: .monospaced))
+                                .foregroundColor(Theme.textSecondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .frame(maxHeight: 260)
+                        .padding(Theme.spacingM)
+                        .background(Theme.surface)
+                        .cornerRadius(12)
+                    }
+
+                    Spacer()
+
+                    // Share button
+                    ShareLink(item: shareText) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share")
+                        }
+                        .font(.headline)
+                        .foregroundColor(Theme.background)
+                        .frame(maxWidth: .infinity)
+                        .padding(Theme.spacingM)
+                        .background(Theme.accentGold)
+                        .cornerRadius(12)
+                    }
+                }
+                .padding(Theme.screenMargin)
+            }
+            .navigationTitle("Share Belief")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") { dismiss() }
+                        .foregroundColor(Theme.textSecondary)
+                }
+            }
+        }
+        .presentationDetents([.medium, .large])
+    }
+}
+
+/// Codable structure for JSON export
+private struct BeliefExport: Codable {
+    let beliefText: String
+    let score: Int
+    let isCore: Bool
+    let supportingEvidence: [EvidenceExport]
+    let contradictingEvidence: [EvidenceExport]
+    let createdAt: String
+    let exportedAt: String
+
+    init(belief: Belief) {
+        self.beliefText = belief.text
+        self.score = Int(belief.score)
+        self.isCore = belief.isCore
+        self.supportingEvidence = belief.evidenceItems.filter { $0.type == .support }.map { EvidenceExport(evidence: $0) }
+        self.contradictingEvidence = belief.evidenceItems.filter { $0.type == .contradict }.map { EvidenceExport(evidence: $0) }
+        self.createdAt = belief.createdAt.ISO8601Format()
+        self.exportedAt = Date().ISO8601Format()
+    }
+}
+
+private struct EvidenceExport: Codable {
+    let text: String
+    let confidence: Double
+    let sourceLabel: String?
+    let createdAt: String
+
+    init(evidence: Evidence) {
+        self.text = evidence.text
+        self.confidence = evidence.confidence
+        self.sourceLabel = evidence.sourceLabel
+        self.createdAt = evidence.createdAt.ISO8601Format()
     }
 }
 

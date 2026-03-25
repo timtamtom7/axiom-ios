@@ -27,6 +27,7 @@
 		A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
 		B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
+		C4140D0C9C5A4150CD348148 /* EvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */; };
 		CEE26951AFA383B7AB05BBDD /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
 		D48E5583158C76828A82154E /* BeliefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */; };
 		EAAD67ABFB9889468A184C6B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A61E28D32758E634DE6F3652 /* SQLite */; };
@@ -57,6 +58,7 @@
 		AE80DF76D47DD266FBBB012D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedBeliefsView.swift; sourceTree = "<group>"; };
 		BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefCard.swift; sourceTree = "<group>"; };
+		BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceLibraryView.swift; sourceTree = "<group>"; };
 		BE383BD45158F8170FCE413E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvidenceView.swift; sourceTree = "<group>"; };
 		C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */,
 				6A7D98FDBA0803298587A269 /* BeliefListView.swift */,
 				63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */,
+				BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */,
 				DE6FB0CE071F9C0707070FF4 /* Components */,
 			);
 			path = Views;
@@ -276,6 +279,7 @@
 				B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */,
 				A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */,
 				45D32C194181454FBC0D7471 /* Evidence.swift in Sources */,
+				C4140D0C9C5A4150CD348148 /* EvidenceLibraryView.swift in Sources */,
 				77BA7D77CAF782BECF7D9339 /* EvidenceRow.swift in Sources */,
 				FD4E85B54CBD5EC4F9108CF9 /* ScoreBadge.swift in Sources */,
 				C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */,
