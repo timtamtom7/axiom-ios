@@ -2,8 +2,10 @@ import SwiftUI
 
 struct BeliefListView: View {
     @StateObject private var viewModel = BeliefListViewModel()
+    @StateObject private var subscriptionService = SubscriptionService.shared
     @State private var showingAddBelief = false
     @State private var showingArchived = false
+    @State private var showingUpgrade = false
 
     var body: some View {
         NavigationStack {
@@ -49,7 +51,11 @@ struct BeliefListView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        showingAddBelief = true
+                        if subscriptionService.canAddBelief {
+                            showingAddBelief = true
+                        } else {
+                            showingUpgrade = true
+                        }
                     } label: {
                         Image(systemName: "plus")
                             .font(.headline)
@@ -77,6 +83,9 @@ struct BeliefListView: View {
             }
             .sheet(isPresented: $showingArchived) {
                 ArchivedBeliefsView(beliefs: viewModel.archivedBeliefs)
+            }
+            .sheet(isPresented: $showingUpgrade) {
+                SubscriptionView()
             }
         }
     }
