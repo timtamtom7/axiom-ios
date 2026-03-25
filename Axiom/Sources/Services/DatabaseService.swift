@@ -58,11 +58,13 @@ final class DatabaseService: ObservableObject {
     @Published var allBeliefs: [Belief] = []
     @Published var archivedBeliefs: [Belief] = []
     @Published var allConnections: [BeliefConnection] = []
+    @Published var allCheckpoints: [BeliefCheckpoint] = []
 
     private init() {
         setupDatabase()
         loadBeliefs()
         loadConnections()
+        loadAllCheckpoints()
     }
 
     private func setupDatabase() {
@@ -458,6 +460,28 @@ final class DatabaseService: ObservableObject {
     }
 
     // MARK: - Checkpoint CRUD
+
+    func loadAllCheckpoints() {
+        guard let db = db else { return }
+        var items: [BeliefCheckpoint] = []
+        do {
+            for row in try db.prepare(checkpoints) {
+                guard let cpId = UUID(uuidString: row[checkpointId]),
+                      let cpBeliefId = UUID(uuidString: row[checkpointBeliefId]) else { continue }
+                let cp = BeliefCheckpoint(
+                    id: cpId,
+                    beliefId: cpBeliefId,
+                    recordedAt: row[checkpointRecordedAt],
+                    score: row[checkpointScore],
+                    note: row[checkpointNote]
+                )
+                items.append(cp)
+            }
+        } catch {
+            print("Load all checkpoints error: \(error)")
+        }
+        allCheckpoints = items.sorted { $0.recordedAt > $1.recordedAt }
+    }
 
     func checkpointsFor(beliefId: UUID) -> [BeliefCheckpoint] {
         guard let db = db else { return [] }

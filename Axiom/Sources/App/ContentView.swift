@@ -34,6 +34,18 @@ struct ContentView: View {
                     Label("Evidence", systemImage: "books.vertical")
                 }
                 .tag(2)
+
+            CommunityView()
+                .tabItem {
+                    Label("Community", systemImage: "person.3")
+                }
+                .tag(3)
+
+            LegacyDocumentView()
+                .tabItem {
+                    Label("Legacy", systemImage: "doc.text")
+                }
+                .tag(4)
         }
         .tint(Theme.accentGold)
     }
@@ -51,6 +63,12 @@ struct ContentView: View {
                     }
                     NavigationLink(destination: EvidenceLibraryView()) {
                         Label("Evidence Library", systemImage: "books.vertical")
+                    }
+                    NavigationLink(destination: CommunityView()) {
+                        Label("Community", systemImage: "person.3")
+                    }
+                    NavigationLink(destination: LegacyDocumentView()) {
+                        Label("Legacy", systemImage: "doc.text")
                     }
                 }
             }

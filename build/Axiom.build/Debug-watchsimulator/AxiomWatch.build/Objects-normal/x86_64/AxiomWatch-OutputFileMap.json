@@ -1,0 +1,89 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatch-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatch-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatch-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatch-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatch-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/App/Theme.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Theme~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/Belief.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Belief~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/BeliefCheckpoint.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefCheckpoint~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/BeliefConnection.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/BeliefConnection~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/Evidence.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/Evidence~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/AxiomWatch/Sources/AxiomWatchApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/AxiomWatchApp~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/AxiomWatch/Sources/WatchContentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchContentView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/axiom-ios/AxiomWatch/Sources/WatchStorageService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.dia",
+    "index-unit-output-path" : "/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.bc",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-watchsimulator/AxiomWatch.build/Objects-normal/x86_64/WatchStorageService~partial.swiftmodule"
+  }
+}
