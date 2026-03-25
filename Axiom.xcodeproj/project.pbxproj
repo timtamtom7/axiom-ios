@@ -11,31 +11,61 @@
 		0D276881933AF3278743C6B3 /* AIStressTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */; };
 		0DFB3453AF12C6868F1A9CEA /* BeliefListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */; };
 		0FD0DF0CEEDFEA23DDE2C552 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
+		188C94126AE8AC3DF5C8BA6F /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		1DA8F8C1054660C43E4EE78C /* BeliefDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */; };
 		28613C0F8B458C0A7ABDF090 /* AddBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */; };
+		2B2EC53C6BE7F700CBE7466F /* AxiomMac.app in Resources */ = {isa = PBXBuildFile; fileRef = CAAE993DBFB345B0C8309E20 /* AxiomMac.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3951667720D66247E24B6840 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
+		3A2F4E6DA9C5C4565EDE6D20 /* BeliefNetworkIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */; };
+		3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */; };
 		45D32C194181454FBC0D7471 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */; };
+		4AF393239145FE3862EB1648 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 0AEE43D913A6E7F26C0FEDD5 /* SQLite */; };
+		62998AAFFAABE7991343C359 /* AIDeepDiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91127DC169A7A945550C4C0E /* AIDeepDiveView.swift */; };
 		656F9B2965D87AAA80E70317 /* BeliefConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */; };
 		65D3DD41D77D6B408D902F89 /* AxiomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C653C759806B287BCE3B7EC /* AxiomApp.swift */; };
+		6661CEAC32CA85DEAD7BA067 /* AxiomMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA2F46C88379E994924E9B /* AxiomMacApp.swift */; };
 		67B30328EE230A1A7B272A2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE383BD45158F8170FCE413E /* ContentView.swift */; };
 		6D52D2CE88A69BA214D705F6 /* ArchivedBeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */; };
 		6EB9AB0F05506E85B5138C17 /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		6FD2EFCF76269017F79C6E0A /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
+		7014D0C668D16EAF2C3481B2 /* EvidenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */; };
+		709447B49F5AF7DF4EF48ED4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62715717840E23A76FAEB07C /* SwiftUI.framework */; };
 		72FC803EDE894E64D028DB49 /* AIStressTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */; };
+		74460B61322F96288C42F1DF /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
 		77BA7D77CAF782BECF7D9339 /* EvidenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */; };
 		7A2FA62A515E1CD72614D609 /* BeliefMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */; };
+		8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */; };
+		932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		99900117D498A73A77D1D8F0 /* BeliefEvolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */; };
+		A00F06DF107C00F216283F47 /* AIStressTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */; };
 		A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
 		A52A7478C836F6C0CF00476A /* BeliefNetworkIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */; };
+		B54CFCEEE2832D749EFCDAA0 /* MacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F486AEBF7C36C2C3CE982EB /* MacContentView.swift */; };
 		B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		C4140D0C9C5A4150CD348148 /* EvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */; };
 		CEE26951AFA383B7AB05BBDD /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
+		D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
 		D48E5583158C76828A82154E /* BeliefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */; };
+		D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
+		E483717034518CE18A4DB680 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		EAAD67ABFB9889468A184C6B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A61E28D32758E634DE6F3652 /* SQLite */; };
 		F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE80DF76D47DD266FBBB012D /* Assets.xcassets */; };
+		F58308E95885793FD29381CA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */; };
+		F6BDDC1D3EE144862908A846 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
 		FC0BA386F8B1719EE30AF0E8 /* BeliefListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7D98FDBA0803298587A269 /* BeliefListView.swift */; };
 		FD4E85B54CBD5EC4F9108CF9 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F3EC8A103B7AC968881030A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9121595A23C3532C034908AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AF81502DAF4F0216F8E09C0;
+			remoteInfo = AxiomMac;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		14100B3B7A0E067F5B2DC6CD /* Belief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Belief.swift; sourceTree = "<group>"; };
@@ -44,6 +74,8 @@
 		2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefEvolutionView.swift; sourceTree = "<group>"; };
 		3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceRow.swift; sourceTree = "<group>"; };
 		4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefDetailView.swift; sourceTree = "<group>"; };
+		62715717840E23A76FAEB07C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		62DA2F46C88379E994924E9B /* AxiomMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomMacApp.swift; sourceTree = "<group>"; };
 		63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefMapView.swift; sourceTree = "<group>"; };
 		6A7D98FDBA0803298587A269 /* BeliefListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefListView.swift; sourceTree = "<group>"; };
 		6C653C759806B287BCE3B7EC /* AxiomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomApp.swift; sourceTree = "<group>"; };
@@ -51,6 +83,7 @@
 		87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeliefView.swift; sourceTree = "<group>"; };
 		87E161A47E08ABFC7B79457D /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefListViewModel.swift; sourceTree = "<group>"; };
+		8F486AEBF7C36C2C3CE982EB /* MacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacContentView.swift; sourceTree = "<group>"; };
 		91127DC169A7A945550C4C0E /* AIDeepDiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDeepDiveView.swift; sourceTree = "<group>"; };
 		9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestView.swift; sourceTree = "<group>"; };
 		9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestService.swift; sourceTree = "<group>"; };
@@ -64,11 +97,23 @@
 		BE383BD45158F8170FCE413E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvidenceView.swift; sourceTree = "<group>"; };
 		C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		CAAE993DBFB345B0C8309E20 /* AxiomMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxiomMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A59EB1B76CE9505875CFF07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF393239145FE3862EB1648 /* SQLite in Frameworks */,
+				709447B49F5AF7DF4EF48ED4 /* SwiftUI.framework in Frameworks */,
+				F58308E95885793FD29381CA /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEAE5247088FB11BA9243F5A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A5269896918B9568B3F1B19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */,
+				62715717840E23A76FAEB07C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3474D38458B329CBDA742E14 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +182,16 @@
 			path = Axiom/Resources;
 			sourceTree = "<group>";
 		};
+		DD66D86225668FBC90C55681 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				62DA2F46C88379E994924E9B /* AxiomMacApp.swift */,
+				8F486AEBF7C36C2C3CE982EB /* MacContentView.swift */,
+			);
+			name = Sources;
+			path = AxiomMac/Sources;
+			sourceTree = "<group>";
+		};
 		DE6FB0CE071F9C0707070FF4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +209,8 @@
 			children = (
 				A33258CA747F1CCD5244D530 /* Resources */,
 				FF05EB9E26A0D8A5333E44C0 /* Sources */,
+				DD66D86225668FBC90C55681 /* Sources */,
+				2A5269896918B9568B3F1B19 /* Frameworks */,
 				FDE21D62E5F957388097BF88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				A2DEE44DA71644B7B062CE82 /* Axiom.app */,
+				CAAE993DBFB345B0C8309E20 /* AxiomMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +269,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				074BF34485DB3EF0957C8779 /* PBXTargetDependency */,
 			);
 			name = Axiom;
 			packageProductDependencies = (
@@ -209,6 +277,25 @@
 			);
 			productName = Axiom;
 			productReference = A2DEE44DA71644B7B062CE82 /* Axiom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AF81502DAF4F0216F8E09C0 /* AxiomMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 744E47E6C702DF187809E18F /* Build configuration list for PBXNativeTarget "AxiomMac" */;
+			buildPhases = (
+				661352C52B09920A1AA35484 /* Sources */,
+				8A59EB1B76CE9505875CFF07 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AxiomMac;
+			packageProductDependencies = (
+				0AEE43D913A6E7F26C0FEDD5 /* SQLite */,
+			);
+			productName = AxiomMac;
+			productReference = CAAE993DBFB345B0C8309E20 /* AxiomMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -221,6 +308,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					42DA805BF58037847D732F96 = {
+						DevelopmentTeam = "";
+					};
+					6AF81502DAF4F0216F8E09C0 = {
 						DevelopmentTeam = "";
 					};
 				};
@@ -241,6 +331,7 @@
 			projectRoot = "";
 			targets = (
 				42DA805BF58037847D732F96 /* Axiom */,
+				6AF81502DAF4F0216F8E09C0 /* AxiomMac */,
 			);
 		};
 /* End PBXProject section */
@@ -251,12 +342,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */,
+				2B2EC53C6BE7F700CBE7466F /* AxiomMac.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		661352C52B09920A1AA35484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62998AAFFAABE7991343C359 /* AIDeepDiveView.swift in Sources */,
+				A00F06DF107C00F216283F47 /* AIStressTestService.swift in Sources */,
+				F6BDDC1D3EE144862908A846 /* AddEvidenceView.swift in Sources */,
+				6661CEAC32CA85DEAD7BA067 /* AxiomMacApp.swift in Sources */,
+				74460B61322F96288C42F1DF /* Belief.swift in Sources */,
+				188C94126AE8AC3DF5C8BA6F /* BeliefCard.swift in Sources */,
+				D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */,
+				8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */,
+				3A2F4E6DA9C5C4565EDE6D20 /* BeliefNetworkIllustration.swift in Sources */,
+				932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */,
+				3951667720D66247E24B6840 /* EmptyStateView.swift in Sources */,
+				3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */,
+				7014D0C668D16EAF2C3481B2 /* EvidenceRow.swift in Sources */,
+				B54CFCEEE2832D749EFCDAA0 /* MacContentView.swift in Sources */,
+				D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */,
+				E483717034518CE18A4DB680 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A316871C702A846B6453233 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +407,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		074BF34485DB3EF0957C8779 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AF81502DAF4F0216F8E09C0 /* AxiomMac */;
+			targetProxy = 3F3EC8A103B7AC968881030A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		11F742E90B77DFBD6C497244 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -312,8 +435,35 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit;
 				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18ED1D38E546201AFA92712E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Axiom;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2026";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit.macos;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -363,10 +513,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -392,8 +542,35 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit;
 				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6FC26C1234802FA2F9F93F6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Axiom;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2026";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit.macos;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -449,11 +626,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -468,6 +645,15 @@
 			buildConfigurations = (
 				B371A42300E691BF75020B02 /* Debug */,
 				1EC8962AEF6F015EAC54E73C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		744E47E6C702DF187809E18F /* Build configuration list for PBXNativeTarget "AxiomMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18ED1D38E546201AFA92712E /* Debug */,
+				6FC26C1234802FA2F9F93F6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -495,6 +681,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0AEE43D913A6E7F26C0FEDD5 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39DD23DCCC171E063B007922 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		A61E28D32758E634DE6F3652 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 39DD23DCCC171E063B007922 /* XCRemoteSwiftPackageReference "SQLite.swift" */;

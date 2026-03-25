@@ -25,7 +25,9 @@ struct AIDeepDiveView: View {
                 }
             }
             .navigationTitle("AI Deep Dive")
+#if !os(macOS)
             .navigationBarTitleDisplayMode(.inline)
+#endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Done") {
@@ -35,8 +37,10 @@ struct AIDeepDiveView: View {
                 }
             }
         }
+#if os(iOS)
         .presentationDetents([.large])
         .presentationDragIndicator(.visible)
+#endif
     }
 
     private var openingView: some View {

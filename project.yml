@@ -3,6 +3,7 @@ options:
   bundleIdPrefix: com.axiom
   deploymentTarget:
     iOS: "26.0"
+    macOS: "15.0"
   xcodeVersion: "16.0"
   generateEmptyDirectories: true
 
@@ -31,5 +32,40 @@ targets:
         CODE_SIGNING_REQUIRED: NO
         CODE_SIGNING_ALLOWED: NO
         ENABLE_USER_SCRIPT_SANDBOXING: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: YES
     dependencies:
       - package: SQLite
+      - target: AxiomMac
+        embed: true
+
+  AxiomMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: AxiomMac/Sources
+      - path: Axiom/Sources/Models
+      - path: Axiom/Sources/Services
+      - path: Axiom/Sources/App/Theme.swift
+      - path: Axiom/Sources/Views/Components
+      - path: Axiom/Sources/Views/AIDeepDiveView.swift
+      - path: Axiom/Sources/Views/AddEvidenceView.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiom.beliefaudit.macos
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "6.0"
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_IDENTITY: ""
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright 2026"
+        INFOPLIST_KEY_CFBundleDisplayName: "Axiom"
+        COMBINE_HIDPI_IMAGES: YES
+    dependencies:
+      - package: SQLite
+      - sdk: SwiftUI.framework
+      - sdk: AppKit.framework
