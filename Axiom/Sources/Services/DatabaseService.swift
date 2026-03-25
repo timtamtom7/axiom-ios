@@ -131,7 +131,7 @@ final class DatabaseService: ObservableObject {
         guard let db = db else { return }
         do {
             // Add columns if they don't exist (SQLite without ALTER TABLE ADD COLUMN if not exists workaround via PRAGMA)
-            let cols = try db.prepare("PRAGMA table_info(beliefs)").map { $0[1] as! String }
+            let cols = try db.prepare("PRAGMA table_info(beliefs)").compactMap { $0[1] as? String }
             if !cols.contains("is_core") {
                 try db.execute("ALTER TABLE beliefs ADD COLUMN is_core INTEGER DEFAULT 0")
             }
@@ -167,7 +167,7 @@ final class DatabaseService: ObservableObject {
     private func migrateEvidenceTable() {
         guard let db = db else { return }
         do {
-            let cols = try db.prepare("PRAGMA table_info(evidence)").map { $0[1] as! String }
+            let cols = try db.prepare("PRAGMA table_info(evidence)").compactMap { $0[1] as? String }
             if !cols.contains("confidence") {
                 try db.execute("ALTER TABLE evidence ADD COLUMN confidence REAL DEFAULT 0.7")
             }

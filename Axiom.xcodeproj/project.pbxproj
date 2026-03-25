@@ -25,6 +25,7 @@
 		7A2FA62A515E1CD72614D609 /* BeliefMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */; };
 		99900117D498A73A77D1D8F0 /* BeliefEvolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */; };
 		A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
+		A52A7478C836F6C0CF00476A /* BeliefNetworkIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */; };
 		B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		C4140D0C9C5A4150CD348148 /* EvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		14100B3B7A0E067F5B2DC6CD /* Belief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Belief.swift; sourceTree = "<group>"; };
 		18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
+		26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefNetworkIllustration.swift; sourceTree = "<group>"; };
 		2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefEvolutionView.swift; sourceTree = "<group>"; };
 		3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceRow.swift; sourceTree = "<group>"; };
 		4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefDetailView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */,
+				26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */,
 				C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */,
 				3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */,
 				18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */,
@@ -275,6 +278,7 @@
 				FC0BA386F8B1719EE30AF0E8 /* BeliefListView.swift in Sources */,
 				0DFB3453AF12C6868F1A9CEA /* BeliefListViewModel.swift in Sources */,
 				7A2FA62A515E1CD72614D609 /* BeliefMapView.swift in Sources */,
+				A52A7478C836F6C0CF00476A /* BeliefNetworkIllustration.swift in Sources */,
 				67B30328EE230A1A7B272A2D /* ContentView.swift in Sources */,
 				B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */,
 				A4F64C90607BE7C802ED93B4 /* EmptyStateView.swift in Sources */,

@@ -54,8 +54,9 @@ final class AIStressTestService: ObservableObject {
             return "Not enough checkpoint data yet. Keep recording snapshots to build your belief's evolution story."
         }
 
-        let first = sorted.first!
-        let last = sorted.last!
+        guard let first = sorted.first, let last = sorted.last else {
+            return "Not enough checkpoint data yet. Keep recording snapshots to build your belief's evolution story."
+        }
         let scoreDelta = last.score - first.score
         let daysSinceFirst = Calendar.current.dateComponents([.day], from: first.recordedAt, to: last.recordedAt).day ?? 0
 

@@ -11,13 +11,16 @@ struct BeliefListView: View {
                 Theme.background.ignoresSafeArea()
 
                 if viewModel.filteredBeliefs.isEmpty {
-                    EmptyStateView(
-                        icon: "brain",
-                        title: "No Beliefs Yet",
-                        subtitle: "Start by recording a belief you hold about yourself.",
-                        actionTitle: "Add First Belief"
-                    ) {
-                        showingAddBelief = true
+                    VStack(spacing: Theme.spacingL) {
+                        BeliefNetworkIllustration(size: 180)
+                        EmptyStateView(
+                            icon: "brain",
+                            title: "No Beliefs Yet",
+                            subtitle: "Start by recording a belief you hold about yourself.",
+                            actionTitle: "Add First Belief"
+                        ) {
+                            showingAddBelief = true
+                        }
                     }
                 } else {
                     ScrollView {

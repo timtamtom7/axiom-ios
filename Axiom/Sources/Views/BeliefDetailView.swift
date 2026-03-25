@@ -445,76 +445,76 @@ struct BeliefDetailView: View {
             }
 
             let sorted = viewModel.checkpoints.sorted { $0.recordedAt < $1.recordedAt }
-            let first = sorted.first!
-            let last = sorted.last!
-            let delta = last.score - first.score
-            let days = Calendar.current.dateComponents([.day], from: first.recordedAt, to: last.recordedAt).day ?? 0
+            if let first = sorted.first, let last = sorted.last {
+                let delta = last.score - first.score
+                let days = Calendar.current.dateComponents([.day], from: first.recordedAt, to: last.recordedAt).day ?? 0
 
-            HStack(spacing: Theme.spacingM) {
-                VStack {
-                    Text("\(Int(first.score))")
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Theme.textSecondary)
-                    Text("Start")
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                    Text(first.recordedAt.formatted(date: .abbreviated, time: .omitted))
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                }
-                .frame(maxWidth: .infinity)
-
-                VStack(spacing: 4) {
-                    Image(systemName: "arrow.right")
-                        .foregroundColor(Theme.accentGold)
-                    Text("\(days)d")
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                }
-
-                VStack {
-                    Text("\(Int(last.score))")
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Theme.scoreColor(for: last.score))
-                    Text("Now")
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                    Text(last.recordedAt.formatted(date: .abbreviated, time: .omitted))
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                }
-                .frame(maxWidth: .infinity)
-
-                VStack(spacing: 4) {
-                    HStack(spacing: 2) {
-                        Image(systemName: delta >= 0 ? "arrow.up" : "arrow.down")
-                        Text("\(Int(abs(delta)))")
+                HStack(spacing: Theme.spacingM) {
+                    VStack {
+                        Text("\(Int(first.score))")
+                            .font(.system(.title, design: .rounded))
                             .fontWeight(.bold)
+                            .foregroundColor(Theme.textSecondary)
+                        Text("Start")
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
+                        Text(first.recordedAt.formatted(date: .abbreviated, time: .omitted))
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
                     }
-                    .font(.system(.callout, design: .rounded))
-                    .foregroundColor(delta >= 0 ? Theme.accentGreen : Theme.accentRed)
-                    Text("Change")
-                        .font(.caption2)
-                        .foregroundColor(Theme.textSecondary)
-                }
-                .frame(maxWidth: .infinity)
-            }
+                    .frame(maxWidth: .infinity)
 
-            Button {
-                showingEvolutionView = true
-            } label: {
-                HStack {
-                    Image(systemName: "wand.and.stars")
-                    Text("Read Full AI Evolution Narrative")
+                    VStack(spacing: 4) {
+                        Image(systemName: "arrow.right")
+                            .foregroundColor(Theme.accentGold)
+                        Text("\(days)d")
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+
+                    VStack {
+                        Text("\(Int(last.score))")
+                            .font(.system(.title, design: .rounded))
+                            .fontWeight(.bold)
+                            .foregroundColor(Theme.scoreColor(for: last.score))
+                        Text("Now")
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
+                        Text(last.recordedAt.formatted(date: .abbreviated, time: .omitted))
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+                    .frame(maxWidth: .infinity)
+
+                    VStack(spacing: 4) {
+                        HStack(spacing: 2) {
+                            Image(systemName: delta >= 0 ? "arrow.up" : "arrow.down")
+                            Text("\(Int(abs(delta)))")
+                                .fontWeight(.bold)
+                        }
+                        .font(.system(.callout, design: .rounded))
+                        .foregroundColor(delta >= 0 ? Theme.accentGreen : Theme.accentRed)
+                        Text("Change")
+                            .font(.caption2)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .font(.subheadline)
-                .frame(maxWidth: .infinity)
-                .padding(Theme.spacingS)
-                .background(Theme.accentGold.opacity(0.15))
-                .foregroundColor(Theme.accentGold)
-                .cornerRadius(8)
+
+                Button {
+                    showingEvolutionView = true
+                } label: {
+                    HStack {
+                        Image(systemName: "wand.and.stars")
+                        Text("Read Full AI Evolution Narrative")
+                    }
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity)
+                    .padding(Theme.spacingS)
+                    .background(Theme.accentGold.opacity(0.15))
+                    .foregroundColor(Theme.accentGold)
+                    .cornerRadius(8)
+                }
             }
         }
         .padding(Theme.spacingM)

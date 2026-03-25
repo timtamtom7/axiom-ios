@@ -61,8 +61,13 @@ struct AIStressTestView: View {
                                 .font(.headline)
                                 .foregroundColor(Theme.textPrimary)
 
-                            ForEach($aiService.challenges) { $challenge in
+                            ForEach(Array($aiService.challenges.enumerated()), id: \.element.id) { index, $challenge in
                                 ChallengeCard(challenge: $challenge)
+                                    .transition(.asymmetric(
+                                        insertion: .opacity.combined(with: .move(edge: .trailing)),
+                                        removal: .opacity.combined(with: .move(edge: .leading))
+                                    ))
+                                    .animation(.spring(response: 0.4, dampingFraction: 0.75).delay(Double(index) * 0.08), value: aiService.challenges.count)
                             }
 
                             // Analysis Summary

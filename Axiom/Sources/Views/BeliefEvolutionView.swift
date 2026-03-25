@@ -82,9 +82,9 @@ struct BeliefEvolutionView: View {
                 .foregroundColor(Theme.textPrimary)
 
             let sorted = checkpoints.sorted { $0.recordedAt < $1.recordedAt }
-            if sorted.count >= 2 {
-                let first = sorted.first!.score
-                let last = sorted.last!.score
+            if sorted.count >= 2, let firstCP = sorted.first, let lastCP = sorted.last {
+                let first = firstCP.score
+                let last = lastCP.score
                 let delta = last - first
 
                 HStack(alignment: .bottom, spacing: Theme.spacingS) {
