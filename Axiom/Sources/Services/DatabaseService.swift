@@ -28,6 +28,7 @@ final class DatabaseService: ObservableObject {
     private let isArchived = SQLite.Expression<Bool>("is_archived")
     private let archivedAt = SQLite.Expression<Date?>("archived_at")
     private let archiveReason = SQLite.Expression<String?>("archive_reason")
+    private let archivedScore = SQLite.Expression<Double?>("archived_score")
 
     // Evidence columns
     private let evidenceId = SQLite.Expression<String>("id")
@@ -55,6 +56,7 @@ final class DatabaseService: ObservableObject {
     private let checkpointNote = SQLite.Expression<String?>("note")
 
     @Published var allBeliefs: [Belief] = []
+    @Published var archivedBeliefs: [Belief] = []
     @Published var allConnections: [BeliefConnection] = []
 
     private init() {
@@ -89,6 +91,7 @@ final class DatabaseService: ObservableObject {
             t.column(isArchived, defaultValue: false)
             t.column(archivedAt)
             t.column(archiveReason)
+            t.column(archivedScore)
         })
 
         try db?.run(evidence.create(ifNotExists: true) { t in
@@ -153,6 +156,9 @@ final class DatabaseService: ObservableObject {
             if !cols.contains("archive_reason") {
                 try db.execute("ALTER TABLE beliefs ADD COLUMN archive_reason TEXT")
             }
+            if !cols.contains("archived_score") {
+                try db.execute("ALTER TABLE beliefs ADD COLUMN archived_score REAL")
+            }
         } catch {
             print("Migration error: \(error)")
         }
@@ -204,13 +210,46 @@ final class DatabaseService: ObservableObject {
                     checkInIntervalDays: row[checkInIntervalDays],
                     isArchived: row[isArchived],
                     archivedAt: row[archivedAt],
-                    archiveReason: row[archiveReason]
+                    archiveReason: row[archiveReason],
+                    archivedScore: row[archivedScore]
                 )
                 loaded.append(belief)
             }
             allBeliefs = loaded.sorted { $0.updatedAt > $1.updatedAt }
+            loadArchivedBeliefs()
         } catch {
             print("Load beliefs error: \(error)")
+        }
+    }
+
+    private func loadArchivedBeliefs() {
+        guard let db = db else { return }
+        do {
+            var loaded: [Belief] = []
+            for row in try db.prepare(beliefs.filter(isArchived == true)) {
+                guard let beliefId = UUID(uuidString: row[id]) else { continue }
+                let beliefEvidence = loadEvidence(for: beliefId)
+                let belief = Belief(
+                    id: beliefId,
+                    text: row[text],
+                    createdAt: row[createdAt],
+                    updatedAt: row[updatedAt],
+                    evidenceItems: beliefEvidence,
+                    isCore: row[isCore],
+                    rootCause: row[rootCause],
+                    derivedFrom: row[derivedFrom].flatMap { UUID(uuidString: $0) },
+                    checkInScheduledAt: row[checkInScheduledAt],
+                    checkInIntervalDays: row[checkInIntervalDays],
+                    isArchived: row[isArchived],
+                    archivedAt: row[archivedAt],
+                    archiveReason: row[archiveReason],
+                    archivedScore: row[archivedScore]
+                )
+                loaded.append(belief)
+            }
+            archivedBeliefs = loaded.sorted { ($0.archivedAt ?? Date.distantPast) > ($1.archivedAt ?? Date.distantPast) }
+        } catch {
+            print("Load archived beliefs error: \(error)")
         }
     }
 
@@ -229,7 +268,8 @@ final class DatabaseService: ObservableObject {
                 checkInIntervalDays <- belief.checkInIntervalDays,
                 isArchived <- belief.isArchived,
                 archivedAt <- belief.archivedAt,
-                archiveReason <- belief.archiveReason
+                archiveReason <- belief.archiveReason,
+                archivedScore <- belief.archivedScore
             ))
             loadBeliefs()
         } catch {
@@ -251,7 +291,8 @@ final class DatabaseService: ObservableObject {
                 checkInIntervalDays <- belief.checkInIntervalDays,
                 isArchived <- belief.isArchived,
                 archivedAt <- belief.archivedAt,
-                archiveReason <- belief.archiveReason
+                archiveReason <- belief.archiveReason,
+                archivedScore <- belief.archivedScore
             ))
             loadBeliefs()
         } catch {
@@ -287,6 +328,7 @@ final class DatabaseService: ObservableObject {
                 isArchived <- true,
                 archivedAt <- Date(),
                 archiveReason <- reason,
+                archivedScore <- belief.score,
                 updatedAt <- Date()
             ))
             loadBeliefs()

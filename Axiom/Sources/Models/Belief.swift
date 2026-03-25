@@ -14,6 +14,7 @@ struct Belief: Identifiable, Equatable, Hashable {
     var isArchived: Bool
     var archivedAt: Date?
     var archiveReason: String?
+    var archivedScore: Double?
 
     init(
         id: UUID = UUID(),
@@ -28,7 +29,8 @@ struct Belief: Identifiable, Equatable, Hashable {
         checkInIntervalDays: Int? = nil,
         isArchived: Bool = false,
         archivedAt: Date? = nil,
-        archiveReason: String? = nil
+        archiveReason: String? = nil,
+        archivedScore: Double? = nil
     ) {
         self.id = id
         self.text = text
@@ -43,6 +45,7 @@ struct Belief: Identifiable, Equatable, Hashable {
         self.isArchived = isArchived
         self.archivedAt = archivedAt
         self.archiveReason = archiveReason
+        self.archivedScore = archivedScore
     }
 
     var supportingCount: Int {

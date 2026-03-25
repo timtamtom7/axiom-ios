@@ -9,6 +9,7 @@ final class BeliefDetailViewModel: ObservableObject {
     @Published var showingDeepDive = false
     @Published var showingConnections = false
     @Published var showingCheckIn = false
+    @Published var showingEvolution = false
     @Published var checkpoints: [BeliefCheckpoint] = []
 
     private let databaseService = DatabaseService.shared

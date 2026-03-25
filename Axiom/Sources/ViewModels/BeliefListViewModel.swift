@@ -25,6 +25,18 @@ final class BeliefListViewModel: ObservableObject {
         return beliefs.filter { $0.text.localizedCaseInsensitiveContains(searchText) }
     }
 
+    var archivedBeliefs: [Belief] {
+        databaseService.archivedBeliefs
+    }
+
+    var beliefsDueForCheckIn: [Belief] {
+        let now = Date()
+        return beliefs.filter { belief in
+            guard let scheduled = belief.checkInScheduledAt else { return false }
+            return scheduled <= now
+        }
+    }
+
     func connectionCount(for beliefId: UUID) -> Int {
         databaseService.connectionsFor(beliefId: beliefId).count
     }

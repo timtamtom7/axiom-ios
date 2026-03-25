@@ -46,6 +46,89 @@ final class AIStressTestService: ObservableObject {
         "Who in your life would agree with this belief? Who would dispute it?"
     ]
 
+    // MARK: - Belief Evolution Narrative
+
+    func getEvolutionNarrative(for belief: Belief, checkpoints: [BeliefCheckpoint]) async throws -> String {
+        let sorted = checkpoints.sorted { $0.recordedAt < $1.recordedAt }
+        guard sorted.count >= 2 else {
+            return "Not enough checkpoint data yet. Keep recording snapshots to build your belief's evolution story."
+        }
+
+        let first = sorted.first!
+        let last = sorted.last!
+        let scoreDelta = last.score - first.score
+        let daysSinceFirst = Calendar.current.dateComponents([.day], from: first.recordedAt, to: last.recordedAt).day ?? 0
+
+        var narrative = "## Belief Evolution: \(belief.text)\n\n"
+        narrative += "**Journey:** \(sorted.count) snapshots over \(daysSinceFirst) days\n"
+        narrative += "**Started at:** \(Int(first.score))% confidence (\(first.recordedAt.formatted(date: .abbreviated, time: .omitted)))\n"
+        narrative += "**Now at:** \(Int(last.score))% confidence — **\(scoreDelta > 0 ? "+\(Int(scoreDelta))" : "\(Int(scoreDelta))") pts**\n\n"
+
+        // Score arc
+        if scoreDelta > 20 {
+            narrative += "**Major shift detected.** This belief has undergone a significant transformation. "
+            narrative += "What changed in your evidence or circumstances? "
+            narrative += "The substantial movement suggests either new information has emerged or your relationship with this belief has fundamentally evolved.\n\n"
+        } else if scoreDelta > 5 {
+            narrative += "**Gradual evolution.** The evidence landscape around this belief has been shifting. "
+            narrative += "You're accumulating new data points that are reshaping your relationship with this belief, even if slowly.\n\n"
+        } else if scoreDelta < -20 {
+            narrative += "**Counter-evolution.** This belief has strengthened significantly. "
+            narrative += "The evidence supporting it has compounded. "
+            narrative += "Consider: has new confirming evidence emerged, or has contradictory evidence been discounted?\n\n"
+        } else if scoreDelta < -5 {
+            narrative += "**Gradual strengthening.** This belief is becoming more entrenched. "
+            narrative += "The evidence is stacking in its favor — or you're dismissing challenges more readily.\n\n"
+        } else {
+            narrative += "**Stable belief.** Despite the passage of time and whatever reflection you've done, "
+            narrative += "this belief remains on solid ground. It may be resilient for good reason, "
+            narrative += "or it may be protected by blind spots worth examining.\n\n"
+        }
+
+        // Mid-point analysis
+        if sorted.count >= 3 {
+            let midpoint = sorted[sorted.count / 2]
+            narrative += "**Mid-point checkpoint (\(Int(midpoint.score))% on \(midpoint.recordedAt.formatted(date: .abbreviated, time: .omitted))):** "
+            if let note = midpoint.note {
+                narrative += "\"\(note)\"\n\n"
+            } else {
+                narrative += "No note recorded.\n\n"
+            }
+        }
+
+        // Pattern detection
+        let scores = sorted.map { $0.score }
+        var volatility = 0.0
+        for i in 1..<scores.count {
+            volatility += abs(scores[i] - scores[i-1])
+        }
+        let avgVolatility = volatility / Double(scores.count - 1)
+
+        if avgVolatility > 15 {
+            narrative += "**High volatility detected.** Your confidence in this belief has oscillated significantly. "
+            narrative += "This may reflect genuine uncertainty, changing circumstances, or emotional ups and downs affecting your judgment. "
+            narrative += "A more stable relationship with this belief might require resolving some underlying ambiguity.\n\n"
+        }
+
+        // Root cause connection
+        if let rootCause = belief.rootCause {
+            narrative += "**Root origin (\(rootCause)):** This belief's origin in \(rootCause) shaped its early structure. "
+            if belief.isCore {
+                narrative += "As a core belief, its deep roots make transformation slower but no less possible. "
+            }
+            narrative += "Understanding the origin helps separate past programming from present reality.\n\n"
+        }
+
+        narrative += "**Looking forward:** What would need to change for this belief's story to continue evolving? "
+        if scoreDelta > 0 {
+            narrative += "You're moving toward questioning this belief — what new evidence might tip the balance further?"
+        } else {
+            narrative += "If you want to shift this belief, what kinds of evidence would you need to accumulate?"
+        }
+
+        return narrative
+    }
+
     private let opposingViewpoints: [String] = [
         "Have you considered that this belief might be a generalization that doesn't hold in all cases?",
         "What would a therapist say about the origin of this belief?",
