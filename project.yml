@@ -1,0 +1,35 @@
+name: Axiom
+options:
+  bundleIdPrefix: com.axiom
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+packages:
+  SQLite:
+    url: https://github.com/stephencelis/SQLite.swift
+    from: "0.15.0"
+
+targets:
+  Axiom:
+    type: application
+    platform: iOS
+    sources:
+      - path: Axiom/Sources
+      - path: Axiom/Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiom.beliefaudit
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "6.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_IDENTITY: ""
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+    dependencies:
+      - package: SQLite
