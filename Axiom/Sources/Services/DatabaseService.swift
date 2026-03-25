@@ -189,7 +189,7 @@ final class DatabaseService: ObservableObject {
         do {
             var loaded: [Belief] = []
             for row in try db.prepare(beliefs.filter(isArchived == false)) {
-                let beliefId = UUID(uuidString: row[id])!
+                guard let beliefId = UUID(uuidString: row[id]) else { continue }
                 let beliefEvidence = loadEvidence(for: beliefId)
                 let belief = Belief(
                     id: beliefId,
@@ -303,9 +303,11 @@ final class DatabaseService: ObservableObject {
         do {
             let query = evidence.filter(evidenceBeliefId == beliefId.uuidString)
             for row in try db.prepare(query) {
+                guard let evId = UUID(uuidString: row[evidenceId]),
+                      let evBeliefId = UUID(uuidString: row[evidenceBeliefId]) else { continue }
                 let ev = Evidence(
-                    id: UUID(uuidString: row[evidenceId])!,
-                    beliefId: UUID(uuidString: row[evidenceBeliefId])!,
+                    id: evId,
+                    beliefId: evBeliefId,
                     text: row[evidenceText],
                     type: EvidenceType(rawValue: row[evidenceType]) ?? .support,
                     createdAt: row[evidenceCreatedAt],
@@ -366,10 +368,13 @@ final class DatabaseService: ObservableObject {
         do {
             var loaded: [BeliefConnection] = []
             for row in try db.prepare(connections) {
+                guard let cId = UUID(uuidString: row[connId]),
+                      let cFrom = UUID(uuidString: row[connFromId]),
+                      let cTo = UUID(uuidString: row[connToId]) else { continue }
                 let conn = BeliefConnection(
-                    id: UUID(uuidString: row[connId])!,
-                    fromBeliefId: UUID(uuidString: row[connFromId])!,
-                    toBeliefId: UUID(uuidString: row[connToId])!,
+                    id: cId,
+                    fromBeliefId: cFrom,
+                    toBeliefId: cTo,
                     strength: row[connStrength]
                 )
                 loaded.append(conn)
@@ -418,9 +423,11 @@ final class DatabaseService: ObservableObject {
         do {
             let query = checkpoints.filter(checkpointBeliefId == beliefId.uuidString)
             for row in try db.prepare(query) {
+                guard let cpId = UUID(uuidString: row[checkpointId]),
+                      let cpBeliefId = UUID(uuidString: row[checkpointBeliefId]) else { continue }
                 let cp = BeliefCheckpoint(
-                    id: UUID(uuidString: row[checkpointId])!,
-                    beliefId: UUID(uuidString: row[checkpointBeliefId])!,
+                    id: cpId,
+                    beliefId: cpBeliefId,
                     recordedAt: row[checkpointRecordedAt],
                     score: row[checkpointScore],
                     note: row[checkpointNote]

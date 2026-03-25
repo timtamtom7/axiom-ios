@@ -11,8 +11,8 @@ struct BeliefMapView: View {
                 if databaseService.allBeliefs.isEmpty {
                     EmptyStateView(
                         icon: "circle.hexagongrid",
-                        title: "No Beliefs to Map",
-                        subtitle: "Add beliefs to see how they connect.",
+                        title: "Your Belief Map",
+                        subtitle: "Add beliefs in the first tab, then come back here to see how they connect and influence each other.",
                         actionTitle: nil,
                         action: nil
                     )

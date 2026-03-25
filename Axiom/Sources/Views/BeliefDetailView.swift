@@ -8,7 +8,10 @@ struct BeliefDetailView: View {
     @State private var archiveReason = ""
     @State private var showingAIAnalysis = false
     @State private var aiAnalysis = ""
+    @State private var aiAnalysisError: String?
+    @State private var isLoadingAIAnalysis = false
     @State private var opposingViewpoint = ""
+    @State private var isLoadingOpposing = false
 
     init(belief: Belief) {
         _viewModel = StateObject(wrappedValue: BeliefDetailViewModel(belief: belief))
@@ -83,8 +86,15 @@ struct BeliefDetailView: View {
 
                     Button {
                         showingAIAnalysis = true
+                        isLoadingAIAnalysis = true
+                        aiAnalysisError = nil
                         Task {
-                            aiAnalysis = await AIStressTestService().getAnalysis(for: viewModel.belief)
+                            do {
+                                aiAnalysis = try await AIStressTestService().getAnalysis(for: viewModel.belief)
+                            } catch {
+                                aiAnalysisError = error.localizedDescription
+                            }
+                            isLoadingAIAnalysis = false
                         }
                     } label: {
                         Label("AI Analysis", systemImage: "wand.and.stars")
@@ -132,7 +142,12 @@ struct BeliefDetailView: View {
             ArchiveBeliefSheet(viewModel: viewModel, reason: $archiveReason)
         }
         .sheet(isPresented: $showingAIAnalysis) {
-            AIAnalysisSheet(analysis: aiAnalysis, belief: viewModel.belief)
+            AIAnalysisSheet(
+                analysis: aiAnalysis,
+                belief: viewModel.belief,
+                isLoading: isLoadingAIAnalysis,
+                error: aiAnalysisError
+            )
         }
         .alert("Delete Belief?", isPresented: $showingDeleteAlert) {
             Button("Cancel", role: .cancel) {}
@@ -265,12 +280,31 @@ struct BeliefDetailView: View {
 
             Button {
                 Task {
-                    opposingViewpoint = await AIStressTestService().suggestOpposingViewpoint(for: viewModel.belief)
+                    isLoadingOpposing = true
+                    do {
+                        let result = try await AIStressTestService().suggestOpposingViewpoint(for: viewModel.belief)
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            opposingViewpoint = result
+                        }
+                    } catch {
+                        withAnimation {
+                            opposingViewpoint = "Couldn't generate a viewpoint right now. Try again later."
+                        }
+                    }
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        isLoadingOpposing = false
+                    }
                 }
             } label: {
                 HStack {
-                    Image(systemName: "lightbulb")
-                    Text("Get Opposing Viewpoint")
+                    if isLoadingOpposing {
+                        ProgressView()
+                            .tint(Theme.accentGold)
+                            .scaleEffect(0.8)
+                    } else {
+                        Image(systemName: "lightbulb")
+                    }
+                    Text(isLoadingOpposing ? "Generating..." : "Get Opposing Viewpoint")
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity)
@@ -279,6 +313,7 @@ struct BeliefDetailView: View {
                 .foregroundColor(Theme.accentGold)
                 .cornerRadius(8)
             }
+            .disabled(isLoadingOpposing)
 
             if !opposingViewpoint.isEmpty {
                 Text(opposingViewpoint)
@@ -525,7 +560,7 @@ struct CheckInSheet: View {
                                     Text("\(days) days")
                                         .font(.headline)
                                         .foregroundColor(Theme.textPrimary)
-                                    Text("Check back on \(Calendar.current.date(byAdding: .day, value: days, to: Date())!.formatted(date: .abbreviated, time: .omitted))")
+                                    Text("Check back on \((Calendar.current.date(byAdding: .day, value: days, to: Date()) ?? Date()).formatted(date: .abbreviated, time: .omitted))")
                                         .font(.caption)
                                         .foregroundColor(Theme.textSecondary)
                                 }
@@ -651,6 +686,8 @@ struct ArchiveBeliefSheet: View {
 struct AIAnalysisSheet: View {
     let analysis: String
     let belief: Belief
+    let isLoading: Bool
+    let error: String?
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -658,14 +695,50 @@ struct AIAnalysisSheet: View {
             ZStack {
                 Theme.background.ignoresSafeArea()
 
-                ScrollView {
-                    VStack(alignment: .leading, spacing: Theme.spacingL) {
-                        Text(analysis)
-                            .font(.body)
+                if isLoading {
+                    VStack(spacing: Theme.spacingM) {
+                        ProgressView()
+                            .tint(Theme.accentBlue)
+                        Text("Analyzing your belief...")
+                            .font(.callout)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+                } else if let error = error {
+                    VStack(spacing: Theme.spacingM) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 48))
+                            .foregroundColor(Theme.accentRed)
+                        Text("Analysis Failed")
+                            .font(.title3)
+                            .fontWeight(.bold)
                             .foregroundColor(Theme.textPrimary)
-                            .textSelection(.enabled)
+                        Text(error)
+                            .font(.callout)
+                            .foregroundColor(Theme.textSecondary)
+                            .multilineTextAlignment(.center)
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Close")
+                                .font(.headline)
+                                .foregroundColor(Theme.textPrimary)
+                                .padding(.horizontal, Theme.spacingXL)
+                                .padding(.vertical, Theme.spacingM)
+                                .background(Theme.surface)
+                                .cornerRadius(12)
+                        }
                     }
                     .padding(Theme.screenMargin)
+                } else {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: Theme.spacingL) {
+                            Text(analysis)
+                                .font(.body)
+                                .foregroundColor(Theme.textPrimary)
+                                .textSelection(.enabled)
+                        }
+                        .padding(Theme.screenMargin)
+                    }
                 }
             }
             .navigationTitle("AI Analysis")

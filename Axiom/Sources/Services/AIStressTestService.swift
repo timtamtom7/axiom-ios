@@ -1,5 +1,4 @@
 import Foundation
-import AppIntents
 
 @MainActor
 final class AIStressTestService: ObservableObject {
@@ -168,7 +167,7 @@ final class AIStressTestService: ObservableObject {
 
     // MARK: - Analysis
 
-    func getAnalysis(for belief: Belief) async -> String {
+    func getAnalysis(for belief: Belief) async throws -> String {
         let supporting = belief.evidenceItems.filter { $0.type == .support }
         let contradicting = belief.evidenceItems.filter { $0.type == .contradict }
         let coreLabel = belief.isCore ? "Core" : "Surface"
@@ -208,7 +207,7 @@ final class AIStressTestService: ObservableObject {
 
     // MARK: - AI Suggestions
 
-    func suggestOpposingViewpoint(for belief: Belief) async -> String {
+    func suggestOpposingViewpoint(for belief: Belief) async throws -> String {
         let viewpoints = [
             "What if the opposite belief served you better? Consider: '\(oppositeOf(belief.text))'",
             "Cognitive reframing: Instead of '\(belief.text)', what about '\(reframe(belief.text))'?",

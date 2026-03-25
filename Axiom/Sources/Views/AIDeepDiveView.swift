@@ -37,9 +37,6 @@ struct AIDeepDiveView: View {
         }
         .presentationDetents([.large])
         .presentationDragIndicator(.visible)
-        .onAppear {
-            aiService.startDeepDive(for: belief)
-        }
     }
 
     private var openingView: some View {

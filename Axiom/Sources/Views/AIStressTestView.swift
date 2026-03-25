@@ -5,6 +5,11 @@ struct AIStressTestView: View {
     @StateObject private var aiService = AIStressTestService()
     let belief: Belief
 
+    @State private var analysisResult = ""
+    @State private var showingAnalysis = false
+    @State private var analysisError: String?
+    @State private var isLoadingAnalysis = false
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -63,13 +68,27 @@ struct AIStressTestView: View {
                             // Analysis Summary
                             Button {
                                 Task {
-                                    let analysis = await aiService.getAnalysis(for: belief)
-                                    await showAnalysis(analysis)
+                                    isLoadingAnalysis = true
+                                    analysisError = nil
+                                    do {
+                                        analysisResult = try await aiService.getAnalysis(for: belief)
+                                        showingAnalysis = true
+                                    } catch {
+                                        analysisError = error.localizedDescription
+                                        showingAnalysis = true
+                                    }
+                                    isLoadingAnalysis = false
                                 }
                             } label: {
                                 HStack {
-                                    Image(systemName: "doc.text.magnifyingglass")
-                                    Text("Request AI Analysis")
+                                    if isLoadingAnalysis {
+                                        ProgressView()
+                                            .tint(Theme.accentBlue)
+                                            .scaleEffect(0.8)
+                                    } else {
+                                        Image(systemName: "doc.text.magnifyingglass")
+                                    }
+                                    Text(isLoadingAnalysis ? "Analyzing..." : "Request AI Analysis")
                                 }
                                 .font(.headline)
                                 .foregroundColor(Theme.accentBlue)
@@ -78,6 +97,7 @@ struct AIStressTestView: View {
                                 .background(Theme.accentBlue.opacity(0.15))
                                 .cornerRadius(12)
                             }
+                            .disabled(isLoadingAnalysis)
                         }
                         .padding(Theme.screenMargin)
                     }
@@ -95,12 +115,74 @@ struct AIStressTestView: View {
         }
         .presentationDetents([.large])
         .presentationDragIndicator(.visible)
+        .sheet(isPresented: $showingAnalysis) {
+            StressTestAnalysisSheet(
+                analysis: analysisResult,
+                belief: belief,
+                error: analysisError
+            )
+        }
     }
+}
 
-    @MainActor
-    private func showAnalysis(_ analysis: String) async {
-        // Would show analysis in a sheet or alert
-        print(analysis)
+struct StressTestAnalysisSheet: View {
+    let analysis: String
+    let belief: Belief
+    let error: String?
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Theme.background.ignoresSafeArea()
+
+                if let error = error {
+                    VStack(spacing: Theme.spacingM) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 48))
+                            .foregroundColor(Theme.accentRed)
+                        Text("Analysis Failed")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Theme.textPrimary)
+                        Text(error)
+                            .font(.callout)
+                            .foregroundColor(Theme.textSecondary)
+                            .multilineTextAlignment(.center)
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Close")
+                                .font(.headline)
+                                .foregroundColor(Theme.textPrimary)
+                                .padding(.horizontal, Theme.spacingXL)
+                                .padding(.vertical, Theme.spacingM)
+                                .background(Theme.surface)
+                                .cornerRadius(12)
+                        }
+                    }
+                    .padding(Theme.screenMargin)
+                } else {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: Theme.spacingL) {
+                            Text(analysis)
+                                .font(.body)
+                                .foregroundColor(Theme.textPrimary)
+                                .textSelection(.enabled)
+                        }
+                        .padding(Theme.screenMargin)
+                    }
+                }
+            }
+            .navigationTitle("AI Analysis")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
+        }
+        .presentationDetents([.large])
     }
 }
 
