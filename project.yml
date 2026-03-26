@@ -35,8 +35,7 @@ targets:
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: YES
     dependencies:
       - package: SQLite
-      - target: AxiomMac
-        embed: true
+        product: SQLite
 
   AxiomMac:
     type: application
