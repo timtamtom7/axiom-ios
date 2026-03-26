@@ -16,7 +16,7 @@ final class AxiomR11Service: ObservableObject {
         let id: UUID
         let beliefId: UUID
         let title: String
-        let arguments: [Argument]
+        var arguments: [Argument]
         var upvotes: Int
         var downvotes: Int
     }

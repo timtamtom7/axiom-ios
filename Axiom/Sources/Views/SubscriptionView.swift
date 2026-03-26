@@ -155,7 +155,7 @@ struct SubscriptionView: View {
         isUpgrading = true
         // Simulate StoreKit purchase flow
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            subscriptionService.simulatePurchase()
+            subscriptionService.simulatePurchase(tier: .pro)
             isUpgrading = false
         }
     }
