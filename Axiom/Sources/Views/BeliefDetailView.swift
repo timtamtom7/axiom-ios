@@ -139,6 +139,7 @@ struct BeliefDetailView: View {
                 } label: {
                     Image(systemName: "ellipsis.circle")
                 }
+                .accessibilityLabel("More options")
             }
         }
         .onAppear {
@@ -194,12 +195,12 @@ struct BeliefDetailView: View {
             HStack {
                 if viewModel.belief.isCore {
                     Text("CORE BELIEF")
-                        .font(.system(size: 9, weight: .bold))
+                        .font(.system(size: 11, weight: .bold))
                         .foregroundColor(Theme.accentGold)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 2)
                         .background(Theme.accentGold.opacity(0.15))
-                        .cornerRadius(4)
+                        .cornerRadius(Theme.cornerRadiusS)
                 }
                 Spacer()
             }
@@ -283,6 +284,8 @@ struct BeliefDetailView: View {
         VStack(spacing: Theme.spacingM) {
             HStack(spacing: Theme.spacingM) {
                 Button {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
                     viewModel.showingStressTest = true
                 } label: {
                     Label("Stress Test", systemImage: "wand.and.stars")
@@ -293,8 +296,11 @@ struct BeliefDetailView: View {
                         .foregroundColor(Theme.accentBlue)
                         .cornerRadius(8)
                 }
+                .accessibilityLabel("Start AI stress test")
 
                 Button {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
                     viewModel.showingDeepDive = true
                 } label: {
                     Label("AI Deep Dive", systemImage: "bubble.left.and.bubble.right")
@@ -305,6 +311,7 @@ struct BeliefDetailView: View {
                         .foregroundColor(Theme.accentBlue)
                         .cornerRadius(8)
                 }
+                .accessibilityLabel("Start AI deep dive conversation")
             }
 
             Button {
@@ -343,6 +350,7 @@ struct BeliefDetailView: View {
                 .cornerRadius(8)
             }
             .disabled(isLoadingOpposing)
+            .accessibilityLabel("Generate opposing viewpoint")
 
             if !opposingViewpoint.isEmpty {
                 Text(opposingViewpoint)
@@ -721,6 +729,8 @@ struct CheckInSheet: View {
                         .lineLimit(2...4)
 
                     Button {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.impactOccurred()
                         viewModel.recordCheckpoint(note: checkpointNote.isEmpty ? nil : checkpointNote)
                         dismiss()
                     } label: {
@@ -732,6 +742,7 @@ struct CheckInSheet: View {
                             .foregroundColor(Theme.background)
                             .cornerRadius(12)
                     }
+                    .accessibilityLabel("Record belief checkpoint now")
 
                     Spacer(minLength: Theme.spacingXL)
                 }
@@ -743,6 +754,7 @@ struct CheckInSheet: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
                         .foregroundColor(Theme.textSecondary)
+                        .accessibilityLabel("Cancel check-in")
                 }
             }
         }
@@ -787,6 +799,8 @@ struct ArchiveBeliefSheet: View {
                     Button {
                         let trimmedReason = reason.trimmingCharacters(in: .whitespacesAndNewlines)
                         guard !trimmedReason.isEmpty else { return }
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.success)
                         viewModel.archiveBelief(reason: trimmedReason)
                         dismiss()
                     } label: {
@@ -799,6 +813,7 @@ struct ArchiveBeliefSheet: View {
                             .cornerRadius(12)
                     }
                     .disabled(reason.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .accessibilityLabel("Archive belief permanently")
                 }
                 .padding(Theme.screenMargin)
             }
@@ -808,6 +823,7 @@ struct ArchiveBeliefSheet: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
                         .foregroundColor(Theme.textSecondary)
+                        .accessibilityLabel("Cancel archiving")
                 }
             }
         }

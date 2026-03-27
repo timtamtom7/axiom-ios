@@ -164,7 +164,7 @@ struct LegacyDocumentView: View {
                 HStack(spacing: Theme.spacingM) {
                     if belief.isCore {
                         Text("CORE")
-                            .font(.system(size: 8, weight: .bold))
+                            .font(.system(size: 11, weight: .bold))
                             .foregroundColor(Theme.accentGold)
                     }
                     Text("Score: \(Int(belief.score))")
@@ -394,7 +394,7 @@ struct LegacyExportSheet: View {
                             .frame(maxWidth: .infinity)
                             .padding(Theme.spacingM)
                             .background(Theme.accentGold)
-                            .foregroundColor(.black)
+                            .foregroundColor(Theme.background)
                             .cornerRadius(12)
                     }
                     .disabled(isExporting)

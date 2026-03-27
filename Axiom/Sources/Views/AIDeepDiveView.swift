@@ -92,9 +92,10 @@ struct AIDeepDiveView: View {
                             HStack {
                                 ProgressView()
                                     .tint(Theme.accentBlue)
-                                Text("Thinking...")
+                                Text("Thinking…")
                                     .font(.caption)
                                     .foregroundColor(Theme.textSecondary)
+                                    .accessibilityLabel("Axiom is thinking")
                             }
                             .padding(Theme.spacingM)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -165,6 +166,7 @@ struct MessageBubble: View {
                         Image(systemName: "brain")
                             .font(.caption2)
                             .foregroundColor(Theme.accentBlue)
+                            .accessibilityLabel("Axiom AI")
                     }
                     Text(isUser ? "You" : "Axiom")
                         .font(.caption2)

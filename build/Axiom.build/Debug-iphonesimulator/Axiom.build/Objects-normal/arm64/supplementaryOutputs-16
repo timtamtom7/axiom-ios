@@ -1,0 +1,30 @@
+{
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/App/ContentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/ContentView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/ContentView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/Evidence.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/Evidence.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/Evidence.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/Evidence.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/Evidence.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/Evidence.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Services/DatabaseService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/DatabaseService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/DatabaseService.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/DatabaseService.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/DatabaseService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/DatabaseService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/Components/EmptyStateView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/EmptyStateView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/EmptyStateView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/EmptyStateView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/EmptyStateView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/arm64/EmptyStateView.swiftdeps"
+  }
+}

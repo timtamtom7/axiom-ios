@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct EmptyStateView: View {
     let icon: String
@@ -7,10 +8,12 @@ struct EmptyStateView: View {
     let actionTitle: String?
     let action: (() -> Void)?
 
+    @ScaledMetric private var iconSize: CGFloat = 56
+
     var body: some View {
         VStack(spacing: Theme.spacingL) {
             Image(systemName: icon)
-                .font(.system(size: 56))
+                .font(.system(size: iconSize))
                 .foregroundColor(Theme.textSecondary.opacity(0.5))
 
             VStack(spacing: Theme.spacingS) {
@@ -27,7 +30,11 @@ struct EmptyStateView: View {
             }
 
             if let actionTitle = actionTitle, let action = action {
-                Button(action: action) {
+                Button {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                    action()
+                } label: {
                     Text(actionTitle)
                         .font(.headline)
                         .foregroundColor(Theme.background)
@@ -36,6 +43,7 @@ struct EmptyStateView: View {
                         .background(Theme.accentGold)
                         .cornerRadius(12)
                 }
+                .buttonStyle(.plain)
             }
         }
         .padding(Theme.screenMargin)

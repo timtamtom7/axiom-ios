@@ -11,7 +11,7 @@ struct BeliefCard: View {
                     HStack(spacing: Theme.spacingXS) {
                         if belief.isCore {
                             Text("CORE")
-                                .font(.system(size: 9, weight: .bold))
+                                .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(Theme.accentGold)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)

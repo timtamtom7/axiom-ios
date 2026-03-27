@@ -15,7 +15,6 @@
 		188C94126AE8AC3DF5C8BA6F /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		1DA8F8C1054660C43E4EE78C /* BeliefDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */; };
 		28613C0F8B458C0A7ABDF090 /* AddBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */; };
-		2B2EC53C6BE7F700CBE7466F /* AxiomMac.app in Resources */ = {isa = PBXBuildFile; fileRef = CAAE993DBFB345B0C8309E20 /* AxiomMac.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		330A25841B80B9A015BC1AC1 /* RetentionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650993D3FAA7D7D52595AA5D /* RetentionService.swift */; };
 		35B07FBC2E09FF7455B2B8C2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6857930A3C58AA93BA9D21C /* SubscriptionService.swift */; };
 		377185119AE08B03F553BA92 /* AxiomR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */; };
@@ -76,16 +75,6 @@
 		FC0BA386F8B1719EE30AF0E8 /* BeliefListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7D98FDBA0803298587A269 /* BeliefListView.swift */; };
 		FD4E85B54CBD5EC4F9108CF9 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3F3EC8A103B7AC968881030A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9121595A23C3532C034908AA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6AF81502DAF4F0216F8E09C0;
-			remoteInfo = AxiomMac;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0222574E77CA1A1BFDACC63A /* AIBeliefAgentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBeliefAgentService.swift; sourceTree = "<group>"; };
@@ -315,7 +304,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				074BF34485DB3EF0957C8779 /* PBXTargetDependency */,
 			);
 			name = Axiom;
 			packageProductDependencies = (
@@ -388,7 +376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */,
-				2B2EC53C6BE7F700CBE7466F /* AxiomMac.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,14 +459,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		074BF34485DB3EF0957C8779 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6AF81502DAF4F0216F8E09C0 /* AxiomMac */;
-			targetProxy = 3F3EC8A103B7AC968881030A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		11F742E90B77DFBD6C497244 /* Debug */ = {

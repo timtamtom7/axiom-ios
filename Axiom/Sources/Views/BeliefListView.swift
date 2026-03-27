@@ -51,6 +51,8 @@ struct BeliefListView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.impactOccurred()
                         if subscriptionService.canAddBelief {
                             showingAddBelief = true
                         } else {
@@ -60,10 +62,13 @@ struct BeliefListView: View {
                         Image(systemName: "plus")
                             .font(.headline)
                     }
+                    .accessibilityLabel("Add new belief")
                 }
                 ToolbarItem(placement: .secondaryAction) {
                     if viewModel.archivedBeliefs.count > 0 {
                         Button {
+                            let generator = UIImpactFeedbackGenerator(style: .light)
+                            generator.impactOccurred()
                             showingArchived = true
                         } label: {
                             HStack(spacing: 4) {
@@ -72,6 +77,7 @@ struct BeliefListView: View {
                             }
                             .font(.subheadline)
                         }
+                        .accessibilityLabel("View archived beliefs")
                     }
                 }
             }

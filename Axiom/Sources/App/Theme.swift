@@ -31,6 +31,14 @@ enum Theme {
     static let spacingL: CGFloat = 24
     static let spacingXL: CGFloat = 32
     static let screenMargin: CGFloat = 20
+
+    // MARK: - Corner Radii
+    static let cornerRadiusS: CGFloat = 4     // Small: badges, tags
+    static let cornerRadiusM: CGFloat = 8     // Medium: buttons, chips
+    static let cornerRadiusL: CGFloat = 12    // Large: cards, sheets
+    static let cornerRadiusXL: CGFloat = 16   // Extra large: modals
+    static let cornerRadiusXXL: CGFloat = 20  // XXL: prominent elements
+    static let cornerRadiusFull: CGFloat = 9999 // Full: pills, capsules
 }
 
 extension Color {

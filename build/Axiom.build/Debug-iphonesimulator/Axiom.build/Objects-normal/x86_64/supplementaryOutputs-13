@@ -1,0 +1,30 @@
+{
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/BeliefMapView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefMapView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefMapView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefMapView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefMapView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefMapView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/BeliefSpatialView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefSpatialView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefSpatialView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefSpatialView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefSpatialView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefSpatialView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/CommunityView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/CommunityView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/CommunityView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/CommunityView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/CommunityView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/CommunityView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/Components/BeliefNetworkIllustration.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefNetworkIllustration.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefNetworkIllustration.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefNetworkIllustration.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefNetworkIllustration.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/BeliefNetworkIllustration.swiftdeps"
+  }
+}

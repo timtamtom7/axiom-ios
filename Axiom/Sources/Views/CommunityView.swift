@@ -88,7 +88,7 @@ struct CommunityView: View {
         }
         .padding(Theme.spacingS)
         .background(Theme.surface)
-        .cornerRadius(10)
+        .cornerRadius(Theme.cornerRadiusM)
         .padding(Theme.screenMargin)
     }
 
@@ -124,7 +124,7 @@ struct CommunityBeliefCard: View {
             HStack {
                 if belief.isCore {
                     Text("CORE")
-                        .font(.system(size: 8, weight: .bold))
+                        .font(.system(size: 11, weight: .bold))
                         .foregroundColor(Theme.accentGold)
                         .padding(.horizontal, 5)
                         .padding(.vertical, 2)

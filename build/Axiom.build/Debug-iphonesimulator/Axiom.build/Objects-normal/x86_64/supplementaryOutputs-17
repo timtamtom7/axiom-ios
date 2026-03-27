@@ -1,0 +1,30 @@
+{
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/Components/EvidenceRow.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceRow.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceRow.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceRow.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceRow.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceRow.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/EvidenceLibraryView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceLibraryView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceLibraryView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceLibraryView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceLibraryView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/EvidenceLibraryView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/LanguageSettingsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LanguageSettingsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LanguageSettingsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LanguageSettingsView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LanguageSettingsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LanguageSettingsView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/LegacyDocumentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LegacyDocumentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LegacyDocumentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LegacyDocumentView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LegacyDocumentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/LegacyDocumentView.swiftdeps"
+  }
+}
