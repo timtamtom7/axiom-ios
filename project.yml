@@ -44,10 +44,12 @@ targets:
       - path: AxiomMac/Sources
       - path: Axiom/Sources/Models
       - path: Axiom/Sources/Services
+      - path: Axiom/Services
       - path: Axiom/Sources/App/Theme.swift
-      - path: Axiom/Sources/Views/Components
+      - path: Axiom/Sources/App/AccessibilityHelpers.swift
       - path: Axiom/Sources/Views/AIDeepDiveView.swift
       - path: Axiom/Sources/Views/AddEvidenceView.swift
+      - path: Axiom/Sources/Views/Components/ScoreBadge.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.axiom.beliefaudit.macos
@@ -64,7 +66,26 @@ targets:
         INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright 2026"
         INFOPLIST_KEY_CFBundleDisplayName: "Axiom"
         COMBINE_HIDPI_IMAGES: YES
+        CODE_SIGN_ENTITLEMENTS: AxiomMac/AxiomMac.entitlements
     dependencies:
       - package: SQLite
       - sdk: SwiftUI.framework
       - sdk: AppKit.framework
+
+  AxiomIOSMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: AxiomIOSMac
+        excludes:
+          - "*.md"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiom.beliefaudit.ios.mac
+        PRODUCT_NAME: Axiom
+        INFOPLIST_FILE: AxiomIOSMac/Info.plist
+        SWIFT_VERSION: "6.0"
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        ENABLE_HARDENED_RUNTIME: YES
