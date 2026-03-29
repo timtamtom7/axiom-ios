@@ -169,9 +169,9 @@ struct FilterChip: View {
                 .padding(.horizontal, Theme.spacingS)
                 .padding(.vertical, 4)
                 .background(isSelected ? color.opacity(0.2) : Theme.surface)
-                .cornerRadius(8)
+                .cornerRadius(Theme.cornerRadiusFull)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: Theme.cornerRadiusFull)
                         .stroke(isSelected ? color : Color.clear, lineWidth: 1)
                 )
         }

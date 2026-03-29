@@ -1,0 +1,30 @@
+{
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/App/AxiomApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomApp.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomApp.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Models/Belief.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/Belief.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/Belief.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/Belief.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/Belief.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/Belief.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Services/AxiomR11Service.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomR11Service.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomR11Service.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomR11Service.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomR11Service.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/AxiomR11Service.swiftdeps"
+  },
+  "/Users/mauriello/Dev/axiom-ios/Axiom/Sources/Views/ArchivedBeliefsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/ArchivedBeliefsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/ArchivedBeliefsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/ArchivedBeliefsView.dia",
+    "object" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/ArchivedBeliefsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/axiom-ios/build/Axiom.build/Debug-iphonesimulator/Axiom.build/Objects-normal/x86_64/ArchivedBeliefsView.swiftdeps"
+  }
+}

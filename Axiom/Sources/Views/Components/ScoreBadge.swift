@@ -7,10 +7,11 @@ struct ScoreBadge: View {
         Text("\(Int(score))")
             .font(.system(.caption, design: .rounded))
             .fontWeight(.bold)
-            .foregroundColor(.white)
+            .foregroundColor(Theme.background)
             .frame(width: 40, height: 40)
             .background(Theme.scoreColor(for: score))
             .clipShape(Circle())
+            .accessibilityLabel("Evidence score \(Int(score))")
     }
 }
 

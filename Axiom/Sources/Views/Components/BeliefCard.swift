@@ -3,6 +3,8 @@ import SwiftUI
 struct BeliefCard: View {
     let belief: Belief
     var connectionCount: Int = 0
+    @State private var displayedScore: Double = 0
+    @State private var scorePulse: CGFloat = 1.0
 
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.spacingM) {
@@ -11,7 +13,7 @@ struct BeliefCard: View {
                     HStack(spacing: Theme.spacingXS) {
                         if belief.isCore {
                             Text("CORE")
-                                .font(.system(size: 9, weight: .bold))
+                                .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(Theme.accentGold)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
@@ -32,7 +34,8 @@ struct BeliefCard: View {
 
                 Spacer()
 
-                ScoreBadge(score: belief.score)
+                ScoreBadge(score: displayedScore)
+                    .scaleEffect(scorePulse)
             }
 
             HStack(spacing: Theme.spacingL) {
@@ -66,6 +69,37 @@ struct BeliefCard: View {
         .padding(Theme.spacingM)
         .background(Theme.surface)
         .cornerRadius(12)
+        .onAppear {
+            animateScore(to: belief.score)
+        }
+        .onChange(of: belief.score) { oldValue, newValue in
+            if abs(newValue - oldValue) > 1 {
+                // Pulse on significant score change
+                withAnimation(.easeInOut(duration: 0.1).then(.easeOut(duration: 0.1))) {
+                    scorePulse = 1.15
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    withAnimation(.easeOut(duration: 0.1)) {
+                        scorePulse = 1.0
+                    }
+                }
+                animateScore(to: newValue)
+            }
+        }
+    }
+
+    private func animateScore(to target: Double) {
+        let steps = 8
+        let stepDuration = 0.12 / Double(steps)
+        let increment = (target - displayedScore) / Double(steps)
+
+        for i in 0..<steps {
+            DispatchQueue.main.asyncAfter(deadline: .now() + stepDuration * Double(i)) {
+                withAnimation(.linear(duration: stepDuration)) {
+                    displayedScore += increment
+                }
+            }
+        }
     }
 }
 

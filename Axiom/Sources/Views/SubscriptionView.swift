@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Paywall / upgrade view for Pro tier
 struct SubscriptionView: View {
@@ -116,6 +117,8 @@ struct SubscriptionView: View {
 
     private var upgradeButton: some View {
         Button {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
             upgradeToPro()
         } label: {
             if isUpgrading {
@@ -141,6 +144,8 @@ struct SubscriptionView: View {
 
     private var restoreButton: some View {
         Button {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
             // In real app, this would restore purchases
         } label: {
             Text("Restore Purchases")
@@ -190,7 +195,7 @@ struct UpgradePromptBanner: View {
                     Text("Upgrade")
                         .font(.caption)
                         .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                        .foregroundColor(Theme.background)
                         .padding(.horizontal, Theme.spacingM)
                         .padding(.vertical, Theme.spacingS)
                         .background(Theme.accentGold)

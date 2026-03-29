@@ -124,9 +124,23 @@ final class DatabaseService: ObservableObject {
             t.column(checkpointNote)
         })
 
+        // Create performance indexes for common query patterns
+        try createIndexes()
+
         // Migration: add missing columns to existing tables
         migrateBeliefsTable()
         migrateEvidenceTable()
+    }
+
+    // R25: Database performance indexes
+    private func createIndexes() throws {
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_beliefs_score ON beliefs(score)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_evidence_belief ON evidence(belief_id)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_beliefs_created ON beliefs(created_at)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_beliefs_archived ON beliefs(is_archived)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_checkpoints_belief ON checkpoints(belief_id)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_connections_from ON connections(from_belief_id)")
+        try db?.execute("CREATE INDEX IF NOT EXISTS idx_connections_to ON connections(to_belief_id)")
     }
 
     private func migrateBeliefsTable() {

@@ -7,6 +7,8 @@ struct CommunityView: View {
     @State private var selectedFilter: BeliefFilter = .all
     @State private var showingShareCodeSheet = false
     @State private var shareCode = ""
+    @State private var isLoading = true
+    @State private var loadError: String?
 
     enum BeliefFilter: String, CaseIterable {
         case all = "All"
@@ -27,15 +29,8 @@ struct CommunityView: View {
                     // Search
                     searchBar
 
-                    // Community beliefs
-                    ScrollView {
-                        LazyVStack(spacing: Theme.spacingM) {
-                            ForEach(filteredBeliefs) { belief in
-                                CommunityBeliefCard(belief: belief)
-                            }
-                        }
-                        .padding(Theme.screenMargin)
-                    }
+                    // Community beliefs content
+                    contentView
                 }
             }
             .navigationTitle("Community")
@@ -51,6 +46,83 @@ struct CommunityView: View {
             .sheet(isPresented: $showingShareCodeSheet) {
                 CommunityShareCodeSheet()
             }
+            .onAppear {
+                loadCommunity()
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var contentView: some View {
+        if isLoading {
+            loadingView
+        } else if let error = loadError {
+            errorView(message: error)
+        } else if filteredBeliefs.isEmpty {
+            emptyView
+        } else {
+            communityScrollView
+        }
+    }
+
+    private var loadingView: some View {
+        ScrollView {
+            LazyVStack(spacing: Theme.spacingM) {
+                ForEach(0..<5, id: \.self) { _ in
+                    SkeletonCommunityCard()
+                }
+            }
+            .padding(Theme.screenMargin)
+        }
+    }
+
+    private var emptyView: some View {
+        VStack {
+            Spacer()
+            EmptyStateView(
+                icon: "person.3",
+                title: "No Shared Beliefs Yet",
+                subtitle: "Share yours to help others on their belief journey.",
+                actionTitle: "Share a Belief"
+            ) {
+                showingShareCodeSheet = true
+            }
+            Spacer()
+        }
+    }
+
+    private func errorView(message: String) -> some View {
+        VStack {
+            Spacer()
+            ErrorView(message: message) {
+                loadCommunity()
+            }
+            Spacer()
+        }
+    }
+
+    private var communityScrollView: some View {
+        ScrollView {
+            LazyVStack(spacing: Theme.spacingM) {
+                ForEach(filteredBeliefs) { belief in
+                    CommunityBeliefCard(belief: belief)
+                        .transition(.asymmetric(
+                            insertion: .opacity.combined(with: .move(edge: .trailing)),
+                            removal: .opacity
+                        ))
+                }
+            }
+            .padding(Theme.screenMargin)
+            .animation(.spring(response: 0.3), value: filteredBeliefs.count)
+        }
+    }
+
+    private func loadCommunity() {
+        isLoading = true
+        loadError = nil
+        // Simulate network load for demo
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            isLoading = false
         }
     }
 
@@ -59,7 +131,9 @@ struct CommunityView: View {
             HStack(spacing: Theme.spacingS) {
                 ForEach(BeliefFilter.allCases, id: \.self) { filter in
                     Button {
-                        selectedFilter = filter
+                        withAnimation(.spring(response: 0.2)) {
+                            selectedFilter = filter
+                        }
                     } label: {
                         Text(filter.rawValue)
                             .font(.caption)
@@ -88,7 +162,7 @@ struct CommunityView: View {
         }
         .padding(Theme.spacingS)
         .background(Theme.surface)
-        .cornerRadius(10)
+        .cornerRadius(Theme.cornerRadiusM)
         .padding(Theme.screenMargin)
     }
 
@@ -114,6 +188,8 @@ struct CommunityView: View {
     }
 }
 
+// MARK: - CommunityBeliefCard
+
 struct CommunityBeliefCard: View {
     let belief: SharedBelief
     @State private var isExpanded = false
@@ -124,7 +200,7 @@ struct CommunityBeliefCard: View {
             HStack {
                 if belief.isCore {
                     Text("CORE")
-                        .font(.system(size: 8, weight: .bold))
+                        .font(.system(size: 11, weight: .bold))
                         .foregroundColor(Theme.accentGold)
                         .padding(.horizontal, 5)
                         .padding(.vertical, 2)

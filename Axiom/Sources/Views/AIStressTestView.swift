@@ -9,6 +9,7 @@ struct AIStressTestView: View {
     @State private var showingAnalysis = false
     @State private var analysisError: String?
     @State private var isLoadingAnalysis = false
+    @State private var challengeAppearOffset: CGFloat = 30
 
     var body: some View {
         NavigationStack {
@@ -16,96 +17,11 @@ struct AIStressTestView: View {
                 Theme.background.ignoresSafeArea()
 
                 if aiService.isLoading {
-                    VStack(spacing: Theme.spacingM) {
-                        ProgressView()
-                            .tint(Theme.accentBlue)
-                        Text("Generating challenges...")
-                            .font(.callout)
-                            .foregroundColor(Theme.textSecondary)
-                    }
+                    loadingView
                 } else if aiService.challenges.isEmpty {
-                    VStack(spacing: Theme.spacingM) {
-                        Image(systemName: "wand.and.stars")
-                            .font(.system(size: 48))
-                            .foregroundColor(Theme.accentBlue)
-
-                        Text("AI Stress Test")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(Theme.textPrimary)
-
-                        Text("I'll challenge your belief with hard questions. No easy answers allowed.")
-                            .font(.callout)
-                            .foregroundColor(Theme.textSecondary)
-                            .multilineTextAlignment(.center)
-
-                        Button {
-                            Task {
-                                await aiService.generateChallenges(for: belief)
-                            }
-                        } label: {
-                            Text("Start Challenge")
-                                .font(.headline)
-                                .foregroundColor(Theme.background)
-                                .padding(.horizontal, Theme.spacingXL)
-                                .padding(.vertical, Theme.spacingM)
-                                .background(Theme.accentBlue)
-                                .cornerRadius(12)
-                        }
-                    }
-                    .padding(Theme.screenMargin)
+                    emptyStateView
                 } else {
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: Theme.spacingL) {
-                            Text("Challenge your belief:")
-                                .font(.headline)
-                                .foregroundColor(Theme.textPrimary)
-
-                            ForEach(Array($aiService.challenges.enumerated()), id: \.element.id) { index, $challenge in
-                                ChallengeCard(challenge: $challenge)
-                                    .transition(.asymmetric(
-                                        insertion: .opacity.combined(with: .move(edge: .trailing)),
-                                        removal: .opacity.combined(with: .move(edge: .leading))
-                                    ))
-                                    .animation(.spring(response: 0.4, dampingFraction: 0.75).delay(Double(index) * 0.08), value: aiService.challenges.count)
-                            }
-
-                            // Analysis Summary
-                            Button {
-                                Task {
-                                    isLoadingAnalysis = true
-                                    analysisError = nil
-                                    do {
-                                        analysisResult = try await aiService.getAnalysis(for: belief)
-                                        showingAnalysis = true
-                                    } catch {
-                                        analysisError = error.localizedDescription
-                                        showingAnalysis = true
-                                    }
-                                    isLoadingAnalysis = false
-                                }
-                            } label: {
-                                HStack {
-                                    if isLoadingAnalysis {
-                                        ProgressView()
-                                            .tint(Theme.accentBlue)
-                                            .scaleEffect(0.8)
-                                    } else {
-                                        Image(systemName: "doc.text.magnifyingglass")
-                                    }
-                                    Text(isLoadingAnalysis ? "Analyzing..." : "Request AI Analysis")
-                                }
-                                .font(.headline)
-                                .foregroundColor(Theme.accentBlue)
-                                .frame(maxWidth: .infinity)
-                                .padding(Theme.spacingM)
-                                .background(Theme.accentBlue.opacity(0.15))
-                                .cornerRadius(12)
-                            }
-                            .disabled(isLoadingAnalysis)
-                        }
-                        .padding(Theme.screenMargin)
-                    }
+                    challengesView
                 }
             }
             .navigationTitle("Stress Test")
@@ -115,6 +31,7 @@ struct AIStressTestView: View {
                     Button("Done") {
                         dismiss()
                     }
+                    .keyboardShortcut(.escape)
                 }
             }
         }
@@ -126,6 +43,113 @@ struct AIStressTestView: View {
                 belief: belief,
                 error: analysisError
             )
+        }
+    }
+
+    private var loadingView: some View {
+        VStack(spacing: Theme.spacingL) {
+            ThinkingIndicator()
+            Text("Generating challenges...")
+                .font(.callout)
+                .foregroundColor(Theme.textSecondary)
+        }
+    }
+
+    private var emptyStateView: some View {
+        VStack(spacing: Theme.spacingL) {
+            Image(systemName: "wand.and.stars")
+                .font(.system(size: 48))
+                .foregroundColor(Theme.accentBlue)
+
+            Text("AI Stress Test")
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(Theme.textPrimary)
+
+            Text("I'll challenge your belief with hard questions. No easy answers allowed.")
+                .font(.callout)
+                .foregroundColor(Theme.textSecondary)
+                .multilineTextAlignment(.center)
+
+            Button {
+                HapticService.shared.aiChallengeReceived()
+                challengeAppearOffset = 30
+                Task {
+                    await aiService.generateChallenges(for: belief)
+                }
+            } label: {
+                Text("Start Challenge")
+                    .font(.headline)
+                    .foregroundColor(Theme.background)
+                    .padding(.horizontal, Theme.spacingXL)
+                    .padding(.vertical, Theme.spacingM)
+                    .background(Theme.accentBlue)
+                    .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(Theme.screenMargin)
+    }
+
+    private var challengesView: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: Theme.spacingL) {
+                Text("Challenge your belief:")
+                    .font(.headline)
+                    .foregroundColor(Theme.textPrimary)
+
+                ForEach(Array($aiService.challenges.enumerated()), id: \.element.id) { index, $challenge in
+                    ChallengeCard(challenge: $challenge)
+                        .offset(x: challengeAppearOffset)
+                        .animation(accessibilityReduceMotion ? .none : .spring(response: 0.4, dampingFraction: 0.75).delay(Double(index) * 0.08), value: challengeAppearOffset)
+                        .onAppear {
+                            // Stagger the slide-in
+                            if index == 0 {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                                    withAnimation(accessibilityReduceMotion ? .none : .spring(response: 0.3, dampingFraction: 0.75)) {
+                                        challengeAppearOffset = 0
+                                    }
+                                }
+                            }
+                        }
+                }
+
+                // AI Analysis button
+                Button {
+                    HapticService.shared.selection()
+                    isLoadingAnalysis = true
+                    analysisError = nil
+                    Task {
+                        do {
+                            analysisResult = try await aiService.getAnalysis(for: belief)
+                            showingAnalysis = true
+                        } catch {
+                            analysisError = error.localizedDescription
+                            showingAnalysis = true
+                        }
+                        isLoadingAnalysis = false
+                    }
+                } label: {
+                    HStack {
+                        if isLoadingAnalysis {
+                            ThinkingIndicator()
+                        } else {
+                            Image(systemName: "doc.text.magnifyingglass")
+                        }
+                        Text(isLoadingAnalysis ? "Analyzing..." : "Request AI Analysis")
+                    }
+                    .font(.headline)
+                    .foregroundColor(Theme.accentBlue)
+                    .frame(maxWidth: .infinity)
+                    .padding(Theme.spacingM)
+                    .background(Theme.accentBlue.opacity(0.15))
+                    .cornerRadius(12)
+                }
+                .disabled(isLoadingAnalysis)
+                .accessibilityLabel(isLoadingAnalysis ? "Analyzing with AI" : "Request AI Analysis")
+                .accessibilityHint("Submit your responses and receive AI analysis")
+            }
+            .padding(Theme.screenMargin)
         }
     }
 }
@@ -221,6 +245,9 @@ struct ChallengeCard: View {
         .padding(Theme.spacingM)
         .background(Theme.surface)
         .cornerRadius(12)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("AI challenge: \(challenge.question)")
+        .accessibilityHint("Enter your response to this challenge")
     }
 }
 
