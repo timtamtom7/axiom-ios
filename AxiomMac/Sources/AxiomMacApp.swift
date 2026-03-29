@@ -3,12 +3,17 @@ import SwiftUI
 @main
 struct AxiomMacApp: App {
     @StateObject private var databaseService = DatabaseService.shared
+    @StateObject private var retentionService = RetentionService.shared
 
     var body: some Scene {
         WindowGroup {
             MacContentView()
                 .environmentObject(databaseService)
+                .environmentObject(retentionService)
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    checkRetentionTriggers()
+                }
         }
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
@@ -22,5 +27,29 @@ struct AxiomMacApp: App {
             Image(systemName: "scale.3d")
         }
         .menuBarExtraStyle(.window)
+    }
+
+    private func checkRetentionTriggers() {
+        retentionService.loadRetentionData()
+        retentionService.recordSession()
+
+        // Check if user needs milestone nudge
+        if retentionService.needsMilestoneNudge() {
+            let milestone = retentionService.currentRetentionMilestone
+            print("[Retention] User needs nudge for: \(milestone.rawValue)")
+            // In production, show in-app prompt
+        }
+
+        // R13: Check beliefs count for retention tracking
+        let beliefs = DatabaseService.shared.allBeliefs
+        if !beliefs.isEmpty {
+            retentionService.recordBeliefCreated()
+        }
+        for belief in beliefs {
+            if !belief.evidenceItems.isEmpty {
+                retentionService.recordEvidenceAdded()
+                break
+            }
+        }
     }
 }

@@ -60,6 +60,7 @@
 		B596F8596568C05BE3D675E8 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F626381109511C1289B3FE6 /* LocalizationService.swift */; };
 		B5A8AE31751AB17EBD3F480F /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CEED6AE39C93FED0D880C /* LanguageSettingsView.swift */; };
 		B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
+		BC726E73586B64B4519FAB16 /* MacSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5FB857C6B8B980687DFFD /* MacSubscriptionView.swift */; };
 		BCB92959BC763BBC3C03CFAC /* AppleIntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC14075698FE4E7D1519FD0 /* AppleIntelligenceService.swift */; };
 		C0D45AB00A7C13C82A217529 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961E72BC1CC84330E670261 /* CommunityView.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
@@ -121,6 +122,7 @@
 		A2DEE44DA71644B7B062CE82 /* Axiom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Axiom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE80DF76D47DD266FBBB012D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedBeliefsView.swift; sourceTree = "<group>"; };
+		B3E5FB857C6B8B980687DFFD /* MacSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSubscriptionView.swift; sourceTree = "<group>"; };
 		BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefCard.swift; sourceTree = "<group>"; };
 		BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceLibraryView.swift; sourceTree = "<group>"; };
 		BE383BD45158F8170FCE413E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				02A08F304E23B178195FB172 /* MacGroupBeliefView.swift */,
 				EC69D8E95A31ECFCC48E11AE /* MacHealthCorrelationView.swift */,
 				F3ECFF0A389ACDE59D3C1A35 /* MacSettingsView.swift */,
+				B3E5FB857C6B8B980687DFFD /* MacSubscriptionView.swift */,
 				10EAB70D23B9098D632842AB /* MacSupportCirclesView.swift */,
 				728815EFB27CE722FBF3D262 /* MacWorkshopView.swift */,
 				EB272C02A31B1AE6D5CA74F0 /* MenuBarExtraView.swift */,
@@ -430,6 +433,7 @@
 				8D5924709887B268FA1EF0CB /* MacGroupBeliefView.swift in Sources */,
 				5DFAC632C87838967B366BBB /* MacHealthCorrelationView.swift in Sources */,
 				0A9E50EB4CE9E650518D6A9B /* MacSettingsView.swift in Sources */,
+				BC726E73586B64B4519FAB16 /* MacSubscriptionView.swift in Sources */,
 				614CA6B19E73C91F2E36EC2B /* MacSupportCirclesView.swift in Sources */,
 				F76DFB16C7AA4E042595AE30 /* MacWorkshopView.swift in Sources */,
 				7E4ADB0F8E644CDF3AF7B10C /* MenuBarExtraView.swift in Sources */,

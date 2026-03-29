@@ -8,6 +8,8 @@ struct MacSettingsView: View {
     @AppStorage("anonymousSharingEnabled") private var anonymousSharingEnabled: Bool = true
     @State private var showingExportSheet = false
     @State private var exportMessage: String?
+    @State private var showingSubscription = false
+    @StateObject private var localization = LocalizationService.shared
 
     var body: some View {
         NavigationSplitView {
@@ -17,12 +19,16 @@ struct MacSettingsView: View {
         } detail: {
             detailView
         }
+        .sheet(isPresented: $showingSubscription) {
+            MacSubscriptionView()
+        }
     }
 
     private var settingsSidebar: some View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(spacing: Theme.spacingXS) {
+                    SettingsSidebarRow(icon: "crown.fill", title: localization.t("subscription"))
                     SettingsSidebarRow(icon: "paintbrush", title: "Appearance")
                     SettingsSidebarRow(icon: "bell", title: "Notifications")
                     SettingsSidebarRow(icon: "person.fill.questionmark", title: "Anonymous Sharing")
@@ -37,6 +43,7 @@ struct MacSettingsView: View {
     private var detailView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacingL) {
+                subscriptionSection
                 appearanceSection
                 notificationsSection
                 anonymousSharingSection
@@ -47,6 +54,51 @@ struct MacSettingsView: View {
         }
         .background(Theme.background)
         .navigationTitle("Settings")
+    }
+
+    private var subscriptionSection: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingM) {
+            HStack {
+                Image(systemName: "crown.fill")
+                    .foregroundColor(Theme.accentGold)
+                Text(localization.t("subscription"))
+                    .font(.headline)
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            HStack {
+                VStack(alignment: .leading, spacing: Theme.spacingXS) {
+                    Text("Current Plan")
+                        .font(.subheadline)
+                        .foregroundColor(Theme.textSecondary)
+                    Text(SubscriptionService.shared.currentTier.displayName)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(Theme.accentGold)
+                }
+                Spacer()
+                Button {
+                    showingSubscription = true
+                } label: {
+                    Text(localization.t("manage_subscription"))
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, Theme.spacingM)
+                        .padding(.vertical, Theme.spacingS)
+                        .background(Theme.accentGold)
+                        .cornerRadius(8)
+                }
+            }
+
+            if SubscriptionService.shared.currentTier == .free {
+                Text("Upgrade to Pro for unlimited beliefs, AI deep dive, and more!")
+                    .font(.caption)
+                    .foregroundColor(Theme.textSecondary)
+            }
+        }
+        .padding(Theme.spacingM)
+        .background(Theme.surface)
+        .cornerRadius(12)
     }
 
     private var appearanceSection: some View {
