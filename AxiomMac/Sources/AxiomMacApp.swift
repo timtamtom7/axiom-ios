@@ -15,5 +15,12 @@ struct AxiomMacApp: App {
         .commands {
             CommandGroup(replacing: .newItem) { }
         }
+
+        MenuBarExtra {
+            MenuBarContent(databaseService: databaseService)
+        } label: {
+            Image(systemName: "scale.3d")
+        }
+        .menuBarExtraStyle(.window)
     }
 }
