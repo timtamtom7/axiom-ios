@@ -120,6 +120,8 @@ struct MacSettingsView: View {
                         .background(Theme.accentGold)
                         .cornerRadius(8)
                 }
+                .accessibilityLabel("Manage subscription")
+                .accessibilityHint("Double click to view and manage your subscription plan")
             }
 
             if SubscriptionService.shared.currentTier == .free {
@@ -131,6 +133,8 @@ struct MacSettingsView: View {
         .padding(Theme.spacingM)
         .background(Theme.surface)
         .cornerRadius(12)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Subscription. Current plan: \(SubscriptionService.shared.currentTier.displayName). Double click to manage.")
     }
 
     private var appearanceSection: some View {
@@ -236,7 +240,9 @@ struct MacSettingsView: View {
 
             HStack(spacing: Theme.spacingM) {
                 ExportButton(title: "Export JSON", icon: "doc.text") { exportJSON() }
+                    .accessibilityHint("Saves all beliefs and evidence to a JSON file")
                 ExportButton(title: "Export CSV", icon: "tablecells") { exportCSV() }
+                    .accessibilityHint("Saves all beliefs to a comma-separated values file")
             }
 
             if let message = exportMessage {
@@ -698,6 +704,8 @@ struct SettingsSidebarRow: View {
             .cornerRadius(8)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(title)
+        .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
     }
 }
 
@@ -727,6 +735,8 @@ struct AppearanceModeButton: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("\(mode.rawValue) appearance")
+        .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
     }
 
     private func iconFor(_ mode: AppearanceMode) -> String {
@@ -759,6 +769,7 @@ struct ExportButton: View {
             .cornerRadius(8)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(title)
     }
 }
 

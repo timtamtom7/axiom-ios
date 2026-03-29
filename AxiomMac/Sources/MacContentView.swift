@@ -90,6 +90,8 @@ struct MacContentView: View {
         }
         .padding(.vertical, Theme.spacingXL)
         .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("No beliefs yet. Double click to add your first belief.")
     }
 
     private var addBeliefButton: some View {

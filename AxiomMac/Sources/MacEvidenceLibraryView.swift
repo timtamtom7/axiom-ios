@@ -115,6 +115,7 @@ struct MacEvidenceLibraryView: View {
             }
             .padding(Theme.screenMargin)
         }
+        .accessibilityLabel("Evidence library. \(filteredEvidence.count) items. \(filterType == nil ? "Showing all evidence" : (filterType == .support ? "Showing supporting evidence" : "Showing contradicting evidence")).")
     }
 
     @ViewBuilder
@@ -197,6 +198,8 @@ struct FilterToggle: View {
                 )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(title)
+        .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
     }
 }
 
@@ -580,6 +583,7 @@ struct MacSubmitEvidenceSheet: View {
                             }
                             Slider(value: $confidence, in: 0...1, step: 0.1)
                                 .tint(Theme.scoreColor(for: confidence * 100))
+                                .accessibilityLabel("Belief strength, \(Int(confidence * 100)) percent. Drag left or right to adjust.")
                         }
 
                         // Source
@@ -647,7 +651,7 @@ struct MacSubmitEvidenceSheet: View {
             sourceLabel: sourceLabel.isEmpty ? nil : sourceLabel
         )
         databaseService.addEvidence(evidence)
-        withAnimation { showingSuccess = true }
+        withAnimation(accessibilityReduceMotion ? .none : .default) { showingSuccess = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { dismiss() }
     }
 
@@ -692,6 +696,8 @@ struct EvidenceTypeButton: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(type == .support ? "Add supporting evidence" : "Add contradicting evidence")
+        .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
     }
 }
 

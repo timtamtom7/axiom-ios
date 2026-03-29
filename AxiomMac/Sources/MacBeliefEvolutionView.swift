@@ -125,6 +125,8 @@ struct MacBeliefEvolutionView: View {
                     Image(systemName: "plus.circle")
                         .foregroundColor(Theme.accentGold)
                 }
+                .accessibilityLabel("Record new checkpoint")
+                .accessibilityHint("Opens a sheet to record a new score checkpoint")
             }
 
             if sortedCheckpoints.count >= 2 {
@@ -436,6 +438,7 @@ struct MacRecordCheckpointSheet: View {
 
                         Slider(value: $score, in: 0...100, step: 1)
                             .tint(Theme.scoreColor(for: score))
+                            .accessibilityLabel("Belief strength, \(Int(score)) percent. Drag left or right to adjust.")
 
                         HStack {
                             Text("Disagree")

@@ -46,7 +46,7 @@ struct MacCommunityView: View {
         VStack(spacing: Theme.spacingS) {
             ForEach(CommunityTab.allCases, id: \.self) { tab in
                 Button {
-                    withAnimation { selectedTab = tab }
+                    withAnimation(accessibilityReduceMotion ? .none : .default) { selectedTab = tab }
                 } label: {
                     HStack {
                         Image(systemName: tabIcon(for: tab))
@@ -68,9 +68,19 @@ struct MacCommunityView: View {
                     .cornerRadius(8)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(tabAccessibilityLabel(for: tab))
+                .accessibilityAddTraits(selectedTab == tab ? [.isSelected, .isButton] : .isButton)
             }
         }
         .padding(Theme.screenMargin)
+    }
+
+    private func tabAccessibilityLabel(for tab: CommunityTab) -> String {
+        switch tab {
+        case .anonymousFeed: return "Anonymous Feed tab"
+        case .debates: return "Debates tab"
+        case .leaderboard: return "Evidence Leaderboard tab"
+        }
     }
 
     private func tabIcon(for tab: CommunityTab) -> String {
@@ -101,10 +111,12 @@ struct MacCommunityView: View {
                         .onTapGesture {
                             selectedBelief = belief
                         }
+                        .accessibilityLabel("Anonymous belief shared by the community. Belief: \(belief.beliefText). Score: \(Int(belief.score)) percent. \(belief.supportingCount) supporting, \(belief.contradictingCount) contradicting.")
                 }
             }
             .padding(Theme.screenMargin)
         }
+        .accessibilityLabel("Anonymous belief feed. \(filteredSharedBeliefs.count) beliefs shared.")
     }
 
     private var debatesList: some View {
@@ -119,6 +131,7 @@ struct MacCommunityView: View {
             }
             .padding(Theme.screenMargin)
         }
+        .accessibilityLabel("View debate discussions. \(debateBeliefs.count) active debates.")
     }
 
     private var leaderboardList: some View {
@@ -130,6 +143,7 @@ struct MacCommunityView: View {
             }
             .padding(Theme.screenMargin)
         }
+        .accessibilityLabel("Top rated evidence leaderboard. \(topEvidence.count) entries.")
     }
 
     private var filteredSharedBeliefs: [SharedBelief] {
@@ -159,7 +173,7 @@ struct MacCommunityView: View {
     private var detailView: some View {
         if let belief = selectedBelief {
             MacBeliefDebateView(belief: belief)
-                .transition(.opacity.combined(with: .scale(scale: 0.98, anchor: .top)))
+                .transition(accessibilityReduceMotion ? .opacity : .opacity.combined(with: .scale(scale: 0.98, anchor: .top)))
         } else {
             placeholderView
                 .transition(.opacity)
@@ -669,7 +683,7 @@ struct MacCommunityPostSheet: View {
     private func shareBelief() {
         guard let belief = selectedBelief else { return }
         CommunityStore.shared.addSharedBelief(belief)
-        withAnimation {
+        withAnimation(accessibilityReduceMotion ? .none : .default) {
             showingSuccess = true
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
