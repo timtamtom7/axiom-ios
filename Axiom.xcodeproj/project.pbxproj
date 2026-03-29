@@ -65,10 +65,12 @@
 		C0D45AB00A7C13C82A217529 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2961E72BC1CC84330E670261 /* CommunityView.swift */; };
 		C12D0F6EF4F7FDD47E67E3A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		C4140D0C9C5A4150CD348148 /* EvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */; };
+		C449578BB12DA831B0D27231 /* EnterpriseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC44F65EB52BFAE241EB9D2 /* EnterpriseModels.swift */; };
 		CEE26951AFA383B7AB05BBDD /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
 		D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3319C952EFBF4DCB261DD /* BeliefCheckpoint.swift */; };
 		D48E5583158C76828A82154E /* BeliefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */; };
 		D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
+		E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */; };
 		E483717034518CE18A4DB680 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		E6560778B2B01922ECB64515 /* LegacyDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B22DD5B5F5AEBEC6C428 /* LegacyDocumentView.swift */; };
 		EAAD67ABFB9889468A184C6B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A61E28D32758E634DE6F3652 /* SQLite */; };
@@ -116,6 +118,7 @@
 		9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestView.swift; sourceTree = "<group>"; };
 		95077803B70F80DAF6A1BD5B /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIStressTestService.swift; sourceTree = "<group>"; };
+		9CC44F65EB52BFAE241EB9D2 /* EnterpriseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseModels.swift; sourceTree = "<group>"; };
 		A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefConnection.swift; sourceTree = "<group>"; };
 		A220B22DD5B5F5AEBEC6C428 /* LegacyDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyDocumentView.swift; sourceTree = "<group>"; };
 		A2C14D16AA114FB10DA72A66 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		C6857930A3C58AA93BA9D21C /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvidenceView.swift; sourceTree = "<group>"; };
 		C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseAdminView.swift; sourceTree = "<group>"; };
 		CAAE993DBFB345B0C8309E20 /* AxiomMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxiomMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomR11Service.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				62DA2F46C88379E994924E9B /* AxiomMacApp.swift */,
+				CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */,
+				9CC44F65EB52BFAE241EB9D2 /* EnterpriseModels.swift */,
 				4120EDF3EEBD9CB51259369C /* MacBeliefEvolutionView.swift */,
 				02507C1529E7F2350C92B5DF /* MacCommunityView.swift */,
 				8F486AEBF7C36C2C3CE982EB /* MacContentView.swift */,
@@ -424,6 +430,8 @@
 				D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */,
 				8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */,
 				932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */,
+				E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */,
+				C449578BB12DA831B0D27231 /* EnterpriseModels.swift in Sources */,
 				3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */,
 				F3FF7AECC6B2C4F46F465DE1 /* LocalizationService.swift in Sources */,
 				EFFF32B53F0B764E110F40E9 /* MacBeliefEvolutionView.swift in Sources */,
