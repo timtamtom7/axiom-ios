@@ -194,7 +194,7 @@ struct MacHealthCorrelationView: View {
                 HStack(spacing: Theme.spacingS) {
                     ForEach(CorrelationChart.allCases, id: \.self) { chart in
                         Button {
-                            withAnimation(.easeInOut(duration: 0.2)) {
+                            withAnimation(accessibilityReduceMotion ? .none : .easeInOut(duration: 0.2)) {
                                 selectedChart = chart
                             }
                         } label: {
@@ -211,6 +211,8 @@ struct MacHealthCorrelationView: View {
                             .cornerRadius(Theme.cornerRadiusS)
                         }
                         .buttonStyle(.plain)
+                        .accessibilityLabel(chart.rawValue)
+                        .accessibilityAddTraits(selectedChart == chart ? [.isSelected, .isButton] : .isButton)
                     }
                 }
                 .padding(.horizontal, Theme.screenMargin)

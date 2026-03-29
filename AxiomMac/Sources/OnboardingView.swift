@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var isOnboarding: Bool
     @State private var currentPage = 0
+    @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
     
     var body: some View {
         ZStack {
@@ -28,7 +29,7 @@ struct OnboardingView: View {
                         .tag(4)
                 }
 
-                .animation(.easeInOut, value: currentPage)
+                .animation(accessibilityReduceMotion ? .none : .easeInOut, value: currentPage)
                 
                 // Page indicator + navigation
                 HStack(spacing: 12) {
@@ -36,6 +37,8 @@ struct OnboardingView: View {
                         Circle()
                             .fill(index == currentPage ? Theme.accentPurple : Color.secondary.opacity(0.3))
                             .frame(width: 8, height: 8)
+                            .accessibilityLabel("Page \(index + 1) of 5")
+                            .accessibilityAddTraits(index == currentPage ? .isSelected : [])
                     }
                     
                     Spacer()
@@ -45,6 +48,7 @@ struct OnboardingView: View {
                             currentPage = 4
                         }
                         .foregroundColor(.secondary)
+                        .accessibilityLabel("Skip onboarding")
                     }
                 }
                 .padding(.horizontal, 32)
@@ -65,7 +69,8 @@ struct WelcomePage: View {
                 .foregroundColor(Theme.accentPurple)
             
             Text("Welcome to Axiom")
-                .font(.system(size: 36, weight: .bold, design: .serif))
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(Theme.textPrimary)
             
             Text("Change your beliefs, change your life.")
@@ -80,6 +85,7 @@ struct WelcomePage: View {
             
             Spacer()
         }
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -94,7 +100,8 @@ struct WhatIsBeliefPage: View {
                 .foregroundColor(.yellow)
             
             Text("What is a belief?")
-                .font(.system(size: 32, weight: .bold, design: .serif))
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(Theme.textPrimary)
             
             VStack(alignment: .leading, spacing: 16) {
@@ -112,6 +119,7 @@ struct WhatIsBeliefPage: View {
             
             Spacer()
         }
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -141,7 +149,8 @@ struct HowAxiomWorksPage: View {
             Spacer()
             
             Text("How Axiom Works")
-                .font(.system(size: 32, weight: .bold, design: .serif))
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(Theme.textPrimary)
             
             VStack(spacing: 20) {
@@ -154,6 +163,7 @@ struct HowAxiomWorksPage: View {
             
             Spacer()
         }
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -198,7 +208,8 @@ struct CoreBeliefsPage: View {
                 .foregroundColor(.pink)
             
             Text("Start with what's core")
-                .font(.system(size: 32, weight: .bold, design: .serif))
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(Theme.textPrimary)
             
             Text("Core beliefs are the foundation of how you see yourself. They affect everything — relationships, work, self-worth.")
@@ -217,6 +228,7 @@ struct CoreBeliefsPage: View {
             
             Spacer()
         }
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -247,7 +259,8 @@ struct GetStartedPage: View {
                 .foregroundColor(.green)
             
             Text("You're ready")
-                .font(.system(size: 36, weight: .bold, design: .serif))
+                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(Theme.textPrimary)
             
             Text("Add your first belief and start examining what's really true.")
@@ -271,6 +284,9 @@ struct GetStartedPage: View {
             }
             .padding(.horizontal, 48)
             .padding(.bottom, 48)
+            .accessibilityLabel("Start Axiom")
+            .accessibilityHint("Begin using Axiom to examine your beliefs")
         }
+        .accessibilityElement(children: .contain)
     }
 }

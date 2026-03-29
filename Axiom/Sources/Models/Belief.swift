@@ -1,5 +1,20 @@
 import Foundation
 
+/// ScoreEntry tracks a single belief score checkpoint over time
+struct ScoreEntry: Identifiable, Equatable, Hashable, Codable, Sendable {
+    let id: UUID
+    let date: Date
+    let score: Double
+    let note: String?
+
+    init(id: UUID = UUID(), date: Date = Date(), score: Double, note: String? = nil) {
+        self.id = id
+        self.date = date
+        self.score = score
+        self.note = note
+    }
+}
+
 struct Belief: Identifiable, Equatable, Hashable, Codable, Sendable {
     let id: UUID
     var text: String
@@ -15,6 +30,7 @@ struct Belief: Identifiable, Equatable, Hashable, Codable, Sendable {
     var archivedAt: Date?
     var archiveReason: String?
     var archivedScore: Double?
+    var scoreHistory: [ScoreEntry]
 
     init(
         id: UUID = UUID(),
@@ -30,7 +46,8 @@ struct Belief: Identifiable, Equatable, Hashable, Codable, Sendable {
         isArchived: Bool = false,
         archivedAt: Date? = nil,
         archiveReason: String? = nil,
-        archivedScore: Double? = nil
+        archivedScore: Double? = nil,
+        scoreHistory: [ScoreEntry] = []
     ) {
         self.id = id
         self.text = text
@@ -46,6 +63,7 @@ struct Belief: Identifiable, Equatable, Hashable, Codable, Sendable {
         self.archivedAt = archivedAt
         self.archiveReason = archiveReason
         self.archivedScore = archivedScore
+        self.scoreHistory = scoreHistory
     }
 
     var supportingCount: Int {

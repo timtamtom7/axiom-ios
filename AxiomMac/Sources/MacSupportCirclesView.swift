@@ -91,7 +91,7 @@ struct MacSupportCirclesView: View {
             HStack(spacing: Theme.spacingS) {
                 ForEach(CircleTab.allCases, id: \.self) { tab in
                     Button {
-                        withAnimation(.easeInOut(duration: 0.2)) {
+                        withAnimation(accessibilityReduceMotion ? .none : .easeInOut(duration: 0.2)) {
                             selectedTab = tab
                         }
                     } label: {

@@ -101,12 +101,12 @@ struct AIStressTestView: View {
                 ForEach(Array($aiService.challenges.enumerated()), id: \.element.id) { index, $challenge in
                     ChallengeCard(challenge: $challenge)
                         .offset(x: challengeAppearOffset)
-                        .animation(.spring(response: 0.4, dampingFraction: 0.75).delay(Double(index) * 0.08), value: challengeAppearOffset)
+                        .animation(accessibilityReduceMotion ? .none : .spring(response: 0.4, dampingFraction: 0.75).delay(Double(index) * 0.08), value: challengeAppearOffset)
                         .onAppear {
                             // Stagger the slide-in
                             if index == 0 {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                                    withAnimation(accessibilityReduceMotion ? .none : .spring(response: 0.3, dampingFraction: 0.75)) {
                                         challengeAppearOffset = 0
                                     }
                                 }
@@ -146,6 +146,8 @@ struct AIStressTestView: View {
                     .cornerRadius(12)
                 }
                 .disabled(isLoadingAnalysis)
+                .accessibilityLabel(isLoadingAnalysis ? "Analyzing with AI" : "Request AI Analysis")
+                .accessibilityHint("Submit your responses and receive AI analysis")
             }
             .padding(Theme.screenMargin)
         }
@@ -243,6 +245,9 @@ struct ChallengeCard: View {
         .padding(Theme.spacingM)
         .background(Theme.surface)
         .cornerRadius(12)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("AI challenge: \(challenge.question)")
+        .accessibilityHint("Enter your response to this challenge")
     }
 }
 
