@@ -103,6 +103,7 @@
 		D5E60BBBB45C1EA930535CB9 /* HealthIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44395E2AA29651E0371DE8AC /* HealthIntegrationService.swift */; };
 		D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
 		DA3100E66648578A7A9A9C4B /* PatternDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE22427D77F487AF958E647 /* PatternDetectionService.swift */; };
+		DC79FE1D1CA6F8CA8B9EF123 /* APPSTORE.md in Resources */ = {isa = PBXBuildFile; fileRef = 287B5956633973E541E54EA4 /* APPSTORE.md */; };
 		DE423FFA53391D4BFB63A126 /* BeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A87E5A62FC771ABB797C6 /* BeliefsView.swift */; };
 		E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */; };
 		E483717034518CE18A4DB680 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
@@ -142,6 +143,7 @@
 		1E93435111E0E0AD6DE72739 /* SocialChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialChallengeService.swift; sourceTree = "<group>"; };
 		215FEE996692F46A7C0F396C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefNetworkIllustration.swift; sourceTree = "<group>"; };
+		287B5956633973E541E54EA4 /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		28D4B306A6957E0E5FF826E7 /* MacEvidenceLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacEvidenceLibraryView.swift; sourceTree = "<group>"; };
 		2961E72BC1CC84330E670261 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		2BCCB2618D91FECEA61EB522 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				634250B23EF48AD623E6C491 /* Models.swift */,
 				AB5DBF23DE34E40C1EFF4A4D /* SettingsView.swift */,
 				392FAD52381E59CCA35E37AC /* Theme.swift */,
+				A9E0D0116C30EE0095625909 /* Marketing */,
 				48935338B2F41F50ED65DB1A /* Services */,
 				67A131E191134A5BC89F68F8 /* Sources */,
 			);
@@ -367,6 +370,14 @@
 			);
 			name = Resources;
 			path = Axiom/Resources;
+			sourceTree = "<group>";
+		};
+		A9E0D0116C30EE0095625909 /* Marketing */ = {
+			isa = PBXGroup;
+			children = (
+				287B5956633973E541E54EA4 /* APPSTORE.md */,
+			);
+			path = Marketing;
 			sourceTree = "<group>";
 		};
 		DD66D86225668FBC90C55681 /* Sources */ = {
@@ -480,6 +491,7 @@
 			buildConfigurationList = 49F60858EC2440884D604615 /* Build configuration list for PBXNativeTarget "AxiomIOSMac" */;
 			buildPhases = (
 				62C758A275EF1EBF35A4C36C /* Sources */,
+				AB36769CC4DC853A65E86437 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -577,6 +589,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB36769CC4DC853A65E86437 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC79FE1D1CA6F8CA8B9EF123 /* APPSTORE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
