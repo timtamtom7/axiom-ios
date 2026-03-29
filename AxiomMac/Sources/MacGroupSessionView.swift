@@ -634,10 +634,10 @@ struct NewSessionSheet: View {
                         .foregroundColor(Theme.textSecondary)
                 }
 
-                ToolbarItem(placement: .confirmationAction) {
+                ToolbarItem(placement: .primaryAction) {
                     Button("Start") {
                         let participants = participantNames
-                            .split                            .split(separator: ",")
+                            .split(separator: ",")
                             .map { $0.trimmingCharacters(in: .whitespaces) }
                             .filter { !$0.isEmpty }
                             .map { name in

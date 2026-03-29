@@ -20,8 +20,8 @@ struct MacContentView: View {
             detailView
         }
         .tint(Theme.accentGold)
-        .animation(.spring(response: 0.3), value: selectedBelief?.id)
-        .animation(.spring(response: 0.3), value: selectedTab)
+        .animation(accessibilityReduceMotion ? .none : .spring(response: 0.3), value: selectedBelief?.id)
+        .animation(accessibilityReduceMotion ? .none : .spring(response: 0.3), value: selectedTab)
         .keyboardShortcut("n", modifiers: .command)
         .onAppear {
             // Reset appear animations
@@ -46,15 +46,19 @@ struct MacContentView: View {
                                 appearScale: $beliefAppearScale
                             )
                             .onTapGesture {
-                                withAnimation(.spring(response: 0.25)) {
+                                withAnimation(accessibilityReduceMotion ? .none : .spring(response: 0.25)) {
                                     selectedBelief = belief
                                 }
                                 HapticService.shared.selection()
                             }
                             .accessibilityElement(children: .combine)
-                            .accessibilityLabel("\(belief.text), score \(Int(belief.score))")
+                            .accessibilityLabel("Belief: \(belief.text). Score: \(Int(belief.score)) percent. \(belief.supportingCount) supporting evidence. \(belief.contradictingCount) contradicting evidence.")
                             .accessibilityHint("Double tap to view belief details")
                             .accessibilityAddTraits(.isButton)
+                            .accessibilityAction(named: "Add Evidence") {
+                                selectedBelief = belief
+                                showingAddBelief = false
+                            }
                         }
                     }
                 }
@@ -108,7 +112,7 @@ struct MacContentView: View {
         .sheet(isPresented: $showingAddBelief) {
             MacAddBeliefSheet { text, isCore, rootCause in
                 let newBelief = Belief(text: text, isCore: isCore, rootCause: rootCause)
-                withAnimation(.spring(response: 0.3)) {
+                withAnimation(accessibilityReduceMotion ? .none : .spring(response: 0.3)) {
                     databaseService.addBelief(newBelief)
                     selectedBelief = newBelief
                 }
@@ -215,7 +219,7 @@ struct MacBeliefRow: View {
         .opacity(appearScale == 1 ? 1 : 0)
         .onAppear {
             // Appear animation
-            withAnimation(.easeOut(duration: 0.3)) {
+            withAnimation(accessibilityReduceMotion ? .none : .easeOut(duration: 0.3)) {
                 appearScale = 1
             }
             // Score animate-in
@@ -225,11 +229,11 @@ struct MacBeliefRow: View {
             let oldValue = displayedScore
             if abs(newValue - oldValue) > 1 {
                 // Pulse animation on score change
-                withAnimation(.easeInOut(duration: 0.1)) {
+                withAnimation(accessibilityReduceMotion ? .none : .easeInOut(duration: 0.1)) {
                     scorePulse = 1.15
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    withAnimation(.easeOut(duration: 0.1)) {
+                    withAnimation(accessibilityReduceMotion ? .none : .easeOut(duration: 0.1)) {
                         scorePulse = 1.0
                     }
                 }
@@ -245,7 +249,7 @@ struct MacBeliefRow: View {
 
         for i in 0..<steps {
             DispatchQueue.main.asyncAfter(deadline: .now() + stepDuration * Double(i)) {
-                withAnimation(.linear(duration: stepDuration)) {
+                withAnimation(accessibilityReduceMotion ? .none : .linear(duration: stepDuration)) {
                     displayedScore += increment
                 }
             }
@@ -301,7 +305,7 @@ struct MacBeliefDetailView: View {
                     sourceURL: url,
                     sourceLabel: label
                 )
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                withAnimation(accessibilityReduceMotion ? .none : .spring(response: 0.3, dampingFraction: 0.75)) {
                     databaseService.addEvidence(evidence)
                     // Trigger slide-in for new evidence
                     appearOffset = 30
@@ -420,7 +424,7 @@ struct MacBeliefDetailView: View {
                 ForEach(items) { item in
                     MacEvidenceRow(evidence: item)
                         .offset(x: appearOffset)
-                        .animation(.spring(response: 0.3, dampingFraction: 0.75), value: appearOffset)
+                        .animation(accessibilityReduceMotion ? .none : .spring(response: 0.3, dampingFraction: 0.75), value: appearOffset)
                 }
             }
         }

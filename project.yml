@@ -66,6 +66,7 @@ targets:
         INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright 2026"
         INFOPLIST_KEY_CFBundleDisplayName: "Axiom"
         COMBINE_HIDPI_IMAGES: YES
+        CODE_SIGN_ENTITLEMENTS: AxiomMac/AxiomMac.entitlements
     dependencies:
       - package: SQLite
       - sdk: SwiftUI.framework
