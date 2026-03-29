@@ -41,6 +41,68 @@ enum EvidenceType: String, Codable {
     case contradict
 }
 
+/// Cognitive distortion types for CBT-based belief analysis
+enum CognitiveDistortion: String, Codable, CaseIterable {
+    case allOrNothing          = "All-or-Nothing Thinking"
+    case catastrophizing       = "Catastrophizing"
+    case mindReading           = "Mind Reading"
+    case fortuneTelling        = "Fortune Telling"
+    case emotionalReasoning    = "Emotional Reasoning"
+    case shouldStatements      = "Should Statements"
+    case labeling              = "Labeling"
+    case magnification         = "Magnification/Minimization"
+    case overgeneralization    = "Overgeneralization"
+    case personalization       = "Personalization"
+    case mentalFilter          = "Mental Filter"
+    case discounting           = "Discounting the Positive"
+
+    var description: String {
+        switch self {
+        case .allOrNothing:       return "Seeing things in black and white categories"
+        case .catastrophizing:    return "Expecting the worst possible outcome"
+        case .mindReading:        return "Assuming you know what others think"
+        case .fortuneTelling:     return "Predicting things will go badly"
+        case .emotionalReasoning: return "Believing feelings reflect reality"
+        case .shouldStatements:   return "Using 'should' or 'must' demands"
+        case .labeling:           return "Attaching negative labels to yourself"
+        case .magnification:      return "Blowing things out of proportion"
+        case .overgeneralization: return "Making broad conclusions from single events"
+        case .personalization:    return "Taking blame for external events"
+        case .mentalFilter:       return "Focusing only on negatives"
+        case .discounting:        return "Rejecting positive experiences"
+        }
+    }
+
+    var gentleQuestion: String {
+        switch self {
+        case .allOrNothing:
+            return "Is there a middle ground between these two extremes?"
+        case .catastrophizing:
+            return "What's the most likely outcome, not the worst?"
+        case .mindReading:
+            return "What evidence do you have that they actually think that?"
+        case .fortuneTelling:
+            return "What evidence suggests this prediction will come true?"
+        case .emotionalReasoning:
+            return "Just because you feel it, does that make it true?"
+        case .shouldStatements:
+            return "What if you replaced 'should' with 'could'?"
+        case .labeling:
+            return "Is this label accurate, or is it an oversimplification?"
+        case .magnification:
+            return "Are you giving this appropriate weight?"
+        case .overgeneralization:
+            return "Does this single event really define the pattern?"
+        case .personalization:
+            return "What other factors might have contributed?"
+        case .mentalFilter:
+            return "What positives might you be overlooking?"
+        case .discounting:
+            return "Why might these positive experiences still count?"
+        }
+    }
+}
+
 enum ScoreLevel {
     case low, medium, high
     init(score: Double) {

@@ -15,22 +15,28 @@
 		0D276881933AF3278743C6B3 /* AIStressTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */; };
 		0DFB3453AF12C6868F1A9CEA /* BeliefListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */; };
 		0FD0DF0CEEDFEA23DDE2C552 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
+		1BAE54E32349D8EC614113FA /* PatternDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EA1794057C9DB65A6BE4A /* PatternDetectionService.swift */; };
 		1DA8F8C1054660C43E4EE78C /* BeliefDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */; };
+		2060078B37F28D54CFD4CE8F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD2CC0C89DDA8455C9AF6F7 /* DataService.swift */; };
 		28613C0F8B458C0A7ABDF090 /* AddBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */; };
 		2BE183B12066138E00A6642F /* AccessibilityHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9BC2D6E5EE5552F4D0A10 /* AccessibilityHelpers.swift */; };
+		2E206DD951B835E0CDDD8738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FEE996692F46A7C0F396C /* AppDelegate.swift */; };
 		2F40C2C7490956019A8E4901 /* MacEvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4B306A6957E0E5FF826E7 /* MacEvidenceLibraryView.swift */; };
 		330A25841B80B9A015BC1AC1 /* RetentionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650993D3FAA7D7D52595AA5D /* RetentionService.swift */; };
+		359CCCE222375D3F86DA15D4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5DBF23DE34E40C1EFF4A4D /* SettingsView.swift */; };
 		35B07FBC2E09FF7455B2B8C2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6857930A3C58AA93BA9D21C /* SubscriptionService.swift */; };
 		377185119AE08B03F553BA92 /* AxiomR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */; };
 		3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */; };
 		3F3E9D0EEA8575C206A2E7C4 /* BeliefSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521AC112DA7904E47A73164 /* BeliefSpatialView.swift */; };
 		41A111AD82DBB4B93D91520C /* AxiomR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */; };
+		43E3EA57AAA401BD1EB08BB7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634250B23EF48AD623E6C491 /* Models.swift */; };
 		444095E97B9E7CEF59A6A163 /* AIBeliefAgentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0222574E77CA1A1BFDACC63A /* AIBeliefAgentService.swift */; };
 		45D32C194181454FBC0D7471 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */; };
 		4AF393239145FE3862EB1648 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 0AEE43D913A6E7F26C0FEDD5 /* SQLite */; };
 		50608F62A574D831249C5FA3 /* AppleIntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC14075698FE4E7D1519FD0 /* AppleIntelligenceService.swift */; };
 		52533B4299D890909FDE05B6 /* HealthAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F5CBCDD5B777E0FD083D42 /* HealthAPIService.swift */; };
 		53F4C683C0E0C5CE35867170 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A6449F4AF5CE485CFA231 /* SkeletonView.swift */; };
+		5A126B21C21951646EDB8234 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392FAD52381E59CCA35E37AC /* Theme.swift */; };
 		5DFAC632C87838967B366BBB /* MacHealthCorrelationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69D8E95A31ECFCC48E11AE /* MacHealthCorrelationView.swift */; };
 		5EB7D66E899A2827B700DED1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95077803B70F80DAF6A1BD5B /* SubscriptionView.swift */; };
 		60D078B747E2E0EF2DBA8E2A /* AnonymousSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149D46D85EE1780DC63ED51 /* AnonymousSharing.swift */; };
@@ -47,11 +53,14 @@
 		709447B49F5AF7DF4EF48ED4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62715717840E23A76FAEB07C /* SwiftUI.framework */; };
 		72FC803EDE894E64D028DB49 /* AIStressTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */; };
 		74460B61322F96288C42F1DF /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
+		76128D669B06EF109E1824D7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591FC0F489E9BD4D4C3C278 /* main.swift */; };
 		76D314FC818895768CF2BC28 /* StreakService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B706A3764F4A9114E9CA2FB /* StreakService.swift */; };
 		77BA7D77CAF782BECF7D9339 /* EvidenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */; };
 		7A2FA62A515E1CD72614D609 /* BeliefMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */; };
 		7C2BD31CE0B8EDB1FDFFA48C /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6857930A3C58AA93BA9D21C /* SubscriptionService.swift */; };
+		7CCAB7B56E57036F8F80842E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07229B487666323362ABBF66 /* ContentView.swift */; };
 		7E4ADB0F8E644CDF3AF7B10C /* MenuBarExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB272C02A31B1AE6D5CA74F0 /* MenuBarExtraView.swift */; };
+		893C466E33AF5D6C58AAC250 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D51402EF5205106EF398E /* CommunityView.swift */; };
 		8BE2A77DB107E71F46C709EF /* LocationPatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F5546B095F9A810083750 /* LocationPatternService.swift */; };
 		8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */; };
 		8D5924709887B268FA1EF0CB /* MacGroupBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A08F304E23B178195FB172 /* MacGroupBeliefView.swift */; };
@@ -61,6 +70,7 @@
 		94942E37A28A715949E8608E /* LocationPatternService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F5546B095F9A810083750 /* LocationPatternService.swift */; };
 		99900117D498A73A77D1D8F0 /* BeliefEvolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */; };
 		9D14AFC6044FCC1C318104B0 /* AnonymousSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149D46D85EE1780DC63ED51 /* AnonymousSharing.swift */; };
+		9F09FD71440EE65F64647829 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCB2618D91FECEA61EB522 /* InsightsView.swift */; };
 		A00F06DF107C00F216283F47 /* AIStressTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */; };
 		A1E3645E3E4FEE49B7169F38 /* CalendarIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B6A2E7D48376707639CFBA /* CalendarIntegrationService.swift */; };
 		A465B76CFA0D75A4FC6E6077 /* AccessibilityHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9BC2D6E5EE5552F4D0A10 /* AccessibilityHelpers.swift */; };
@@ -91,15 +101,18 @@
 		D5E60BBBB45C1EA930535CB9 /* HealthIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44395E2AA29651E0371DE8AC /* HealthIntegrationService.swift */; };
 		D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
 		DA3100E66648578A7A9A9C4B /* PatternDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE22427D77F487AF958E647 /* PatternDetectionService.swift */; };
+		DE423FFA53391D4BFB63A126 /* BeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A87E5A62FC771ABB797C6 /* BeliefsView.swift */; };
 		E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */; };
 		E483717034518CE18A4DB680 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C14D16AA114FB10DA72A66 /* Theme.swift */; };
 		E6560778B2B01922ECB64515 /* LegacyDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B22DD5B5F5AEBEC6C428 /* LegacyDocumentView.swift */; };
 		E8E9F1EFDB2FEAE0507B9B7A /* EHRIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769E82014EB2D7C5335463A /* EHRIntegrationService.swift */; };
 		E9C989CEEF27721E2EF5C074 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436824344809CDD63681C64 /* HapticService.swift */; };
 		EAAD67ABFB9889468A184C6B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = A61E28D32758E634DE6F3652 /* SQLite */; };
+		EFCF40851DA8143642635B51 /* AIBeliefService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4E4BF1EEE26079B3919A56 /* AIBeliefService.swift */; };
 		EFFF32B53F0B764E110F40E9 /* MacBeliefEvolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120EDF3EEBD9CB51259369C /* MacBeliefEvolutionView.swift */; };
 		F3FF7AECC6B2C4F46F465DE1 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F626381109511C1289B3FE6 /* LocalizationService.swift */; };
 		F4324693F6EBCAF668EADB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE80DF76D47DD266FBBB012D /* Assets.xcassets */; };
+		F4BB188B3ADEE570924242C5 /* CBTExerciseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C00209B2C0330D13ED095 /* CBTExerciseService.swift */; };
 		F58308E95885793FD29381CA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */; };
 		F6BDDC1D3EE144862908A846 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
 		F76DFB16C7AA4E042595AE30 /* MacWorkshopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728815EFB27CE722FBF3D262 /* MacWorkshopView.swift */; };
@@ -117,18 +130,23 @@
 		02507C1529E7F2350C92B5DF /* MacCommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCommunityView.swift; sourceTree = "<group>"; };
 		02A08F304E23B178195FB172 /* MacGroupBeliefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacGroupBeliefView.swift; sourceTree = "<group>"; };
 		045349855DAE78732BF589F5 /* MacLeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLeaderboardView.swift; sourceTree = "<group>"; };
+		07229B487666323362ABBF66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		10EAB70D23B9098D632842AB /* MacSupportCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSupportCirclesView.swift; sourceTree = "<group>"; };
 		14100B3B7A0E067F5B2DC6CD /* Belief.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Belief.swift; sourceTree = "<group>"; };
 		14FA61AFFE1F957BF06936B0 /* MacCorrelationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCorrelationsView.swift; sourceTree = "<group>"; };
 		18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		1BF9BC2D6E5EE5552F4D0A10 /* AccessibilityHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelpers.swift; sourceTree = "<group>"; };
 		1E93435111E0E0AD6DE72739 /* SocialChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialChallengeService.swift; sourceTree = "<group>"; };
+		215FEE996692F46A7C0F396C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefNetworkIllustration.swift; sourceTree = "<group>"; };
 		28D4B306A6957E0E5FF826E7 /* MacEvidenceLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacEvidenceLibraryView.swift; sourceTree = "<group>"; };
 		2961E72BC1CC84330E670261 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		2BCCB2618D91FECEA61EB522 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		2D622426577CF5CBB9F8CC8E /* BeliefEvolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefEvolutionView.swift; sourceTree = "<group>"; };
 		2ED388D7BEDC24F04A8F5BC8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		304D51402EF5205106EF398E /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceRow.swift; sourceTree = "<group>"; };
+		392FAD52381E59CCA35E37AC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		398C8A330CD082853F7F9644 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		3F626381109511C1289B3FE6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		4120EDF3EEBD9CB51259369C /* MacBeliefEvolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacBeliefEvolutionView.swift; sourceTree = "<group>"; };
@@ -138,9 +156,11 @@
 		44395E2AA29651E0371DE8AC /* HealthIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthIntegrationService.swift; sourceTree = "<group>"; };
 		446A6449F4AF5CE485CFA231 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		4521AC112DA7904E47A73164 /* BeliefSpatialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefSpatialView.swift; sourceTree = "<group>"; };
+		518C00209B2C0330D13ED095 /* CBTExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBTExerciseService.swift; sourceTree = "<group>"; };
 		5A2F5546B095F9A810083750 /* LocationPatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPatternService.swift; sourceTree = "<group>"; };
 		62715717840E23A76FAEB07C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		62DA2F46C88379E994924E9B /* AxiomMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomMacApp.swift; sourceTree = "<group>"; };
+		634250B23EF48AD623E6C491 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefMapView.swift; sourceTree = "<group>"; };
 		650993D3FAA7D7D52595AA5D /* RetentionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetentionService.swift; sourceTree = "<group>"; };
 		677D60BAFAF38F635C5D233F /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
@@ -165,7 +185,11 @@
 		A220B22DD5B5F5AEBEC6C428 /* LegacyDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyDocumentView.swift; sourceTree = "<group>"; };
 		A2C14D16AA114FB10DA72A66 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A2DEE44DA71644B7B062CE82 /* Axiom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Axiom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A591FC0F489E9BD4D4C3C278 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A5ECAC1C74019E62EAF4F03E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		A80BF4AAD70666B4F324A1F9 /* AxiomIOSMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxiomIOSMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5DBF23DE34E40C1EFF4A4D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AD2A87E5A62FC771ABB797C6 /* BeliefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefsView.swift; sourceTree = "<group>"; };
 		AE80DF76D47DD266FBBB012D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedBeliefsView.swift; sourceTree = "<group>"; };
 		B3E5FB857C6B8B980687DFFD /* MacSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSubscriptionView.swift; sourceTree = "<group>"; };
@@ -180,15 +204,19 @@
 		CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseAdminView.swift; sourceTree = "<group>"; };
 		CAAE993DBFB345B0C8309E20 /* AxiomMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxiomMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D436824344809CDD63681C64 /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
+		D5F3C43ECD5D18E71250E5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DA3AA7FDFBD44638DA60F9E3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		DFD2CC0C89DDA8455C9AF6F7 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxiomR11Service.swift; sourceTree = "<group>"; };
 		E856E0AEB947E80BD02E22C3 /* BeliefTrajectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefTrajectoryView.swift; sourceTree = "<group>"; };
 		E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
 		EB272C02A31B1AE6D5CA74F0 /* MenuBarExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraView.swift; sourceTree = "<group>"; };
 		EBD98A98E908D69576D992F8 /* BeliefDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliefDetailViewModel.swift; sourceTree = "<group>"; };
 		EC69D8E95A31ECFCC48E11AE /* MacHealthCorrelationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHealthCorrelationView.swift; sourceTree = "<group>"; };
+		ED4E4BF1EEE26079B3919A56 /* AIBeliefService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBeliefService.swift; sourceTree = "<group>"; };
 		F3ECFF0A389ACDE59D3C1A35 /* MacSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSettingsView.swift; sourceTree = "<group>"; };
 		F87CEED6AE39C93FED0D880C /* LanguageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsView.swift; sourceTree = "<group>"; };
+		FA4EA1794057C9DB65A6BE4A /* PatternDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDetectionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +257,35 @@
 				8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3C1289AB55D2A3C84174DB7B /* AxiomIOSMac */ = {
+			isa = PBXGroup;
+			children = (
+				215FEE996692F46A7C0F396C /* AppDelegate.swift */,
+				AD2A87E5A62FC771ABB797C6 /* BeliefsView.swift */,
+				304D51402EF5205106EF398E /* CommunityView.swift */,
+				07229B487666323362ABBF66 /* ContentView.swift */,
+				DFD2CC0C89DDA8455C9AF6F7 /* DataService.swift */,
+				D5F3C43ECD5D18E71250E5D4 /* Info.plist */,
+				2BCCB2618D91FECEA61EB522 /* InsightsView.swift */,
+				A591FC0F489E9BD4D4C3C278 /* main.swift */,
+				634250B23EF48AD623E6C491 /* Models.swift */,
+				AB5DBF23DE34E40C1EFF4A4D /* SettingsView.swift */,
+				392FAD52381E59CCA35E37AC /* Theme.swift */,
+				48935338B2F41F50ED65DB1A /* Services */,
+			);
+			path = AxiomIOSMac;
+			sourceTree = "<group>";
+		};
+		48935338B2F41F50ED65DB1A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ED4E4BF1EEE26079B3919A56 /* AIBeliefService.swift */,
+				518C00209B2C0330D13ED095 /* CBTExerciseService.swift */,
+				FA4EA1794057C9DB65A6BE4A /* PatternDetectionService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		61CB9470CC895CE04C5B57AB /* Models */ = {
@@ -340,6 +397,7 @@
 		E466FB8228DFD93BCBFC6084 = {
 			isa = PBXGroup;
 			children = (
+				3C1289AB55D2A3C84174DB7B /* AxiomIOSMac */,
 				A33258CA747F1CCD5244D530 /* Resources */,
 				7D34C6CAF4812608ABFF9CD1 /* Services */,
 				FF05EB9E26A0D8A5333E44C0 /* Sources */,
@@ -378,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				A2DEE44DA71644B7B062CE82 /* Axiom.app */,
+				A80BF4AAD70666B4F324A1F9 /* AxiomIOSMac.app */,
 				CAAE993DBFB345B0C8309E20 /* AxiomMac.app */,
 			);
 			name = Products;
@@ -399,6 +458,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		31BC3BE52DB60701F0B16644 /* AxiomIOSMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F60858EC2440884D604615 /* Build configuration list for PBXNativeTarget "AxiomIOSMac" */;
+			buildPhases = (
+				62C758A275EF1EBF35A4C36C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AxiomIOSMac;
+			productName = AxiomIOSMac;
+			productReference = A80BF4AAD70666B4F324A1F9 /* AxiomIOSMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		42DA805BF58037847D732F96 /* Axiom */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9C15438728782605AB9C5E7 /* Build configuration list for PBXNativeTarget "Axiom" */;
@@ -447,6 +521,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					31BC3BE52DB60701F0B16644 = {
+						ProvisioningStyle = Manual;
+					};
 					42DA805BF58037847D732F96 = {
 						DevelopmentTeam = "";
 					};
@@ -471,6 +548,7 @@
 			projectRoot = "";
 			targets = (
 				42DA805BF58037847D732F96 /* Axiom */,
+				31BC3BE52DB60701F0B16644 /* AxiomIOSMac */,
 				6AF81502DAF4F0216F8E09C0 /* AxiomMac */,
 			);
 		};
@@ -488,6 +566,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		62C758A275EF1EBF35A4C36C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCF40851DA8143642635B51 /* AIBeliefService.swift in Sources */,
+				2E206DD951B835E0CDDD8738 /* AppDelegate.swift in Sources */,
+				DE423FFA53391D4BFB63A126 /* BeliefsView.swift in Sources */,
+				F4BB188B3ADEE570924242C5 /* CBTExerciseService.swift in Sources */,
+				893C466E33AF5D6C58AAC250 /* CommunityView.swift in Sources */,
+				7CCAB7B56E57036F8F80842E /* ContentView.swift in Sources */,
+				2060078B37F28D54CFD4CE8F /* DataService.swift in Sources */,
+				9F09FD71440EE65F64647829 /* InsightsView.swift in Sources */,
+				43E3EA57AAA401BD1EB08BB7 /* Models.swift in Sources */,
+				1BAE54E32349D8EC614113FA /* PatternDetectionService.swift in Sources */,
+				359CCCE222375D3F86DA15D4 /* SettingsView.swift in Sources */,
+				5A126B21C21951646EDB8234 /* Theme.swift in Sources */,
+				76128D669B06EF109E1824D7 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		661352C52B09920A1AA35484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,6 +833,27 @@
 			};
 			name = Release;
 		};
+		51C24AC8E9C7C885F926E247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AxiomIOSMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit.ios.mac;
+				PRODUCT_NAME = Axiom;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
 		6FC26C1234802FA2F9F93F6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -761,6 +880,27 @@
 				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
+		};
+		AFDBC55F75E877D698C656BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AxiomIOSMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.axiom.beliefaudit.ios.mac;
+				PRODUCT_NAME = Axiom;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
 		};
 		B371A42300E691BF75020B02 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -833,6 +973,15 @@
 			buildConfigurations = (
 				B371A42300E691BF75020B02 /* Debug */,
 				1EC8962AEF6F015EAC54E73C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		49F60858EC2440884D604615 /* Build configuration list for PBXNativeTarget "AxiomIOSMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDBC55F75E877D698C656BE /* Debug */,
+				51C24AC8E9C7C885F926E247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
