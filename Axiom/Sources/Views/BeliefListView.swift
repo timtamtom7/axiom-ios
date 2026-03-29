@@ -6,44 +6,20 @@ struct BeliefListView: View {
     @State private var showingAddBelief = false
     @State private var showingArchived = false
     @State private var showingUpgrade = false
+    @State private var isLoading = true
+    @State private var cardAppearScale: CGFloat = 0.95
 
     var body: some View {
         NavigationStack {
             ZStack {
                 Theme.background.ignoresSafeArea()
 
-                if viewModel.filteredBeliefs.isEmpty {
-                    VStack(spacing: Theme.spacingL) {
-                        BeliefNetworkIllustration(size: 180)
-                        EmptyStateView(
-                            icon: "brain",
-                            title: "No Beliefs Yet",
-                            subtitle: "Start by recording a belief you hold about yourself.",
-                            actionTitle: "Add First Belief"
-                        ) {
-                            showingAddBelief = true
-                        }
-                    }
+                if isLoading {
+                    loadingView
+                } else if viewModel.filteredBeliefs.isEmpty {
+                    emptyStateView
                 } else {
-                    ScrollView {
-                        LazyVStack(spacing: Theme.spacingM) {
-                            // Check-ins Due banner
-                            if !viewModel.beliefsDueForCheckIn.isEmpty {
-                                checkInsDueBanner
-                            }
-                            ForEach(viewModel.filteredBeliefs) { belief in
-                                NavigationLink(destination: BeliefDetailView(belief: belief)) {
-                                    BeliefCard(
-                                        belief: belief,
-                                        connectionCount: viewModel.connectionCount(for: belief.id)
-                                    )
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                        .padding(.horizontal, Theme.screenMargin)
-                        .padding(.top, Theme.spacingM)
-                    }
+                    beliefListContent
                 }
             }
             .navigationTitle("Axiom")
@@ -51,8 +27,7 @@ struct BeliefListView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.impactOccurred()
+                        HapticService.shared.selection()
                         if subscriptionService.canAddBelief {
                             showingAddBelief = true
                         } else {
@@ -63,12 +38,12 @@ struct BeliefListView: View {
                             .font(.headline)
                     }
                     .accessibilityLabel("Add new belief")
+                    .keyboardShortcut("n", modifiers: .command)
                 }
                 ToolbarItem(placement: .secondaryAction) {
                     if viewModel.archivedBeliefs.count > 0 {
                         Button {
-                            let generator = UIImpactFeedbackGenerator(style: .light)
-                            generator.impactOccurred()
+                            HapticService.shared.selection()
                             showingArchived = true
                         } label: {
                             HStack(spacing: 4) {
@@ -93,6 +68,69 @@ struct BeliefListView: View {
             .sheet(isPresented: $showingUpgrade) {
                 SubscriptionView()
             }
+            .onAppear {
+                // Simulate initial load for skeleton demo
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        isLoading = false
+                    }
+                }
+            }
+        }
+    }
+
+    private var loadingView: some View {
+        ScrollView {
+            LazyVStack(spacing: Theme.spacingM) {
+                ForEach(0..<4, id: \.self) { _ in
+                    SkeletonBeliefCard()
+                }
+            }
+            .padding(.horizontal, Theme.screenMargin)
+            .padding(.top, Theme.spacingM)
+        }
+    }
+
+    private var emptyStateView: some View {
+        VStack(spacing: Theme.spacingL) {
+            BeliefNetworkIllustration(size: 180)
+            EmptyStateView(
+                icon: "brain",
+                title: "No Beliefs Yet",
+                subtitle: "Start by recording a belief you hold about yourself.",
+                actionTitle: "Add First Belief"
+            ) {
+                showingAddBelief = true
+            }
+        }
+    }
+
+    private var beliefListContent: some View {
+        ScrollView {
+            LazyVStack(spacing: Theme.spacingM) {
+                // Check-ins Due banner
+                if !viewModel.beliefsDueForCheckIn.isEmpty {
+                    checkInsDueBanner
+                }
+                ForEach(Array(viewModel.filteredBeliefs.enumerated()), id: \.element.id) { index, belief in
+                    NavigationLink(destination: BeliefDetailView(belief: belief)) {
+                        BeliefCard(
+                            belief: belief,
+                            connectionCount: viewModel.connectionCount(for: belief.id)
+                        )
+                        .scaleEffect(cardAppearScale)
+                        .opacity(cardAppearScale == 1 ? 1 : 0)
+                    }
+                    .buttonStyle(.plain)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.3).delay(Double(index) * 0.05)) {
+                            cardAppearScale = 1
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, Theme.screenMargin)
+            .padding(.top, Theme.spacingM)
         }
     }
 

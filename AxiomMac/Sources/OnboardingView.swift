@@ -27,7 +27,7 @@ struct OnboardingView: View {
                     GetStartedPage(isOnboarding: $isOnboarding)
                         .tag(4)
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never))
+
                 .animation(.easeInOut, value: currentPage)
                 
                 // Page indicator + navigation
@@ -208,10 +208,10 @@ struct CoreBeliefsPage: View {
                 .padding(.horizontal, 48)
             
             VStack(alignment: .leading, spacing: 12) {
-                CoreBeliefSuggestion("I am not good enough")
-                CoreBeliefSuggestion("I can't trust people")
-                CoreBeliefSuggestion("I don't deserve love")
-                CoreBeliefSuggestion("I must be perfect to be valued")
+                CoreBeliefSuggestion(text: "I am not good enough")
+                CoreBeliefSuggestion(text: "I can't trust people")
+                CoreBeliefSuggestion(text: "I don't deserve love")
+                CoreBeliefSuggestion(text: "I must be perfect to be valued")
             }
             .padding(.horizontal, 64)
             

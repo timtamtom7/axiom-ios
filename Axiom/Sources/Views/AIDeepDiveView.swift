@@ -89,9 +89,8 @@ struct AIDeepDiveView: View {
                         }
 
                         if aiService.isLoading {
-                            HStack {
-                                ProgressView()
-                                    .tint(Theme.accentBlue)
+                            HStack(spacing: Theme.spacingS) {
+                                ThinkingIndicator()
                                 Text("Thinking…")
                                     .font(.caption)
                                     .foregroundColor(Theme.textSecondary)
@@ -155,6 +154,8 @@ struct MessageBubble: View {
     let message: AIStressTestService.ConversationMessage
 
     private var isUser: Bool { message.role == .user }
+    @State private var displayedText: String = ""
+    @State private var typewriterProgress: CGFloat = 0
 
     var body: some View {
         HStack {
@@ -173,7 +174,7 @@ struct MessageBubble: View {
                         .foregroundColor(Theme.textSecondary)
                 }
 
-                Text(message.text)
+                Text(displayedText)
                     .font(.callout)
                     .foregroundColor(isUser ? Theme.textPrimary : Theme.textPrimary)
                     .padding(.horizontal, Theme.spacingM)
@@ -185,6 +186,70 @@ struct MessageBubble: View {
             if !isUser { Spacer(minLength: 60) }
         }
         .frame(maxWidth: .infinity, alignment: isUser ? .trailing : .leading)
+        .onAppear {
+            if isUser {
+                // User messages appear instantly
+                displayedText = message.text
+            } else {
+                // AI messages use typewriter effect
+                typewriterEffect(for: message.text)
+            }
+        }
+        .onChange(of: message.text) { _, newValue in
+            displayedText = newValue
+        }
+    }
+
+    private func typewriterEffect(for text: String) {
+        displayedText = ""
+        let characters = Array(text)
+        let stepDuration = 0.03 // 30ms per character
+
+        for (index, char) in characters.enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + stepDuration * Double(index)) {
+                withAnimation(.linear(duration: 0.05)) {
+                    displayedText += String(char)
+                }
+            }
+        }
+    }
+}
+
+/// Pulsing dots indicator for AI "thinking" state
+struct ThinkingIndicator: View {
+    @State private var isAnimating = false
+    @State private var dotOpacities: [CGFloat] = [0.3, 0.3, 0.3]
+
+    var body: some View {
+        HStack(spacing: 4) {
+            ForEach(0..<3, id: \.self) { index in
+                Circle()
+                    .fill(Theme.accentBlue)
+                    .frame(width: 6, height: 6)
+                    .opacity(dotOpacities[index])
+            }
+        }
+        .onAppear {
+            animateDots()
+        }
+    }
+
+    private func animateDots() {
+        // Sequential wave: each dot pulses in turn
+        for i in 0..<3 {
+            let delay = Double(i) * 0.2
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                withAnimation(.easeInOut(duration: 0.3).repeatForever(autoreverses: true)) {
+                    dotOpacities[i] = 1.0
+                }
+            }
+            // After reaching full opacity, start fading
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay + 0.3) {
+                withAnimation(.easeInOut(duration: 0.3).repeatForever(autoreverses: true)) {
+                    dotOpacities[i] = 0.3
+                }
+            }
+        }
     }
 }
 

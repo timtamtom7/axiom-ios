@@ -159,8 +159,10 @@ struct MacCommunityView: View {
     private var detailView: some View {
         if let belief = selectedBelief {
             MacBeliefDebateView(belief: belief)
+                .transition(.opacity.combined(with: .scale(scale: 0.98, anchor: .top)))
         } else {
             placeholderView
+                .transition(.opacity)
         }
     }
 
@@ -170,10 +172,16 @@ struct MacCommunityView: View {
             VStack(spacing: Theme.spacingL) {
                 Image(systemName: "person.3.fill")
                     .font(.system(size: 64))
-                    .foregroundColor(Theme.textSecondary.opacity(0.3))
+                    .foregroundColor(Theme.textSecondary.opacity(0.2))
+                    .transition(.scale(scale: 0.9))
+
                 Text("Select a belief to view its debate thread")
                     .font(.title3)
                     .foregroundColor(Theme.textSecondary)
+
+                Text("⌘N to create a new belief")
+                    .font(.caption)
+                    .foregroundColor(Theme.textSecondary.opacity(0.6))
             }
         }
     }
@@ -573,7 +581,7 @@ struct MacCommunityPostSheet: View {
                             Image(systemName: "tray")
                                 .font(.system(size: 48))
                                 .foregroundColor(Theme.textSecondary.opacity(0.5))
-                            Text("No beliefs yet")
+                            Text("No Beliefs Yet")
                                 .font(.headline)
                                 .foregroundColor(Theme.textSecondary)
                             Text("Create a belief first, then share it here.")

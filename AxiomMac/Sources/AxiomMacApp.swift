@@ -15,6 +15,8 @@ struct AxiomMacApp: App {
                     .preferredColorScheme(.dark)
                     .onAppear {
                         checkRetentionTriggers()
+                        // Pre-warm haptic engine
+                        _ = HapticService.shared
                     }
             } else {
                 OnboardingView(isOnboarding: $hasCompletedOnboarding)
@@ -23,7 +25,19 @@ struct AxiomMacApp: App {
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         .commands {
-            CommandGroup(replacing: .newItem) { }
+            CommandGroup(replacing: .newItem) {
+                Button("New Belief") {
+                    // Handled via MacContentView's keyboard shortcut
+                }
+                .keyboardShortcut("n", modifiers: .command)
+            }
+
+            CommandGroup(after: .appSettings) {
+                Button("Settings") {
+                    // Settings action handled in views
+                }
+                .keyboardShortcut(",", modifiers: .command)
+            }
         }
 
         MenuBarExtra {

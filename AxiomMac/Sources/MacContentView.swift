@@ -4,6 +4,14 @@ struct MacContentView: View {
     @EnvironmentObject var databaseService: DatabaseService
     @State private var selectedBelief: Belief?
     @State private var showingAddBelief = false
+    @State private var selectedTab: SidebarTab = .beliefs
+    @State private var beliefAppearScale: CGFloat = 0.95
+    @State private var evidenceAppearOffset: CGFloat = 30
+
+    enum SidebarTab: Hashable {
+        case beliefs
+        case archived
+    }
 
     var body: some View {
         NavigationSplitView {
@@ -12,21 +20,42 @@ struct MacContentView: View {
             detailView
         }
         .tint(Theme.accentGold)
+        .animation(.spring(response: 0.3), value: selectedBelief?.id)
+        .animation(.spring(response: 0.3), value: selectedTab)
+        .keyboardShortcut("n", modifiers: .command)
+        .onAppear {
+            // Reset appear animations
+            beliefAppearScale = 0.95
+            evidenceAppearOffset = 30
+        }
     }
+
+    // MARK: - Sidebar
 
     private var sidebarView: some View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(spacing: Theme.spacingS) {
-                    ForEach(sortedBeliefs) { belief in
-                        MacBeliefRow(belief: belief, isSelected: selectedBelief?.id == belief.id)
+                    if sortedBeliefs.isEmpty && selectedTab == .beliefs {
+                        emptyBeliefsView
+                    } else {
+                        ForEach(sortedBeliefs) { belief in
+                            MacBeliefRow(
+                                belief: belief,
+                                isSelected: selectedBelief?.id == belief.id,
+                                appearScale: $beliefAppearScale
+                            )
                             .onTapGesture {
-                                selectedBelief = belief
+                                withAnimation(.spring(response: 0.25)) {
+                                    selectedBelief = belief
+                                }
+                                HapticService.shared.selection()
                             }
                             .accessibilityElement(children: .combine)
                             .accessibilityLabel("\(belief.text), score \(Int(belief.score))")
                             .accessibilityHint("Double tap to view belief details")
                             .accessibilityAddTraits(.isButton)
+                        }
                     }
                 }
                 .padding(Theme.screenMargin)
@@ -34,38 +63,73 @@ struct MacContentView: View {
 
             Divider()
 
-            Button {
-                showingAddBelief = true
-            } label: {
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                    Text("Add Belief")
-                }
-                .font(.subheadline)
-                .foregroundColor(Theme.accentGold)
-                .frame(maxWidth: .infinity)
-                .padding(Theme.spacingM)
-            }
-            .accessibilityLabel("Add new belief")
-            .accessibilityHint("Opens a sheet to create a new belief")
-            .sheet(isPresented: $showingAddBelief) {
-                MacAddBeliefSheet { text, isCore, rootCause in
-                    let newBelief = Belief(text: text, isCore: isCore, rootCause: rootCause)
-                    databaseService.addBelief(newBelief)
-                }
-            }
+            addBeliefButton
         }
         .frame(minWidth: 260, idealWidth: 300)
         .background(Theme.surface)
         .navigationTitle("Beliefs")
     }
 
+    private var emptyBeliefsView: some View {
+        VStack(spacing: Theme.spacingM) {
+            Image(systemName: "brain")
+                .font(.system(size: 36))
+                .foregroundColor(Theme.textSecondary.opacity(0.4))
+
+            Text("No beliefs yet")
+                .font(.subheadline)
+                .foregroundColor(Theme.textSecondary)
+
+            Text("Tap + to add your first belief")
+                .font(.caption)
+                .foregroundColor(Theme.textSecondary.opacity(0.7))
+        }
+        .padding(.vertical, Theme.spacingXL)
+        .frame(maxWidth: .infinity)
+    }
+
+    private var addBeliefButton: some View {
+        Button {
+            HapticService.shared.selection()
+            showingAddBelief = true
+        } label: {
+            HStack {
+                Image(systemName: "plus.circle.fill")
+                Text("Add Belief")
+            }
+            .font(.subheadline)
+            .foregroundColor(Theme.accentGold)
+            .frame(maxWidth: .infinity)
+            .padding(Theme.spacingM)
+        }
+        .accessibilityLabel("Add new belief")
+        .accessibilityHint("Opens a sheet to create a new belief")
+        .keyboardShortcut("n", modifiers: .command)
+        .sheet(isPresented: $showingAddBelief) {
+            MacAddBeliefSheet { text, isCore, rootCause in
+                let newBelief = Belief(text: text, isCore: isCore, rootCause: rootCause)
+                withAnimation(.spring(response: 0.3)) {
+                    databaseService.addBelief(newBelief)
+                    selectedBelief = newBelief
+                }
+                HapticService.shared.beliefCreated()
+            }
+        }
+    }
+
+    // MARK: - Detail
+
     @ViewBuilder
     private var detailView: some View {
         if let belief = selectedBelief {
-            MacBeliefDetailView(belief: belief)
+            MacBeliefDetailView(
+                belief: belief,
+                appearOffset: $evidenceAppearOffset
+            )
+            .transition(.opacity.combined(with: .scale(scale: 0.98, anchor: .top)))
         } else {
             placeholderView
+                .transition(.opacity)
         }
     }
 
@@ -75,17 +139,28 @@ struct MacContentView: View {
             VStack(spacing: Theme.spacingL) {
                 Image(systemName: "scale.3d")
                     .font(.system(size: 64))
-                    .foregroundColor(Theme.textSecondary.opacity(0.3))
+                    .foregroundColor(Theme.textSecondary.opacity(0.2))
+                    .transition(.scale(scale: 0.9))
+
                 Text("Select a belief to examine")
                     .font(.title3)
                     .foregroundColor(Theme.textSecondary)
+
+                Text("⌘N to create a new belief")
+                    .font(.caption)
+                    .foregroundColor(Theme.textSecondary.opacity(0.6))
             }
         }
     }
 
     private var sortedBeliefs: [Belief] {
         databaseService.allBeliefs
-            .filter { !$0.isArchived }
+            .filter {
+                switch selectedTab {
+                case .beliefs: return !$0.isArchived
+                case .archived: return $0.isArchived
+                }
+            }
             .sorted { $0.updatedAt > $1.updatedAt }
     }
 }
@@ -95,10 +170,15 @@ struct MacContentView: View {
 struct MacBeliefRow: View {
     let belief: Belief
     let isSelected: Bool
+    @Binding var appearScale: CGFloat
+
+    @State private var displayedScore: Double = 0
+    @State private var scorePulse: CGFloat = 1.0
 
     var body: some View {
         HStack(spacing: Theme.spacingM) {
-            ScoreBadge(score: belief.score)
+            ScoreBadge(score: displayedScore)
+                .scaleEffect(scorePulse)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(belief.text)
@@ -131,6 +211,45 @@ struct MacBeliefRow: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(isSelected ? Theme.accentGold.opacity(0.5) : Color.clear, lineWidth: 1)
         )
+        .scaleEffect(appearScale)
+        .opacity(appearScale == 1 ? 1 : 0)
+        .onAppear {
+            // Appear animation
+            withAnimation(.easeOut(duration: 0.3)) {
+                appearScale = 1
+            }
+            // Score animate-in
+            animateScore(to: belief.score)
+        }
+        .onChange(of: belief.score) { newValue in
+            let oldValue = displayedScore
+            if abs(newValue - oldValue) > 1 {
+                // Pulse animation on score change
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    scorePulse = 1.15
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    withAnimation(.easeOut(duration: 0.1)) {
+                        scorePulse = 1.0
+                    }
+                }
+                animateScore(to: newValue)
+            }
+        }
+    }
+
+    private func animateScore(to target: Double) {
+        let steps = 10
+        let stepDuration = 0.15 / Double(steps)
+        let increment = (target - displayedScore) / Double(steps)
+
+        for i in 0..<steps {
+            DispatchQueue.main.asyncAfter(deadline: .now() + stepDuration * Double(i)) {
+                withAnimation(.linear(duration: stepDuration)) {
+                    displayedScore += increment
+                }
+            }
+        }
     }
 }
 
@@ -141,6 +260,7 @@ struct MacBeliefDetailView: View {
     @EnvironmentObject var databaseService: DatabaseService
     @State private var showingAddEvidence = false
     @State private var showingDeepDive = false
+    @Binding var appearOffset: CGFloat
 
     private var currentBelief: Belief {
         databaseService.allBeliefs.first { $0.id == belief.id } ?? belief
@@ -162,12 +282,13 @@ struct MacBeliefDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
+                    HapticService.shared.selection()
                     showingAddEvidence = true
                 } label: {
                     Image(systemName: "plus.circle.fill")
                 }
                 .accessibilityLabel("Add evidence")
-                .accessibilityHint("Opens a sheet to add supporting or contradicting evidence")
+                .keyboardShortcut("e", modifiers: .command)
             }
         }
         .sheet(isPresented: $showingAddEvidence) {
@@ -180,7 +301,15 @@ struct MacBeliefDetailView: View {
                     sourceURL: url,
                     sourceLabel: label
                 )
-                databaseService.addEvidence(evidence)
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.75)) {
+                    databaseService.addEvidence(evidence)
+                    // Trigger slide-in for new evidence
+                    appearOffset = 30
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                        appearOffset = 0
+                    }
+                }
+                HapticService.shared.evidenceAdded()
             }
         }
         .sheet(isPresented: $showingDeepDive) {
@@ -226,6 +355,7 @@ struct MacBeliefDetailView: View {
 
     private var deepDiveButton: some View {
         Button {
+            HapticService.shared.selection()
             showingDeepDive = true
         } label: {
             Label("AI Deep Dive", systemImage: "bubble.left.and.bubble.right")
@@ -289,6 +419,8 @@ struct MacBeliefDetailView: View {
             } else {
                 ForEach(items) { item in
                     MacEvidenceRow(evidence: item)
+                        .offset(x: appearOffset)
+                        .animation(.spring(response: 0.3, dampingFraction: 0.75), value: appearOffset)
                 }
             }
         }
@@ -414,6 +546,7 @@ struct MacAddBeliefSheet: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
                         .foregroundColor(Theme.textSecondary)
+                        .keyboardShortcut(.escape)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
