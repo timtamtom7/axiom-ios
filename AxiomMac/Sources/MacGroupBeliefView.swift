@@ -105,7 +105,7 @@ struct MacGroupBeliefView: View {
                             .padding(.horizontal, Theme.spacingM)
                             .padding(.vertical, Theme.spacingS)
                             .background(selectedTab == tab ? Theme.accentGold.opacity(0.15) : Color.clear)
-                            .cornerRadius(Theme.cornerRadiusSmall)
+                            .cornerRadius(Theme.cornerRadiusS)
                     }
                     .buttonStyle(.plain)
                 }
@@ -337,9 +337,9 @@ struct ProjectCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
         .overlay(
-            RoundedRectangle(cornerRadius: Theme.cornerRadiusMedium)
+            RoundedRectangle(cornerRadius: Theme.cornerRadiusM)
                 .stroke(Theme.border, lineWidth: 1)
         )
     }
@@ -386,7 +386,7 @@ struct SessionCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -496,7 +496,7 @@ struct NewProjectSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
 
                     TextField("Description", text: $description, axis: .vertical)
                         .textFieldStyle(.plain)
@@ -504,7 +504,7 @@ struct NewProjectSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                         .lineLimit(2...4)
 
                     TextField("Target Belief (what are you working on together?)", text: $beliefText, axis: .vertical)
@@ -513,7 +513,7 @@ struct NewProjectSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                         .lineLimit(2...4)
 
                     Spacer()
@@ -601,7 +601,7 @@ struct WorkshopBuilderCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -658,7 +658,7 @@ struct WorkshopBuilderSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
 
                     TextField("Description", text: $description, axis: .vertical)
                         .textFieldStyle(.plain)
@@ -666,7 +666,7 @@ struct WorkshopBuilderSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                         .lineLimit(2...4)
 
                     Text("Add exercises after creation")

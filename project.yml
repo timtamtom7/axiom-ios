@@ -45,9 +45,9 @@ targets:
       - path: Axiom/Sources/Models
       - path: Axiom/Sources/Services
       - path: Axiom/Sources/App/Theme.swift
-      - path: Axiom/Sources/Views/Components
       - path: Axiom/Sources/Views/AIDeepDiveView.swift
       - path: Axiom/Sources/Views/AddEvidenceView.swift
+      - path: Axiom/Sources/Views/Components/ScoreBadge.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.axiom.beliefaudit.macos

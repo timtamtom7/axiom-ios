@@ -206,7 +206,7 @@ struct MacHealthCorrelationView: View {
                             .padding(.horizontal, Theme.spacingS)
                             .padding(.vertical, Theme.spacingXS)
                             .background(selectedChart == chart ? Theme.accentGold.opacity(0.15) : Color.clear)
-                            .cornerRadius(Theme.cornerRadiusSmall)
+                            .cornerRadius(Theme.cornerRadiusS)
                         }
                         .buttonStyle(.plain)
                     }
@@ -351,7 +351,7 @@ struct HealthKitFeature: View {
         .frame(maxWidth: .infinity)
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -382,7 +382,7 @@ struct StatCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -431,7 +431,7 @@ struct CorrelationLineChart: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 
     private var chartLegend: some View {
@@ -458,7 +458,7 @@ struct CorrelationLineChart: View {
         .padding(.horizontal, Theme.spacingS)
         .padding(.vertical, 4)
         .background(Theme.surfaceElevated.opacity(0.8))
-        .cornerRadius(Theme.cornerRadiusSmall)
+        .cornerRadius(Theme.cornerRadiusS)
     }
 
     private var primaryLabel: String {

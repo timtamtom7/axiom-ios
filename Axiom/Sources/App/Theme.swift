@@ -39,6 +39,7 @@ enum Theme {
     static let cornerRadiusXL: CGFloat = 16   // Extra large: modals
     static let cornerRadiusXXL: CGFloat = 20  // XXL: prominent elements
     static let cornerRadiusFull: CGFloat = 9999 // Full: pills, capsules
+    static let cornerRadiusPill: CGFloat = 20 // Pill: buttons, chips
 }
 
 extension Color {

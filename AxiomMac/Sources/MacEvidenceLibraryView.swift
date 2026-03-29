@@ -180,7 +180,9 @@ struct FilterToggle: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             Text(title)
                 .font(.caption)
                 .fontWeight(isSelected ? .semibold : .regular)

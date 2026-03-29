@@ -102,7 +102,7 @@ struct MacSupportCirclesView: View {
                             .padding(.horizontal, Theme.spacingM)
                             .padding(.vertical, Theme.spacingS)
                             .background(selectedTab == tab ? Theme.accentGold.opacity(0.15) : Color.clear)
-                            .cornerRadius(Theme.cornerRadiusSmall)
+                            .cornerRadius(Theme.cornerRadiusS)
                     }
                     .buttonStyle(.plain)
                 }
@@ -346,9 +346,9 @@ struct CircleCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
         .overlay(
-            RoundedRectangle(cornerRadius: Theme.cornerRadiusMedium)
+            RoundedRectangle(cornerRadius: Theme.cornerRadiusM)
                 .stroke(Theme.border, lineWidth: 1)
         )
     }
@@ -413,7 +413,7 @@ struct CheckInCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -476,7 +476,7 @@ struct CircleMembersCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -502,7 +502,7 @@ struct NewCircleSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
 
                     TextField("What belief are you working on together?", text: $focusBelief, axis: .vertical)
                         .textFieldStyle(.plain)
@@ -510,7 +510,7 @@ struct NewCircleSheet: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                         .lineLimit(2...4)
 
                     VStack(alignment: .leading, spacing: Theme.spacingS) {
@@ -582,7 +582,7 @@ struct JoinCircleBrowser: View {
                         .foregroundColor(Theme.textPrimary)
                         .padding(Theme.spacingM)
                         .background(Theme.surface)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                         .padding(Theme.screenMargin)
 
                     ScrollView {
@@ -659,6 +659,6 @@ struct JoinableCircleCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }

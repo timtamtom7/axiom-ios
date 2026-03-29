@@ -13,15 +13,12 @@
 		0D276881933AF3278743C6B3 /* AIStressTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453875B4CD2E7902AA64AE5 /* AIStressTestView.swift */; };
 		0DFB3453AF12C6868F1A9CEA /* BeliefListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C17C055AB0B2B8B08D6E596 /* BeliefListViewModel.swift */; };
 		0FD0DF0CEEDFEA23DDE2C552 /* AddEvidenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68DEBB969A792FC1D3F9BB5 /* AddEvidenceView.swift */; };
-		188C94126AE8AC3DF5C8BA6F /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		1DA8F8C1054660C43E4EE78C /* BeliefDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428E9C926E8B2137CC7E279 /* BeliefDetailView.swift */; };
 		28613C0F8B458C0A7ABDF090 /* AddBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882FFC34DC47ABBC4C6300 /* AddBeliefView.swift */; };
 		2F40C2C7490956019A8E4901 /* MacEvidenceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4B306A6957E0E5FF826E7 /* MacEvidenceLibraryView.swift */; };
 		330A25841B80B9A015BC1AC1 /* RetentionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650993D3FAA7D7D52595AA5D /* RetentionService.swift */; };
 		35B07FBC2E09FF7455B2B8C2 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6857930A3C58AA93BA9D21C /* SubscriptionService.swift */; };
 		377185119AE08B03F553BA92 /* AxiomR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */; };
-		3951667720D66247E24B6840 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2259B423A6AFBA3ECE33B /* EmptyStateView.swift */; };
-		3A2F4E6DA9C5C4565EDE6D20 /* BeliefNetworkIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26910457A0818E5C1BC806EF /* BeliefNetworkIllustration.swift */; };
 		3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA7F7A6F4E65B9BD9DA431 /* Evidence.swift */; };
 		3F3E9D0EEA8575C206A2E7C4 /* BeliefSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521AC112DA7904E47A73164 /* BeliefSpatialView.swift */; };
 		41A111AD82DBB4B93D91520C /* AxiomR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */; };
@@ -41,7 +38,6 @@
 		6D52D2CE88A69BA214D705F6 /* ArchivedBeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */; };
 		6EB9AB0F05506E85B5138C17 /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		6FD2EFCF76269017F79C6E0A /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
-		7014D0C668D16EAF2C3481B2 /* EvidenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525D661BC7D9D3FC90CF016 /* EvidenceRow.swift */; };
 		709447B49F5AF7DF4EF48ED4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62715717840E23A76FAEB07C /* SwiftUI.framework */; };
 		72FC803EDE894E64D028DB49 /* AIStressTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C7A87177DF2F1B5E1BD96 /* AIStressTestService.swift */; };
 		74460B61322F96288C42F1DF /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
@@ -422,14 +418,10 @@
 				6661CEAC32CA85DEAD7BA067 /* AxiomMacApp.swift in Sources */,
 				41A111AD82DBB4B93D91520C /* AxiomR11Service.swift in Sources */,
 				74460B61322F96288C42F1DF /* Belief.swift in Sources */,
-				188C94126AE8AC3DF5C8BA6F /* BeliefCard.swift in Sources */,
 				D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */,
 				8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */,
-				3A2F4E6DA9C5C4565EDE6D20 /* BeliefNetworkIllustration.swift in Sources */,
 				932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */,
-				3951667720D66247E24B6840 /* EmptyStateView.swift in Sources */,
 				3AFF610961CC88283D6FCA21 /* Evidence.swift in Sources */,
-				7014D0C668D16EAF2C3481B2 /* EvidenceRow.swift in Sources */,
 				F3FF7AECC6B2C4F46F465DE1 /* LocalizationService.swift in Sources */,
 				EFFF32B53F0B764E110F40E9 /* MacBeliefEvolutionView.swift in Sources */,
 				9468B4074685E6F2E3A1E1B1 /* MacCommunityView.swift in Sources */,

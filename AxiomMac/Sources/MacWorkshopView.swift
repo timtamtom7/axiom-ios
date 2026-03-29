@@ -175,7 +175,7 @@ struct MacWorkshopView: View {
                             .padding(.horizontal, Theme.spacingM)
                             .padding(.vertical, Theme.spacingS)
                             .background(selectedTab == tab ? Theme.accentGold.opacity(0.15) : Color.clear)
-                            .cornerRadius(Theme.cornerRadiusSmall)
+                            .cornerRadius(Theme.cornerRadiusS)
                     }
                     .buttonStyle(.plain)
                 }
@@ -434,7 +434,7 @@ struct WorkshopLibraryCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 
     private var exerciseTypeCounts: [ExerciseType: Int] {
@@ -537,7 +537,7 @@ struct WorkshopPlayerContent: View {
                     .frame(maxWidth: .infinity)
                     .padding(Theme.spacingM)
                     .background(Theme.accentGold)
-                    .cornerRadius(Theme.cornerRadiusMedium)
+                    .cornerRadius(Theme.cornerRadiusM)
             }
             .padding(.horizontal, Theme.screenMargin)
 
@@ -583,7 +583,7 @@ struct WorkshopPlayerContent: View {
                         .padding(.horizontal, Theme.spacingS)
                         .padding(.vertical, Theme.spacingXS)
                         .background(exercise.type.color.opacity(0.15))
-                        .cornerRadius(Theme.cornerRadiusSmall)
+                        .cornerRadius(Theme.cornerRadiusS)
 
                         Text(exercise.title)
                             .font(.title2)
@@ -679,7 +679,7 @@ struct WorkshopPlayerContent: View {
                         .frame(maxWidth: .infinity)
                         .padding(Theme.spacingM)
                         .background(Theme.accentGreen)
-                        .cornerRadius(Theme.cornerRadiusMedium)
+                        .cornerRadius(Theme.cornerRadiusM)
                 }
                 .padding(.horizontal, Theme.screenMargin)
             }
@@ -734,7 +734,7 @@ struct ScoreSlider: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -808,7 +808,7 @@ struct FacilitatorWorkshopPicker: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -872,7 +872,7 @@ struct FacilitatorParticipantsCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -931,7 +931,7 @@ struct FacilitatorControlsCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
 
@@ -995,6 +995,6 @@ struct OutcomeCard: View {
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)
-        .cornerRadius(Theme.cornerRadiusMedium)
+        .cornerRadius(Theme.cornerRadiusM)
     }
 }
