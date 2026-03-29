@@ -1,0 +1,19 @@
+name: AxiomVision
+options:
+  bundleIdPrefix: com.axiom
+  deploymentTarget:
+    visionOS: "1.0"
+
+targets:
+  AxiomVision:
+    type: application
+    platform: visionOS
+    sources:
+      - path: Sources
+      - path: ../Axiom/Sources/Models
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiom.vision
+        MARKETING_VERSION: "1.0.0"
+        SWIFT_VERSION: "6.0"
+        CODE_SIGN_IDENTITY: "-"
