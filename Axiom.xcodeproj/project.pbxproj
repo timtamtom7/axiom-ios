@@ -57,6 +57,7 @@
 		66C62E544FA619C6BCBD3E9F /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D60BAFAF38F635C5D233F /* ReportService.swift */; };
 		67B30328EE230A1A7B272A2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE383BD45158F8170FCE413E /* ContentView.swift */; };
 		6D52D2CE88A69BA214D705F6 /* ArchivedBeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5051C74381C861D9E6146 /* ArchivedBeliefsView.swift */; };
+		6E60E0DD53EF937F4AA75F54 /* CommunityCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C116264A5B9D6D110487B /* CommunityCirclesView.swift */; };
 		6EB9AB0F05506E85B5138C17 /* BeliefCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA11A1887E0955BDE53CEFF4 /* BeliefCard.swift */; };
 		6FD2EFCF76269017F79C6E0A /* Belief.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100B3B7A0E067F5B2DC6CD /* Belief.swift */; };
 		709447B49F5AF7DF4EF48ED4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62715717840E23A76FAEB07C /* SwiftUI.framework */; };
@@ -75,6 +76,7 @@
 		8C56E3016B46770E558E62D4 /* AIBeliefService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F8343A94FFD7DB9DE0EB8 /* AIBeliefService.swift */; };
 		8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020C6423AF9E0C7B3E30217 /* BeliefConnection.swift */; };
 		8D5924709887B268FA1EF0CB /* MacGroupBeliefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A08F304E23B178195FB172 /* MacGroupBeliefView.swift */; };
+		917888619BDB89469FF97B8C /* CommunityCircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD81EB8B3BC3A16FBFF2F3 /* CommunityCircleService.swift */; };
 		928D71FB47DD1D5302837F9D /* AIBeliefAgentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0222574E77CA1A1BFDACC63A /* AIBeliefAgentService.swift */; };
 		932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E161A47E08ABFC7B79457D /* DatabaseService.swift */; };
 		9468B4074685E6F2E3A1E1B1 /* MacCommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02507C1529E7F2350C92B5DF /* MacCommunityView.swift */; };
@@ -118,6 +120,7 @@
 		D7F6B706430B79D7D0EBDC61 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEB662CFFEDE3192E531F1 /* ScoreBadge.swift */; };
 		D90DF0DE6453D695FE8A3D4E /* SupportCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E762710CC2303F304D8FB5C3 /* SupportCircles.swift */; };
 		DA3100E66648578A7A9A9C4B /* PatternDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE22427D77F487AF958E647 /* PatternDetectionService.swift */; };
+		DAD2CBE26B07DFC87A79E655 /* CommunityCircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD81EB8B3BC3A16FBFF2F3 /* CommunityCircleService.swift */; };
 		DC79FE1D1CA6F8CA8B9EF123 /* APPSTORE.md in Resources */ = {isa = PBXBuildFile; fileRef = 287B5956633973E541E54EA4 /* APPSTORE.md */; };
 		DE423FFA53391D4BFB63A126 /* BeliefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2A87E5A62FC771ABB797C6 /* BeliefsView.swift */; };
 		E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA21E665A90B69F9F86FEED /* EnterpriseAdminView.swift */; };
@@ -183,6 +186,7 @@
 		45DCB7DEA4B2E6EF31053E6C /* AccountabilityPartners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountabilityPartners.swift; sourceTree = "<group>"; };
 		505937F54558BA703005C10A /* TherapistIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistIntegrationService.swift; sourceTree = "<group>"; };
 		518C00209B2C0330D13ED095 /* CBTExerciseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBTExerciseService.swift; sourceTree = "<group>"; };
+		529C116264A5B9D6D110487B /* CommunityCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCirclesView.swift; sourceTree = "<group>"; };
 		5A2F5546B095F9A810083750 /* LocationPatternService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPatternService.swift; sourceTree = "<group>"; };
 		623EC48E4466BBAF4BAE7DEE /* TherapistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapistService.swift; sourceTree = "<group>"; };
 		62715717840E23A76FAEB07C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -215,6 +219,7 @@
 		A220B22DD5B5F5AEBEC6C428 /* LegacyDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyDocumentView.swift; sourceTree = "<group>"; };
 		A2C14D16AA114FB10DA72A66 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A2DEE44DA71644B7B062CE82 /* Axiom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Axiom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3AD81EB8B3BC3A16FBFF2F3 /* CommunityCircleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCircleService.swift; sourceTree = "<group>"; };
 		A591FC0F489E9BD4D4C3C278 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A5ECAC1C74019E62EAF4F03E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		A80BF4AAD70666B4F324A1F9 /* AxiomIOSMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxiomIOSMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +374,7 @@
 				BFC14075698FE4E7D1519FD0 /* AppleIntelligenceService.swift */,
 				E2DA359B27A0569ED1766A1B /* AxiomR11Service.swift */,
 				79B6A2E7D48376707639CFBA /* CalendarIntegrationService.swift */,
+				A3AD81EB8B3BC3A16FBFF2F3 /* CommunityCircleService.swift */,
 				87E161A47E08ABFC7B79457D /* DatabaseService.swift */,
 				D436824344809CDD63681C64 /* HapticService.swift */,
 				44395E2AA29651E0371DE8AC /* HealthIntegrationService.swift */,
@@ -483,6 +489,7 @@
 				63FE0C9A7CA9EA96B1DB1269 /* BeliefMapView.swift */,
 				4521AC112DA7904E47A73164 /* BeliefSpatialView.swift */,
 				E856E0AEB947E80BD02E22C3 /* BeliefTrajectoryView.swift */,
+				529C116264A5B9D6D110487B /* CommunityCirclesView.swift */,
 				2961E72BC1CC84330E670261 /* CommunityView.swift */,
 				BA7F49675FB37DBF174C9C35 /* EvidenceLibraryView.swift */,
 				71AE8116EC4E7A71572459B2 /* InsightsDashboardView.swift */,
@@ -684,6 +691,7 @@
 				D263E08AD22AB98788C53BFE /* BeliefCheckpoint.swift in Sources */,
 				8C6A25A155B9E61138A98340 /* BeliefConnection.swift in Sources */,
 				A1E3645E3E4FEE49B7169F38 /* CalendarIntegrationService.swift in Sources */,
+				917888619BDB89469FF97B8C /* CommunityCircleService.swift in Sources */,
 				932C0B090EFC9910EC4AAA96 /* DatabaseService.swift in Sources */,
 				E8E9F1EFDB2FEAE0507B9B7A /* EHRIntegrationService.swift in Sources */,
 				E45D7F540B02242EEE37B74D /* EnterpriseAdminView.swift in Sources */,
@@ -757,6 +765,8 @@
 				3F3E9D0EEA8575C206A2E7C4 /* BeliefSpatialView.swift in Sources */,
 				BA06B95A9E2EDEBEAB7AA8DA /* BeliefTrajectoryView.swift in Sources */,
 				CC6330CB021D409B8ED29A84 /* CalendarIntegrationService.swift in Sources */,
+				DAD2CBE26B07DFC87A79E655 /* CommunityCircleService.swift in Sources */,
+				6E60E0DD53EF937F4AA75F54 /* CommunityCirclesView.swift in Sources */,
 				C0D45AB00A7C13C82A217529 /* CommunityView.swift in Sources */,
 				67B30328EE230A1A7B272A2D /* ContentView.swift in Sources */,
 				B74E21872BDC916090E88011 /* DatabaseService.swift in Sources */,

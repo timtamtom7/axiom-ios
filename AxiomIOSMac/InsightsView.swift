@@ -2,6 +2,8 @@ import SwiftUI
 
 struct InsightsView: View {
     @StateObject private var dataService = DataService.shared
+    @StateObject private var beliefService = AIBeliefService.shared
+    @StateObject private var patternService = PatternDetectionService.shared
     @State private var selectedTimeRange = 0
 
     var body: some View {
@@ -16,7 +18,7 @@ struct InsightsView: View {
                 .pickerStyle(.segmented)
 
                 // AI Analysis Card
-                AIAnalysisCard()
+                AIAnalysisCard(beliefs: dataService.beliefs, beliefService: beliefService)
 
                 // Belief Trajectory
                 BeliefTrajectoryCard(beliefs: dataService.beliefs)
@@ -25,7 +27,10 @@ struct InsightsView: View {
                 WeeklySynthesisCard(beliefs: dataService.beliefs)
 
                 // Thought Patterns
-                ThoughtPatternsCard()
+                ThoughtPatternsCard(patternService: patternService, beliefs: dataService.beliefs)
+
+                // Cognitive Distortions
+                CognitiveDistortionsCard(beliefs: dataService.beliefs, beliefService: beliefService)
             }
             .padding(20)
         }
@@ -34,7 +39,10 @@ struct InsightsView: View {
 }
 
 struct AIAnalysisCard: View {
+    let beliefs: [Belief]
+    @ObservedObject var beliefService: AIBeliefService
     @State private var isExpanded = false
+    @State private var insights: [AIInsight] = []
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -55,21 +63,28 @@ struct AIAnalysisCard: View {
                 }
             }
 
+            if !insights.isEmpty {
+                ForEach(insights.prefix(3)) { insight in
+                    InsightRow(icon: insight.icon, color: insight.color, text: insight.text)
+                }
+            } else if beliefs.isEmpty {
+                Text("Add beliefs to receive AI analysis")
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
+            }
+
             if isExpanded {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Based on your evidence patterns:")
                         .font(.system(size: 11))
                         .foregroundColor(.secondary)
 
-                    InsightRow(icon: "exclamationmark.triangle.fill", color: Theme.accentGold,
-                               text: "Your belief \"I should put others first\" shows cognitive distortion: false dilemma")
-                    InsightRow(icon: "arrow.triangle.swap", color: Theme.accentBlue,
-                               text: "\"I'm not good enough\" correlates with negative self-talk triggered by criticism")
-                    InsightRow(icon: "checkmark.seal.fill", color: Theme.accentGreen,
-                               text: "Strongest belief: \"I am a good friend\" — well-supported by evidence")
+                    ForEach(insights) { insight in
+                        InsightRow(icon: insight.icon, color: insight.color, text: insight.text)
+                    }
 
                     Button {
-                        // Refresh analysis
+                        refreshInsights()
                     } label: {
                         HStack {
                             Image(systemName: "arrow.clockwise")
@@ -86,7 +101,61 @@ struct AIAnalysisCard: View {
         .background(Theme.cardBg)
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
+        .onAppear { refreshInsights() }
     }
+
+    private func refreshInsights() {
+        insights = generateInsights(from: beliefs)
+    }
+
+    private func generateInsights(from beliefs: [Belief]) -> [AIInsight] {
+        var result: [AIInsight] = []
+
+        for belief in beliefs {
+            let distortions = beliefService.detectDistortions(in: belief.text)
+            if let first = distortions.first {
+                result.append(AIInsight(
+                    icon: "exclamationmark.triangle.fill",
+                    color: Theme.accentGold,
+                    text: "\"\(belief.text.prefix(40))...\" shows: \(first.type.rawValue)"
+                ))
+            }
+        }
+
+        let sentiment = beliefs.prefix(3).map { beliefService.analyzeSentiment(of: $0.text) }
+        let avgScore = sentiment.isEmpty ? 0 : sentiment.map(\.score).reduce(0, +) / Double(sentiment.count)
+        if avgScore < -0.2 {
+            result.append(AIInsight(
+                icon: "heart.fill",
+                color: Theme.accentRed,
+                text: "Your recent beliefs lean negative (\(String(format: "%.0f", avgScore * 100))% score). Consider exploring more balanced perspectives."
+            ))
+        } else if avgScore > 0.2 {
+            result.append(AIInsight(
+                icon: "checkmark.seal.fill",
+                color: Theme.accentGreen,
+                text: "Your recent beliefs show positive emotional tone — well done!"
+            ))
+        }
+
+        let patterns = beliefService.detectPatternsAcrossBeliefs(beliefs)
+        if let topPattern = patterns.first {
+            result.append(AIInsight(
+                icon: "waveform.path.ecg",
+                color: Theme.accentBlue,
+                text: topPattern.title + ": " + topPattern.description.prefix(60) + "..."
+            ))
+        }
+
+        return result
+    }
+}
+
+struct AIInsight: Identifiable {
+    let id = UUID()
+    let icon: String
+    let color: Color
+    let text: String
 }
 
 struct InsightRow: View {
@@ -224,7 +293,9 @@ struct SynthesisRow: View {
 }
 
 struct ThoughtPatternsCard: View {
-    let patterns: [ThoughtPattern] = ThoughtPattern.samples()
+    @ObservedObject var patternService: PatternDetectionService
+    let beliefs: [Belief]
+    @State private var patterns: [PatternDetectionService.Pattern] = []
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -238,25 +309,112 @@ struct ThoughtPatternsCard: View {
                 Spacer()
             }
 
-            ForEach(patterns) { pattern in
-                HStack(spacing: 10) {
-                    Circle()
-                        .fill(pattern.severityColor)
-                        .frame(width: 8, height: 8)
-                    Text(pattern.name)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Theme.navy)
-                    Spacer()
-                    Text(pattern.frequency)
-                        .font(.system(size: 10))
-                        .foregroundColor(.secondary)
+            if !patterns.isEmpty {
+                ForEach(patterns.prefix(4)) { pattern in
+                    HStack(spacing: 10) {
+                        Circle()
+                            .fill(Color(hex: pattern.color) ?? Theme.accentGold)
+                            .frame(width: 8, height: 8)
+                        Text(pattern.title)
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Theme.navy)
+                        Spacer()
+                        Image(systemName: pattern.type.icon)
+                            .font(.system(size: 10))
+                            .foregroundColor(.secondary)
+                    }
                 }
+            } else {
+                Text("Add more beliefs to detect patterns")
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
             }
         }
         .padding(16)
         .background(Theme.cardBg)
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
+        .onAppear { loadPatterns() }
+    }
+
+    private func loadPatterns() {
+        patterns = patternService.analyzeAllPatterns(in: beliefs)
+    }
+}
+
+struct CognitiveDistortionsCard: View {
+    let beliefs: [Belief]
+    @ObservedObject var beliefService: AIBeliefService
+    @State private var allDistortions: [DetectedDistortion] = []
+    @State private var isExpanded = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "brain")
+                    .font(.system(size: 14))
+                    .foregroundColor(Theme.gold)
+                Text("Cognitive Distortions")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(Theme.navy)
+                Spacer()
+                Text("\(allDistortions.count) detected")
+                    .font(.system(size: 10))
+                    .foregroundColor(.secondary)
+            }
+
+            let grouped = Dictionary(grouping: allDistortions, by: \.type)
+            ForEach(Array(grouped.keys.prefix(3)), id: \.self) { type in
+                if let items = grouped[type], let first = items.first {
+                    HStack(spacing: 10) {
+                        Image(systemName: type.icon)
+                            .font(.system(size: 12))
+                            .foregroundColor(Color(hex: first.severity.color) ?? Theme.accentGold)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(type.rawValue)
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundColor(Theme.navy)
+                            Text(first.socraticChallenge)
+                                .font(.system(size: 10))
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                        }
+                    }
+                }
+            }
+
+            if allDistortions.isEmpty {
+                Text("No distortions detected — keep adding beliefs!")
+                    .font(.system(size: 11))
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(16)
+        .background(Theme.cardBg)
+        .cornerRadius(12)
+        .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
+        .onAppear { detectDistortions() }
+    }
+
+    private func detectDistortions() {
+        var all: [DetectedDistortion] = []
+        for belief in beliefs {
+            all.append(contentsOf: beliefService.detectDistortions(in: belief.text))
+        }
+        allDistortions = all
+    }
+}
+
+extension Color {
+    init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+        var rgb: UInt64 = 0
+        guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else { return nil }
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double(rgb & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
     }
 }
 

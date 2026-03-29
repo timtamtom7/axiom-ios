@@ -72,12 +72,12 @@ struct GuidedExercise: Identifiable, Codable {
     var isCompleted: Bool
     let createdAt: Date
     var completedAt: Date?
-    var steps: [ExerciseStep]
+    var steps: [GuidedExerciseStep]
     var linkedBeliefId: UUID?
     var assignedByTherapist: Bool
 }
 
-struct ExerciseStep: Identifiable, Codable {
+struct GuidedExerciseStep: Identifiable, Codable {
     let id: UUID
     let title: String
     let prompt: String
@@ -131,7 +131,12 @@ struct GuidedExercisesView: View {
             }
             .sheet(item: $selectedExercise) { exercise in
                 ExerciseSessionView(
-                    exercise: binding(for: exercise),
+                    exercise: exercise,
+                    onUpdate: { updated in
+                        if let idx = exercises.firstIndex(where: { $0.id == updated.id }) {
+                            exercises[idx] = updated
+                        }
+                    },
                     onComplete: { completed in
                         if completed {
                             markComplete(exercise)
@@ -205,13 +210,6 @@ struct GuidedExercisesView: View {
         .listStyle(.plain)
     }
 
-    private func binding(for exercise: GuidedExercise) -> Binding<GuidedExercise> {
-        guard let index = exercises.firstIndex(where: { $0.id == exercise.id }) else {
-            return .constant(exercise)
-        }
-        return $exercises[index]
-    }
-
     // MARK: - Actions
 
     private func startExercise(type: GuidedExerciseType) {
@@ -241,162 +239,42 @@ struct GuidedExercisesView: View {
         saveExercises()
     }
 
-    private func generateSteps(for type: GuidedExerciseType) -> [ExerciseStep] {
+    private func generateSteps(for type: GuidedExerciseType) -> [GuidedExerciseStep] {
         switch type {
         case .beliefRestructuring:
             return [
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Identify the Belief",
-                    prompt: "What belief would you like to examine? Write it as a specific thought.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Notice Your Feelings",
-                    prompt: "What emotions arise when you think about this belief? Rate their intensity 0-100.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Find the Distortion",
-                    prompt: "Which thinking pattern might be at play?\n• All-or-Nothing\n• Catastrophizing\n• Mind Reading\n• Fortune Telling\n• Emotional Reasoning",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Gather Evidence",
-                    prompt: "What evidence supports this belief? Be specific and objective.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Find Counter-Evidence",
-                    prompt: "What evidence contradicts this belief? Think of times when it wasn't true.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Create a New Belief",
-                    prompt: "Based on all the evidence, write a more balanced belief.",
-                    userInput: "",
-                    isComplete: false
-                )
+                GuidedExerciseStep(id: UUID(), title: "Identify the Belief", prompt: "What belief would you like to examine? Write it as a specific thought.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Notice Your Feelings", prompt: "What emotions arise when you think about this belief? Rate their intensity 0-100.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Find the Distortion", prompt: "Which thinking pattern might be at play?\n• All-or-Nothing\n• Catastrophizing\n• Mind Reading\n• Fortune Telling\n• Emotional Reasoning", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Gather Evidence", prompt: "What evidence supports this belief? Be specific and objective.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Find Counter-Evidence", prompt: "What evidence contradicts this belief? Think of times when it wasn't true.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Create a New Belief", prompt: "Based on all the evidence, write a more balanced belief.", userInput: "", isComplete: false)
             ]
         case .breathing:
             return [
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Inhale",
-                    prompt: "Breathe in quietly through your nose for 4 counts",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Hold",
-                    prompt: "Hold your breath for 7 counts",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Exhale",
-                    prompt: "Exhale completely through your mouth for 8 counts",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Repeat",
-                    prompt: "Repeat the cycle 3-4 times. Notice how you feel.",
-                    userInput: "",
-                    isComplete: false
-                )
+                GuidedExerciseStep(id: UUID(), title: "Inhale", prompt: "Breathe in quietly through your nose for 4 counts", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Hold", prompt: "Hold your breath for 7 counts", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Exhale", prompt: "Exhale completely through your mouth for 8 counts", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Repeat", prompt: "Repeat the cycle 3-4 times. Notice how you feel.", userInput: "", isComplete: false)
             ]
         case .grounding:
             return [
-                ExerciseStep(
-                    id: UUID(),
-                    title: "5 Things You See",
-                    prompt: "Look around and name 5 things you can see. Be specific.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "4 Things You Touch",
-                    prompt: "Notice 4 things you can physically feel right now.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "3 Things You Hear",
-                    prompt: "Listen and name 3 sounds you can hear.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "2 Things You Smell",
-                    prompt: "Notice 2 scents in your environment.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "1 Thing You Taste",
-                    prompt: "Notice 1 taste in your mouth.",
-                    userInput: "",
-                    isComplete: false
-                )
+                GuidedExerciseStep(id: UUID(), title: "5 Things You See", prompt: "Look around and name 5 things you can see. Be specific.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "4 Things You Touch", prompt: "Notice 4 things you can physically feel right now.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "3 Things You Hear", prompt: "Listen and name 3 sounds you can hear.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "2 Things You Smell", prompt: "Notice 2 scents in your environment.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "1 Thing You Taste", prompt: "Notice 1 taste in your mouth.", userInput: "", isComplete: false)
             ]
         case .decatastrophizing:
             return [
-                ExerciseStep(
-                    id: UUID(),
-                    title: "The Catastrophe",
-                    prompt: "What's the worst-case scenario you're imagining?",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Likelihood Check",
-                    prompt: "On a scale of 0-100%, how likely is this to happen?",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Better Outcomes",
-                    prompt: "List 3 more likely, less catastrophic outcomes.",
-                    userInput: "",
-                    isComplete: false
-                ),
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Coping Plan",
-                    prompt: "If the worst happened, how would you cope?",
-                    userInput: "",
-                    isComplete: false
-                )
+                GuidedExerciseStep(id: UUID(), title: "The Catastrophe", prompt: "What's the worst-case scenario you're imagining?", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Likelihood Check", prompt: "On a scale of 0-100%, how likely is this to happen?", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Better Outcomes", prompt: "List 3 more likely, less catastrophic outcomes.", userInput: "", isComplete: false),
+                GuidedExerciseStep(id: UUID(), title: "Coping Plan", prompt: "If the worst happened, how would you cope?", userInput: "", isComplete: false)
             ]
         default:
             return [
-                ExerciseStep(
-                    id: UUID(),
-                    title: "Begin",
-                    prompt: "Take a moment to center yourself. This exercise will guide you step by step.",
-                    userInput: "",
-                    isComplete: false
-                )
+                GuidedExerciseStep(id: UUID(), title: "Begin", prompt: "Take a moment to center yourself. This exercise will guide you step by step.", userInput: "", isComplete: false)
             ]
         }
     }
@@ -547,14 +425,24 @@ struct ExerciseTypeRow: View {
 // MARK: - Exercise Session View
 
 struct ExerciseSessionView: View {
-    @Binding var exercise: GuidedExercise
+    let exercise: GuidedExercise
+    let onUpdate: (GuidedExercise) -> Void
     let onComplete: (Bool) -> Void
+
     @State private var currentStepIndex: Int = 0
     @State private var stepInput: String = ""
+    @State private var sessionExercise: GuidedExercise
 
-    var currentStep: ExerciseStep? {
-        guard currentStepIndex < exercise.steps.count else { return nil }
-        return exercise.steps[currentStepIndex]
+    init(exercise: GuidedExercise, onUpdate: @escaping (GuidedExercise) -> Void, onComplete: @escaping (Bool) -> Void) {
+        self.exercise = exercise
+        self.onUpdate = onUpdate
+        self.onComplete = onComplete
+        self._sessionExercise = State(initialValue: exercise)
+    }
+
+    private var currentStep: GuidedExerciseStep? {
+        guard currentStepIndex < sessionExercise.steps.count else { return nil }
+        return sessionExercise.steps[currentStepIndex]
     }
 
     var body: some View {
@@ -574,7 +462,7 @@ struct ExerciseSessionView: View {
                                 .foregroundColor(.secondary)
                                 .fixedSize(horizontal: false, vertical: true)
 
-                            if exercise.type == .breathing && currentStepIndex == 0 {
+                            if sessionExercise.type == .breathing && currentStepIndex == 0 {
                                 breathingGuide
                             } else {
                                 TextEditor(text: $stepInput)
@@ -594,25 +482,27 @@ struct ExerciseSessionView: View {
 
                 navigationButtons
             }
-            .navigationTitle(exercise.title)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(sessionExercise.title)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Exit") {
-                        saveCurrentInput()
+                        onUpdate(sessionExercise)
                         onComplete(false)
                     }
                 }
+            }
+            .onDisappear {
+                onUpdate(sessionExercise)
             }
         }
     }
 
     private var progressBar: some View {
         VStack(spacing: 4) {
-            ProgressView(value: Double(currentStepIndex + 1), total: Double(exercise.totalSteps))
+            ProgressView(value: Double(currentStepIndex + 1), total: Double(sessionExercise.totalSteps))
                 .tint(.accentColor)
 
-            Text("Step \(currentStepIndex + 1) of \(exercise.totalSteps)")
+            Text("Step \(currentStepIndex + 1) of \(sessionExercise.totalSteps)")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -662,22 +552,22 @@ struct ExerciseSessionView: View {
 
             Spacer()
 
-            if currentStepIndex == exercise.totalSteps - 1 {
+            if currentStepIndex == sessionExercise.totalSteps - 1 {
                 Button("Complete") {
                     saveCurrentInput()
+                    onUpdate(sessionExercise)
                     onComplete(true)
                 }
                 .buttonStyle(.borderedProminent)
             } else {
                 Button("Next") {
                     saveCurrentInput()
-                    exercise.steps[currentStepIndex].userInput = stepInput
-                    exercise.steps[currentStepIndex].isComplete = !stepInput.isEmpty
+                    sessionExercise.steps[currentStepIndex].isComplete = !stepInput.isEmpty
                     currentStepIndex += 1
                     stepInput = ""
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(stepInput.isEmpty && exercise.type != .breathing)
+                .disabled(stepInput.isEmpty && sessionExercise.type != .breathing)
             }
         }
         .padding()
@@ -685,13 +575,13 @@ struct ExerciseSessionView: View {
     }
 
     private func saveCurrentInput() {
-        guard currentStepIndex < exercise.steps.count else { return }
-        exercise.steps[currentStepIndex].userInput = stepInput
-        exercise.currentStep = currentStepIndex
+        guard currentStepIndex < sessionExercise.steps.count else { return }
+        sessionExercise.steps[currentStepIndex].userInput = stepInput
+        sessionExercise.currentStep = currentStepIndex
     }
 
     private func loadCurrentInput() {
-        guard currentStepIndex < exercise.steps.count else { return }
-        stepInput = exercise.steps[currentStepIndex].userInput
+        guard currentStepIndex < sessionExercise.steps.count else { return }
+        stepInput = sessionExercise.steps[currentStepIndex].userInput
     }
 }
