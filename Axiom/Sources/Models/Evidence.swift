@@ -1,6 +1,6 @@
 import Foundation
 
-struct Evidence: Identifiable, Equatable, Hashable {
+struct Evidence: Identifiable, Equatable, Hashable, Codable, Sendable {
     let id: UUID
     let beliefId: UUID
     var text: String
@@ -43,7 +43,7 @@ struct Evidence: Identifiable, Equatable, Hashable {
     }
 }
 
-enum AttachmentType: String, CaseIterable {
+enum AttachmentType: String, CaseIterable, Codable {
     case photo
     case voiceNote
     case document
@@ -57,7 +57,7 @@ enum AttachmentType: String, CaseIterable {
     }
 }
 
-enum EvidenceType: String, CaseIterable {
+enum EvidenceType: String, CaseIterable, Codable {
     case support
     case contradict
 

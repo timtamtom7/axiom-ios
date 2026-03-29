@@ -1,6 +1,6 @@
 import Foundation
 
-struct Belief: Identifiable, Equatable, Hashable {
+struct Belief: Identifiable, Equatable, Hashable, Codable, Sendable {
     let id: UUID
     var text: String
     var createdAt: Date

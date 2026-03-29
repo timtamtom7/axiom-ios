@@ -11,6 +11,7 @@ enum Theme {
     static let accentRed = Color(hex: "EF5350")
     static let accentBlue = Color(hex: "42A5F5")
     static let accentGold = Color(hex: "FFCA28")
+    static let accentPurple = Color(hex: "AB47BC")
     static let border = Color(hex: "3A3A3A")
 
     // MARK: - Score Colors

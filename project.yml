@@ -44,6 +44,7 @@ targets:
       - path: AxiomMac/Sources
       - path: Axiom/Sources/Models
       - path: Axiom/Sources/Services
+      - path: Axiom/Services
       - path: Axiom/Sources/App/Theme.swift
       - path: Axiom/Sources/Views/AIDeepDiveView.swift
       - path: Axiom/Sources/Views/AddEvidenceView.swift
