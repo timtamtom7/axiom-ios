@@ -184,9 +184,9 @@ struct GuidedExercisesView: View {
         case .all:
             return exercises
         case .breathing:
-            return exercises.filter { [.breathing, .grounding, .bodyScan].contains($0.type) }
+            return exercises.filter { [GuidedExerciseType.breathing, GuidedExerciseType.grounding, GuidedExerciseType.bodyScan].contains($0.type) }
         case .cognitive:
-            return exercises.filter { [.decatastrophizing, .probabilityReestimation, .evidenceWeighing, .beliefRestructuring].contains($0.type) }
+            return exercises.filter { [GuidedExerciseType.decatastrophizing, GuidedExerciseType.probabilityReestimation, GuidedExerciseType.evidenceWeighing, GuidedExerciseType.beliefRestructuring].contains($0.type) }
         case .assigned:
             return exercises.filter { $0.assignedByTherapist }
         }
@@ -474,7 +474,7 @@ struct ExercisePickerView: View {
         NavigationStack {
             List {
                 Section("Quick Calmers") {
-                    ForEach([GuidedExerciseType.breathing, .grounding, .bodyScan]) { type in
+                    ForEach([GuidedExerciseType.breathing, GuidedExerciseType.grounding, GuidedExerciseType.bodyScan] as [GuidedExerciseType]) { type in
                         ExerciseTypeRow(type: type, onSelect: {
                             onSelect(type)
                             dismiss()
@@ -483,12 +483,7 @@ struct ExercisePickerView: View {
                 }
 
                 Section("Cognitive Exercises") {
-                    ForEach([
-                        .beliefRestructuring,
-                        .decatastrophizing,
-                        .probabilityReestimation,
-                        .evidenceWeighing
-                    ]) { type in
+                    ForEach([GuidedExerciseType.beliefRestructuring, GuidedExerciseType.decatastrophizing, GuidedExerciseType.probabilityReestimation, GuidedExerciseType.evidenceWeighing] as [GuidedExerciseType]) { type in
                         ExerciseTypeRow(type: type, onSelect: {
                             onSelect(type)
                             dismiss()
@@ -497,7 +492,7 @@ struct ExercisePickerView: View {
                 }
 
                 Section("Behavioral") {
-                    ForEach([.behavioralActivation, .exposureLadder]) { type in
+                    ForEach([GuidedExerciseType.behavioralActivation, GuidedExerciseType.exposureLadder] as [GuidedExerciseType]) { type in
                         ExerciseTypeRow(type: type, onSelect: {
                             onSelect(type)
                             dismiss()
@@ -506,7 +501,6 @@ struct ExercisePickerView: View {
                 }
             }
             .navigationTitle("Choose Exercise")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
