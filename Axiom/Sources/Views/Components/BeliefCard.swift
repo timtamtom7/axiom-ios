@@ -72,10 +72,11 @@ struct BeliefCard: View {
         .onAppear {
             animateScore(to: belief.score)
         }
-        .onChange(of: belief.score) { oldValue, newValue in
+        .onChange(of: belief.score) { newValue in
+            let oldValue = displayedScore
             if abs(newValue - oldValue) > 1 {
                 // Pulse on significant score change
-                withAnimation(.easeInOut(duration: 0.1).then(.easeOut(duration: 0.1))) {
+                withAnimation(.easeInOut(duration: 0.1)) {
                     scorePulse = 1.15
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

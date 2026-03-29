@@ -277,7 +277,7 @@ final class CalendarIntegrationService: @unchecked Sendable {
 
     private func weekdayName(_ weekday: Int) -> String {
         let names = ["", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        return names[safe: weekday] ?? "weekday"
+        return weekday >= 1 && weekday < names.count ? names[weekday] : "weekday"
     }
 
     private func generateSampleEvents(from startDate: Date, to endDate: Date) -> [Event] {

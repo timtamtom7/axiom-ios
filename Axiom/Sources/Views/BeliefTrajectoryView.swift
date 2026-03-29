@@ -48,14 +48,14 @@ struct BeliefTrajectoryView: View {
                     x: .value("Date", entry.date),
                     y: .value("Score", entry.score)
                 )
-                .foregroundStyle(Color.accentPurple)
+                .foregroundStyle(Theme.accentPurple)
                 .interpolationMethod(.catmullRom)
 
                 PointMark(
                     x: .value("Date", entry.date),
                     y: .value("Score", entry.score)
                 )
-                .foregroundStyle(Color.accentPurple)
+                .foregroundStyle(Theme.accentPurple)
                 .symbolSize(30)
             }
 
@@ -139,11 +139,11 @@ struct BeliefTrajectoryView: View {
         belief: Belief(
             text: "I am capable of learning anything",
             scoreHistory: [
-                ScoreEntry(recordedAt: Calendar.current.date(byAdding: .day, value: -30, to: Date())!, score: 65),
-                ScoreEntry(recordedAt: Calendar.current.date(byAdding: .day, value: -20, to: Date())!, score: 62),
-                ScoreEntry(recordedAt: Calendar.current.date(byAdding: .day, value: -10, to: Date())!, score: 70),
-                ScoreEntry(recordedAt: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, score: 68),
-                ScoreEntry(recordedAt: Date(), score: 75)
+                ScoreEntry(date: Calendar.current.date(byAdding: .day, value: -30, to: Date())!, score: 65),
+                ScoreEntry(date: Calendar.current.date(byAdding: .day, value: -20, to: Date())!, score: 62),
+                ScoreEntry(date: Calendar.current.date(byAdding: .day, value: -10, to: Date())!, score: 70),
+                ScoreEntry(date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, score: 68),
+                ScoreEntry(date: Date(), score: 75)
             ]
         )
     )

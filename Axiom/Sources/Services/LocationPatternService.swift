@@ -254,7 +254,7 @@ final class LocationPatternService: @unchecked Sendable {
         }
 
         if let mostCommon = dayCounts.max(by: { $0.value < $1.value }), mostCommon.value >= 2 {
-            return dayNames[safe: mostCommon.key]
+            return mostCommon.key >= 1 && mostCommon.key < dayNames.count ? dayNames[mostCommon.key] : nil
         }
 
         return nil
