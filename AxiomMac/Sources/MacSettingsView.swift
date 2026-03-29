@@ -345,6 +345,8 @@ struct MacSettingsView: View {
                 .cornerRadius(8)
             }
             .disabled(isRunningStressTest)
+            .accessibilityLabel("Run AI Stress Test")
+            .accessibilityHint("Run a stress test on your beliefs using AI")
 
             if !stressTestResult.isEmpty {
                 Text(stressTestResult)

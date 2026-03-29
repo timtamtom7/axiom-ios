@@ -23,6 +23,10 @@ struct MacContentView: View {
                             .onTapGesture {
                                 selectedBelief = belief
                             }
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("\(belief.text), score \(Int(belief.score))")
+                            .accessibilityHint("Double tap to view belief details")
+                            .accessibilityAddTraits(.isButton)
                     }
                 }
                 .padding(Theme.screenMargin)
@@ -42,6 +46,8 @@ struct MacContentView: View {
                 .frame(maxWidth: .infinity)
                 .padding(Theme.spacingM)
             }
+            .accessibilityLabel("Add new belief")
+            .accessibilityHint("Opens a sheet to create a new belief")
             .sheet(isPresented: $showingAddBelief) {
                 MacAddBeliefSheet { text, isCore, rootCause in
                     let newBelief = Belief(text: text, isCore: isCore, rootCause: rootCause)
@@ -160,6 +166,8 @@ struct MacBeliefDetailView: View {
                 } label: {
                     Image(systemName: "plus.circle.fill")
                 }
+                .accessibilityLabel("Add evidence")
+                .accessibilityHint("Opens a sheet to add supporting or contradicting evidence")
             }
         }
         .sheet(isPresented: $showingAddEvidence) {
@@ -228,6 +236,8 @@ struct MacBeliefDetailView: View {
                 .foregroundColor(Theme.accentBlue)
                 .cornerRadius(8)
         }
+        .accessibilityLabel("AI Deep Dive")
+        .accessibilityHint("Opens an AI-powered conversation to examine this belief")
     }
 
     private var supportingSection: some View {

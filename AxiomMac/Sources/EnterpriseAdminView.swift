@@ -64,10 +64,10 @@ struct ComplianceReportView: View {
                 .font(.headline)
             
             Group {
-                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(.green); Text("Encryption at rest: AES-256") }
-                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(.green); Text("TLS 1.3 in transit") }
-                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(.green); Text("Audit logging enabled") }
-                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(.green); Text("Biometric authentication") }
+                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(Theme.accentGreen); Text("Encryption at rest: AES-256") }
+                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(Theme.accentGreen); Text("TLS 1.3 in transit") }
+                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(Theme.accentGreen); Text("Audit logging enabled") }
+                HStack { Image(systemName: "checkmark.circle.fill").foregroundColor(Theme.accentGreen); Text("Biometric authentication") }
             }
             
             Spacer()

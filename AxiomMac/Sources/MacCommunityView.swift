@@ -33,7 +33,8 @@ struct MacCommunityView: View {
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
-                .help("Share belief anonymously")
+                .accessibilityLabel("Share belief anonymously")
+                .accessibilityHint("Opens a sheet to share a belief with the community")
             }
         }
         .sheet(isPresented: $showingPostSheet) {
@@ -373,9 +374,9 @@ struct MacLeaderboardRow: View {
 
     private var rankColor: Color {
         switch entry.rank {
-        case 1: return Color(hex: "FFD700")
-        case 2: return Color(hex: "C0C0C0")
-        case 3: return Color(hex: "CD7F32")
+        case 1: return Theme.accentGold
+        case 2: return Theme.accentBlue
+        case 3: return Theme.accentRed
         default: return Theme.textSecondary
         }
     }

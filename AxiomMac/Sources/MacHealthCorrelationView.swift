@@ -102,6 +102,8 @@ struct MacHealthCorrelationView: View {
                     .font(.caption)
                     .foregroundColor(Theme.accentGold)
             }
+            .accessibilityLabel(isConnected ? "Manage health connection" : "Connect iPhone")
+            .accessibilityHint("Connect your iPhone to sync health data")
         }
         .padding(Theme.screenMargin)
         .background(Theme.surface)

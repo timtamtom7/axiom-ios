@@ -108,6 +108,8 @@ struct MacGroupBeliefView: View {
                             .cornerRadius(Theme.cornerRadiusS)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(tab.rawValue)
+                    .accessibilityAddTraits(selectedTab == tab ? [.isSelected, .isButton] : .isButton)
                 }
             }
             .padding(.horizontal, Theme.screenMargin)
