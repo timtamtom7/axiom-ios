@@ -2,8 +2,8 @@ import SwiftUI
 
 enum Theme {
     // MARK: - Colors
-    static let background = Color(hex: "1A1A1A")
-    static let surface = Color(hex: "242424")
+    static let background = Color(hex: "0a0a0f")
+    static let surface = Color(hex: "161616")
     static let surfaceElevated = Color(hex: "2E2E2E")
     static let textPrimary = Color.white
     static let textSecondary = Color(hex: "9E9E9E")
@@ -11,8 +11,14 @@ enum Theme {
     static let accentRed = Color(hex: "EF5350")
     static let accentBlue = Color(hex: "42A5F5")
     static let accentGold = Color(hex: "FFCA28")
-    static let accentPurple = Color(hex: "AB47BC")
+    static let accentPurple = Color(hex: "e879f9")
     static let border = Color(hex: "3A3A3A")
+
+    // MARK: - Onboarding Colors
+    static let onboardingPurple = Color(hex: "e879f9")
+    static let onboardingBackground = Color(hex: "0a0a0f")
+    static let onboardingSurface = Color(hex: "161616")
+    static let secondaryText = Color(hex: "8B8B9B")
 
     // MARK: - Score Colors
     static func scoreColor(for score: Double) -> Color {

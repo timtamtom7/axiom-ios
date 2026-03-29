@@ -4,16 +4,21 @@ import SwiftUI
 struct AxiomMacApp: App {
     @StateObject private var databaseService = DatabaseService.shared
     @StateObject private var retentionService = RetentionService.shared
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     var body: some Scene {
         WindowGroup {
-            MacContentView()
-                .environmentObject(databaseService)
-                .environmentObject(retentionService)
-                .preferredColorScheme(.dark)
-                .onAppear {
-                    checkRetentionTriggers()
-                }
+            if hasCompletedOnboarding {
+                MacContentView()
+                    .environmentObject(databaseService)
+                    .environmentObject(retentionService)
+                    .preferredColorScheme(.dark)
+                    .onAppear {
+                        checkRetentionTriggers()
+                    }
+            } else {
+                OnboardingView(isOnboarding: $hasCompletedOnboarding)
+            }
         }
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
