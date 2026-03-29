@@ -1,7 +1,7 @@
 import Foundation
 
 /// R11: Thought pattern detection and tracking across beliefs
-final class PatternDetectionService {
+final class PatternDetectionService: @unchecked Sendable {
     static let shared = PatternDetectionService()
 
     private init() {}

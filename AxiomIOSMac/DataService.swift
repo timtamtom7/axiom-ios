@@ -57,6 +57,10 @@ final class DataService: ObservableObject {
         updateScore(for: beliefId)
     }
 
+    func getBeliefs() -> [Belief] {
+        return beliefs
+    }
+
     func checkIn() {
         lastCheckIn = Date()
         streak = min(streak + 1, 365)

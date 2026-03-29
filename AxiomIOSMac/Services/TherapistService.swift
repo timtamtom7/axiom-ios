@@ -69,7 +69,7 @@ struct TherapistAssignment: Codable, Identifiable {
 // MARK: - Therapist Service
 
 /// R12: Therapist integration for progress sharing and guided support
-final class TherapistService {
+final class TherapistService: @unchecked Sendable {
     static let shared = TherapistService()
 
     private let userDefaults = UserDefaults.standard
@@ -286,13 +286,5 @@ enum TherapistError: LocalizedError {
         case .networkError:
             return "Unable to connect. Please check your connection."
         }
-    }
-}
-
-// MARK: - String Extension
-
-private extension String {
-    func split(separator: Character) -> [String] {
-        return self.split(separator: separator).map(String.init)
     }
 }

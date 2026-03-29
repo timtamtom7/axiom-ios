@@ -421,7 +421,7 @@ struct WisdomRowView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(""\(entry.quote)"")
+            Text("\"\(entry.quote)\"")
                 .font(.body)
                 .italic()
 
