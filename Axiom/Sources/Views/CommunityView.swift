@@ -11,7 +11,9 @@ struct CommunityView: View {
     @State private var loadError: String?
 
     enum BeliefFilter: String, CaseIterable {
-        case all = "All"
+        case all = "Feed"
+        case circles = "Circles"
+        case partners = "Partners"
         case core = "Core"
         case supported = "Supported"
         case challenged = "Challenged"
@@ -54,14 +56,21 @@ struct CommunityView: View {
 
     @ViewBuilder
     private var contentView: some View {
-        if isLoading {
-            loadingView
-        } else if let error = loadError {
-            errorView(message: error)
-        } else if filteredBeliefs.isEmpty {
-            emptyView
-        } else {
-            communityScrollView
+        switch selectedFilter {
+        case .circles:
+            SupportCirclesView()
+        case .partners:
+            AccountabilityPartnersView()
+        default:
+            if isLoading {
+                loadingView
+            } else if let error = loadError {
+                errorView(message: error)
+            } else if filteredBeliefs.isEmpty {
+                emptyView
+            } else {
+                communityScrollView
+            }
         }
     }
 
@@ -172,6 +181,7 @@ struct CommunityView: View {
         // Apply filter
         switch selectedFilter {
         case .all: break
+        case .circles, .partners: beliefs = []
         case .core: beliefs = beliefs.filter { $0.isCore }
         case .supported: beliefs = beliefs.filter { $0.score >= 60 }
         case .challenged: beliefs = beliefs.filter { $0.score < 50 }

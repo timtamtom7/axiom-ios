@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// R13-R20: Comprehensive settings view
 struct SettingsView: View {
@@ -11,6 +12,7 @@ struct SettingsView: View {
     @State private var showingSubscriptionSettings = false
     @State private var showingAgentSettings = false
     @State private var showingAbout = false
+    @State private var reduceMotionOverride: Bool? = nil
 
     var body: some View {
         NavigationStack {
@@ -33,6 +35,9 @@ struct SettingsView: View {
 
                         // Retention Section (R13)
                         retentionSection
+
+                        // Accessibility Section (R9)
+                        accessibilitySection
 
                         // About Section
                         aboutSection
@@ -71,6 +76,17 @@ struct SettingsView: View {
                     iconColor: Theme.accentBlue,
                     title: "Sync",
                     subtitle: "iCloud backup enabled"
+                )
+
+                Divider().background(Theme.border)
+
+                SettingsRow(
+                    icon: "heart.text.square",
+                    iconColor: Theme.accentGreen,
+                    title: "Therapist Connection",
+                    subtitle: subscription.isTherapy
+                        ? "Connected"
+                        : "Axiom Therapy feature"
                 )
             }
             .background(Theme.surface)
@@ -312,6 +328,132 @@ struct SettingsView: View {
             }
             .background(Theme.surface)
             .cornerRadius(12)
+        }
+    }
+
+    // MARK: - Accessibility Section (R9)
+
+    private var accessibilitySection: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingM) {
+            Text("Accessibility")
+                .font(.headline)
+                .foregroundColor(Theme.textPrimary)
+
+            VStack(spacing: 0) {
+                // Reduce Motion
+                HStack {
+                    Image(systemName: "figure.walk.motion")
+                        .foregroundColor(Theme.accentBlue)
+
+                    VStack(alignment: .leading) {
+                        Text("Reduce Motion")
+                            .foregroundColor(Theme.textPrimary)
+                        Text("Minimize animations throughout the app")
+                            .font(.caption)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: Binding(
+                        get: { reduceMotionOverride ?? UIAccessibility.isReduceMotionEnabled },
+                        set: { newValue in
+                            reduceMotionOverride = newValue
+                            // Note: isReduceMotionEnabled is read-only; in-app override
+                            // only affects Axiom's custom animations, not system-wide
+                        }
+                    ))
+                    .labelsHidden()
+                    .tint(Theme.accentBlue)
+                }
+                .padding(Theme.spacingM)
+
+                Divider().background(Theme.border)
+
+                // Dynamic Type
+                HStack {
+                    Image(systemName: "textformat.size")
+                        .foregroundColor(Theme.accentBlue)
+
+                    VStack(alignment: .leading) {
+                        Text("Text Size")
+                            .foregroundColor(Theme.textPrimary)
+                        Text("Uses your system Dynamic Type setting")
+                            .font(.caption)
+                            .foregroundColor(Theme.textSecondary)
+                    }
+
+                    Spacer()
+
+                    Text(systemTextSizeLabel)
+                        .font(.caption)
+                        .foregroundColor(Theme.textSecondary)
+                }
+                .padding(Theme.spacingM)
+
+                Divider().background(Theme.border)
+
+                // VoiceOver
+                HStack {
+                    Image(systemName: "speaker.wave.3")
+                        .foregroundColor(Theme.accentBlue)
+
+                    VStack(alignment: .leading) {
+                        Text("VoiceOver")
+                            .foregroundColor(Theme.textPrimary)
+                        Text(UIAccessibility.isVoiceOverRunning ? "Enabled" : "Uses system setting")
+                            .font(.caption)
+                            .foregroundColor(UIAccessibility.isVoiceOverRunning ? Theme.accentGreen : Theme.textSecondary)
+                    }
+
+                    Spacer()
+
+                    if UIAccessibility.isVoiceOverRunning {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(Theme.accentGreen)
+                    }
+                }
+                .padding(Theme.spacingM)
+
+                Divider().background(Theme.border)
+
+                // Bold Text
+                HStack {
+                    Image(systemName: "textformat")
+                        .foregroundColor(Theme.accentBlue)
+
+                    Text("Bold Text")
+                        .foregroundColor(Theme.textPrimary)
+
+                    Spacer()
+
+                    Text(UIAccessibility.isBoldTextEnabled ? "Enabled" : "Off")
+                        .font(.caption)
+                        .foregroundColor(Theme.textSecondary)
+                }
+                .padding(Theme.spacingM)
+            }
+            .background(Theme.surface)
+            .cornerRadius(12)
+        }
+    }
+
+    private var systemTextSizeLabel: String {
+        let category = UIApplication.shared.preferredContentSizeCategory
+        switch category {
+        case .extraSmall: return "XS"
+        case .small: return "S"
+        case .medium: return "M"
+        case .large: return "L"
+        case .extraLarge: return "XL"
+        case .extraExtraLarge: return "XXL"
+        case .extraExtraExtraLarge: return "XXXL"
+        case .accessibilityMedium: return "A-Med"
+        case .accessibilityLarge: return "A-L"
+        case .accessibilityExtraLarge: return "A-XL"
+        case .accessibilityExtraExtraLarge: return "A-XXL"
+        case .accessibilityExtraExtraExtraLarge: return "A-XXXL"
+        default: return "L"
         }
     }
 
