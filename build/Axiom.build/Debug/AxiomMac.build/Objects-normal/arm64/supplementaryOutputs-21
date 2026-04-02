@@ -1,0 +1,44 @@
+{
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/App/AccessibilityHelpers.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccessibilityHelpers.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccessibilityHelpers.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccessibilityHelpers.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccessibilityHelpers.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccessibilityHelpers.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/AccountabilityPartners.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccountabilityPartners.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccountabilityPartners.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccountabilityPartners.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccountabilityPartners.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AccountabilityPartners.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIBeliefAgentService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefAgentService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefAgentService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefAgentService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefAgentService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefAgentService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIBeliefService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIBeliefService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIStressTestService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIStressTestService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIStressTestService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIStressTestService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIStressTestService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIStressTestService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AIDeepDiveView.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIDeepDiveView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIDeepDiveView.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIDeepDiveView.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIDeepDiveView.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/arm64/AIDeepDiveView.swiftdeps"
+  }
+}

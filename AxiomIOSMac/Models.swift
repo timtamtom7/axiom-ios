@@ -133,3 +133,5 @@ struct InsightItem: Identifiable {
 enum InsightType {
     case trajectory, weeklySynthesis, aiAnalysis, beliefPattern
 }
+
+

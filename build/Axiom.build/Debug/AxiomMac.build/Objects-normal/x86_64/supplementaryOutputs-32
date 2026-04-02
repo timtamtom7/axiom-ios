@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/HealthIntegrationService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/HealthIntegrationService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/HealthIntegrationService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/HealthIntegrationService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/HealthIntegrationService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/HealthIntegrationService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/LocalizationService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocalizationService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocalizationService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocalizationService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocalizationService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocalizationService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/LocationPatternService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocationPatternService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocationPatternService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocationPatternService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocationPatternService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/LocationPatternService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/AxiomMac/Sources/MacBeliefEvolutionView.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacBeliefEvolutionView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacBeliefEvolutionView.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacBeliefEvolutionView.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacBeliefEvolutionView.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacBeliefEvolutionView.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/AxiomMac/Sources/MacCommunityView.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacCommunityView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacCommunityView.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacCommunityView.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacCommunityView.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/MacCommunityView.swiftdeps"
+  }
+}

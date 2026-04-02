@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/RetentionService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/RetentionService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/RetentionService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/RetentionService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/RetentionService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/RetentionService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/SocialChallengeService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/SocialChallengeService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/SocialChallengeService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/SocialChallengeService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/SocialChallengeService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/SocialChallengeService.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/StoreKitManager.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/StoreKitManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/StoreKitManager.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/StoreKitManager.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/StoreKitManager.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/StoreKitManager.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/ScoreBadge.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ScoreBadge.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ScoreBadge.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ScoreBadge.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ScoreBadge.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ScoreBadge.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/AxiomMac/Sources/ReportService.swift" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ReportService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ReportService.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ReportService.dia",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ReportService.o",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Debug/AxiomMac.build/Objects-normal/x86_64/ReportService.swiftdeps"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIBeliefAgentService.swift" : {
+    "abi-baseline-json" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom.abi.json",
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.dia",
+    "objc-header" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-Swift.h",
+    "swiftdoc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom.swiftdoc",
+    "swiftmodule" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom.swiftmodule",
+    "swiftsourceinfo" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom.swiftsourceinfo"
+  }
+}

@@ -466,7 +466,7 @@ struct NewPostView: View {
     let onPost: (String, String, [String]) -> Void
     @Environment(\.dismiss) private var dismiss
     @State private var title = ""
-    @State private var body = ""
+    @State private var bodyText = ""
     @State private var tagInput = ""
     @State private var tags: [String] = []
 
@@ -478,7 +478,7 @@ struct NewPostView: View {
                 }
 
                 Section("Details") {
-                    TextEditor(text: $body)
+                    TextEditor(text: $bodyText)
                         .frame(minHeight: 120)
                 }
 
@@ -520,17 +520,21 @@ struct NewPostView: View {
                 }
             }
             .navigationTitle("New Post")
+            #if os(iOS)
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+#endif
+#endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Post") {
-                        onPost(title, body, tags)
+                        onPost(title, bodyText, tags)
                         dismiss()
                     }
-                    .disabled(title.isEmpty || body.isEmpty)
+                    .disabled(title.isEmpty || bodyText.isEmpty)
                 }
             }
         }
@@ -604,7 +608,11 @@ struct ThreadDetailView: View {
                 .background(Color(nsColor: .windowBackgroundColor))
             }
             .navigationTitle("Discussion")
+            #if os(iOS)
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+#endif
+#endif
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }

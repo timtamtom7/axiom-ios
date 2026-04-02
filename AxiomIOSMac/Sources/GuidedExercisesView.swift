@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - Exercise Types
 
-enum GuidedExerciseType: String, CaseIterable, Identifiable {
+enum GuidedExerciseType: String, CaseIterable, Identifiable, Codable {
     case decatastrophizing = "Decatastrophizing"
     case probabilityReestimation = "Probability Re-estimation"
     case evidenceWeighing = "Evidence Weighing"
@@ -85,7 +85,7 @@ struct GuidedExerciseStep: Identifiable, Codable {
     var isComplete: Bool
 }
 
-struct ExerciseCompletion: Codable, Identifiable {
+struct GuidedExerciseCompletion: Codable, Identifiable {
     let id: UUID
     let exerciseId: UUID
     let completedAt: Date

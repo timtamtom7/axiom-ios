@@ -1,10 +1,16 @@
 import Foundation
 
 /// R11: Thought pattern detection and tracking across beliefs
-final class PatternDetectionService: @unchecked Sendable {
+final class PatternDetectionService: ObservableObject, @unchecked Sendable {
     static let shared = PatternDetectionService()
 
     private init() {}
+
+    // MARK: - Pattern Analysis
+
+    func analyzeAllPatterns(in beliefs: [Belief]) -> [DistortionPattern] {
+        return []
+    }
 
     // MARK: - Core Belief Detection
 
@@ -122,7 +128,7 @@ final class PatternDetectionService: @unchecked Sendable {
         let calendar = Calendar.current
         let cutoffDate = calendar.date(byAdding: .day, value: -days, to: Date()) ?? Date()
         let recentBeliefs = beliefs.filter { $0.createdAt >= cutoffDate }
-        return AIBeliefService.shared.distortionSummary(for: recentBeliefs)
+        return AIBeliefService.shared.distortionSummary(for: recentBeliefs).map { ($0.0, $0.1) }
     }
 
     // MARK: - Pattern Narrative

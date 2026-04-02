@@ -2,7 +2,7 @@ import Foundation
 
 /// R11: Guided CBT exercises for cognitive restructuring
 final class CBTExerciseService {
-    static let shared = CBTExerciseService()
+    nonisolated(unsafe) static let shared = CBTExerciseService()
 
     private init() {}
 
@@ -125,7 +125,7 @@ final class CBTExerciseService {
         steps.append(ExerciseStep(
             title: "A New Perspective",
             instruction: "Based on your reflections, here's a more balanced view:",
-            prompt: "\(analysis.alternativeBelief)\n\nDoes this feel more accurate? Why or why not?",
+            prompt: "\(analysis.healthierAlternative)\n\nDoes this feel more accurate? Why or why not?",
             promptType: .reflection
         ))
 

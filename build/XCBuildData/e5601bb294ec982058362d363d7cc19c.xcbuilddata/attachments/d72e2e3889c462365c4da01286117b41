@@ -1,0 +1,326 @@
+{
+  "" : {
+    "const-values" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.d",
+    "diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Axiom-primary.swiftdeps"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/App/AccessibilityHelpers.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccessibilityHelpers.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccessibilityHelpers.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccessibilityHelpers.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/App/AxiomApp.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomApp.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomApp.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomApp.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/App/ContentView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/App/Theme.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Theme.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Theme.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Theme.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/AccountabilityPartners.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartners.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartners.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartners.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/AnonymousSharing.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AnonymousSharing.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AnonymousSharing.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AnonymousSharing.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/Belief.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Belief.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Belief.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Belief.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/BeliefCheckpoint.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCheckpoint.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCheckpoint.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCheckpoint.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/BeliefConnection.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefConnection.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefConnection.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefConnection.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/Evidence.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Evidence.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Evidence.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/Evidence.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Models/SupportCircles.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCircles.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCircles.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCircles.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIBeliefAgentService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefAgentService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefAgentService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefAgentService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIBeliefService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIBeliefService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AIStressTestService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AppleIntelligenceService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AppleIntelligenceService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AppleIntelligenceService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AppleIntelligenceService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/AxiomR11Service.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomR11Service.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomR11Service.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AxiomR11Service.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/CalendarIntegrationService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CalendarIntegrationService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CalendarIntegrationService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CalendarIntegrationService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/CommunityCircleService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCircleService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCircleService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCircleService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/DatabaseService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/DatabaseService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/DatabaseService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/DatabaseService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/HapticService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HapticService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HapticService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HapticService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/HealthIntegrationService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HealthIntegrationService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HealthIntegrationService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/HealthIntegrationService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/LocalizationService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocalizationService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocalizationService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocalizationService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/LocationPatternService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocationPatternService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocationPatternService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LocationPatternService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/PatternDetectionService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/PatternDetectionService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/PatternDetectionService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/PatternDetectionService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/RetentionService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/RetentionService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/RetentionService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/RetentionService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/SocialChallengeService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SocialChallengeService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SocialChallengeService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SocialChallengeService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/StoreKitManager.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StoreKitManager.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StoreKitManager.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StoreKitManager.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/StreakService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StreakService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StreakService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/StreakService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/SubscriptionService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Services/TherapistIntegrationService.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistIntegrationService.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistIntegrationService.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistIntegrationService.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/ViewModels/BeliefDetailViewModel.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailViewModel.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailViewModel.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailViewModel.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/ViewModels/BeliefListViewModel.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListViewModel.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListViewModel.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListViewModel.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AIDeepDiveView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIDeepDiveView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIDeepDiveView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIDeepDiveView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AIStressTestView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AIStressTestView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AccountabilityPartnersView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartnersView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartnersView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AccountabilityPartnersView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AddBeliefView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddBeliefView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddBeliefView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddBeliefView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/AddEvidenceView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddEvidenceView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddEvidenceView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/AddEvidenceView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/ArchivedBeliefsView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ArchivedBeliefsView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ArchivedBeliefsView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ArchivedBeliefsView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefDetailView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefDetailView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefEvolutionView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefEvolutionView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefEvolutionView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefEvolutionView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefListView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefListView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefMapView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefMapView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefMapView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefMapView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefSpatialView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefSpatialView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefSpatialView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefSpatialView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/BeliefTrajectoryView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefTrajectoryView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefTrajectoryView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefTrajectoryView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/CommunityCirclesView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCirclesView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCirclesView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityCirclesView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/CommunityView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/CommunityView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/BeliefCard.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCard.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCard.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefCard.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/BeliefNetworkIllustration.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefNetworkIllustration.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefNetworkIllustration.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/BeliefNetworkIllustration.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/EmptyStateView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EmptyStateView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EmptyStateView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EmptyStateView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/ErrorView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ErrorView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ErrorView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ErrorView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/EvidenceRow.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceRow.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceRow.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceRow.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/ScoreBadge.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ScoreBadge.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ScoreBadge.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/ScoreBadge.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/Components/SkeletonView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SkeletonView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SkeletonView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SkeletonView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/EvidenceLibraryView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceLibraryView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceLibraryView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/EvidenceLibraryView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/InsightsDashboardView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/InsightsDashboardView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/InsightsDashboardView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/InsightsDashboardView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/LanguageSettingsView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LanguageSettingsView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LanguageSettingsView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LanguageSettingsView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/LegacyDocumentView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LegacyDocumentView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LegacyDocumentView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/LegacyDocumentView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/OnboardingView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/OnboardingView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/SettingsView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SettingsView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/SubscriptionView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SubscriptionView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/SupportCirclesView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCirclesView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCirclesView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/SupportCirclesView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/Axiom/Sources/Views/TherapistConnectionView.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistConnectionView.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistConnectionView.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/TherapistConnectionView.o"
+  },
+  "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/mauriello/.openclaw/workspace/projects/axiom-ios/build/Axiom.build/Release-iphoneos/Axiom.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}
