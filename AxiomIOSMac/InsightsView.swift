@@ -9,12 +9,13 @@ struct InsightsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Picker("", selection: $selectedTimeRange) {
+                Picker("Time Range", selection: $selectedTimeRange) {
                     Text("Week").tag(0)
                     Text("Month").tag(1)
                     Text("All Time").tag(2)
                 }
                 .pickerStyle(.segmented)
+                .accessibilityLabel("Time range for insights")
 
                 AIAnalysisCard(beliefs: dataService.beliefs, beliefService: beliefService)
                 BeliefTrajectoryCard(beliefs: dataService.beliefs)
@@ -63,7 +64,7 @@ struct AIAnalysisCard: View {
             }
         }
         .padding()
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.surface)
         .cornerRadius(12)
         .onAppear { generateInsights() }
     }
@@ -71,14 +72,25 @@ struct AIAnalysisCard: View {
     private func generateInsights() {
         guard !beliefs.isEmpty else { return }
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            insights = beliefs.prefix(3).map { belief in
-                let analysis = beliefService.analyzeBelief(belief)
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(500))
+            let analyses = beliefService.analyzeAllBeliefs(beliefs)
+            insights = Array(analyses.values).prefix(5).map { analysis in
+                let title: String
+                let body: String
+                if let first = analysis.distortions.first {
+                    title = first.rawValue
+                    body = first.gentleQuestion
+                } else {
+                    title = "Balanced View"
+                    body = analysis.healthierAlternative
+                }
+                let type: InsightType = analysis.distortions.isEmpty ? .aiAnalysis : .beliefPattern
                 return AIInsight(
                     id: analysis.id,
-                    title: "Pattern Detected",
-                    body: analysis.healthierAlternative,
-                    type: .aiAnalysis
+                    title: title,
+                    body: body,
+                    type: type
                 )
             }
             isLoading = false
@@ -86,7 +98,7 @@ struct AIAnalysisCard: View {
     }
 }
 
-struct AIInsight: Identifiable {
+struct AIInsight: Identifiable, Equatable {
     let id: UUID
     let title: String
     let body: String
@@ -136,7 +148,7 @@ struct BeliefTrajectoryCard: View {
             }
         }
         .padding()
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.surface)
         .cornerRadius(12)
     }
 }
@@ -167,7 +179,7 @@ struct WeeklySynthesisCard: View {
             }
         }
         .padding()
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.surface)
         .cornerRadius(12)
     }
 }
@@ -205,7 +217,7 @@ struct ThoughtPatternsCard: View {
             }
         }
         .padding()
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.surface)
         .cornerRadius(12)
     }
 }
@@ -221,7 +233,7 @@ struct CognitiveDistortionsCard: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "exclamationmark.triangle")
-                    .foregroundColor(.yellow)
+                    .foregroundColor(Theme.gold)
                 Text("Cognitive Distortions")
                     .font(.headline)
                 Spacer()
@@ -247,7 +259,7 @@ struct CognitiveDistortionsCard: View {
             }
         }
         .padding()
-        .background(Color(.windowBackgroundColor))
+        .background(Theme.surface)
         .cornerRadius(12)
     }
 }

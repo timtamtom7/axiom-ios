@@ -5,7 +5,7 @@ struct SettingsView: View {
     @State private var notificationsEnabled = true
     @State private var weeklyDigest = true
     @State private var biometricLock = false
-    @State private var darkMode = false
+    @AppStorage("axiom.darkMode") private var darkMode = false
     @State private var showingExportSheet = false
     @State private var showingDeleteConfirm = false
     @State private var selectedSubscription = 0
@@ -84,12 +84,12 @@ struct SubscriptionCard: View {
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(Theme.navy)
                 Spacer()
-                Text("Active")
+                Text(selectedPlan == 0 ? "Free" : selectedPlan == 1 ? "Active" : "Annual")
                     .font(.system(size: 10, weight: .semibold))
-                    .foregroundColor(Theme.accentGreen)
+                    .foregroundColor(selectedPlan == 0 ? Theme.accentRed : Theme.accentGreen)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
-                    .background(Theme.accentGreen.opacity(0.15))
+                    .background((selectedPlan == 0 ? Theme.accentRed : Theme.accentGreen).opacity(0.15))
                     .cornerRadius(4)
             }
 
@@ -265,12 +265,13 @@ struct ExportSheet: View {
                 .foregroundColor(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            Picker("", selection: $exportFormat) {
+            Picker("Export Format", selection: $exportFormat) {
                 Text("JSON").tag(0)
                 Text("CSV").tag(1)
                 Text("PDF Report").tag(2)
             }
             .pickerStyle(.segmented)
+            .accessibilityLabel("Export format")
 
             Button {
                 isPresented = false

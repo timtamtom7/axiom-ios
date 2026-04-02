@@ -61,6 +61,9 @@ struct BeliefsView: View {
                     .clipShape(Circle())
                     .shadow(color: Theme.navy.opacity(0.3), radius: 4, y: 2)
             }
+            .accessibilityLabel("Add new belief")
+            .accessibilityHint("Opens a sheet to record a new belief")
+            .keyboardShortcut("n", modifiers: .command)
             .padding(20)
         }
         .sheet(isPresented: $showingAddBelief) {

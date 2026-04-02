@@ -6,6 +6,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarButton: NSStatusBarButton?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)  // Hide dock icon — menu bar app
+
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 420, height: 600)
         popover.behavior = .transient
@@ -18,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(systemSymbolName: "brain.head.profile", accessibilityDescription: "Axiom")
             button.action = #selector(togglePopover)
             button.target = self
-            self.popover?.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            // Popover only opens on user click, not on launch
         }
     }
 

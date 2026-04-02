@@ -77,6 +77,10 @@ final class TherapistService: @unchecked Sendable {
     private let decoder = JSONDecoder()
 
     private let connectionKey = "axiom.therapist.connection"
+    // ⚠️ RISK: TherapistNote.content may contain PHI. Storing in UserDefaults
+    // is unacceptable for production. Either encrypt with a user-derived key
+    // or move to Keychain with appropriate access control. Acceptable for MVP
+    // internal testing only.
     private let notesKey = "axiom.therapist.notes"
     private let assignmentsKey = "axiom.therapist.assignments"
 

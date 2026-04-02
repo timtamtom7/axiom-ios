@@ -268,17 +268,17 @@ final class CBTExerciseService {
 
     // MARK: - Session Progress
 
-    func advanceStep(in session: inout ExerciseSession) -> Bool {
-        guard session.currentStepIndex < session.steps.count - 1 else { return false }
-        session.currentStepIndex += 1
-        return true
+    func advanceStep(_ session: ExerciseSession) -> ExerciseSession? {
+        guard session.currentStepIndex < session.steps.count - 1 else { return nil }
+        var next = session
+        next.currentStepIndex += 1
+        return next
     }
 
-    func recordResponse(in session: inout ExerciseSession, response: String) {
-        let currentStep = session.currentStep
-        var responses = session.stepResponses
-        responses[currentStep.title] = response
-        session.stepResponses = responses
+    func recordResponse(_ session: ExerciseSession, response: String) -> ExerciseSession {
+        var updated = session
+        updated.stepResponses[session.currentStep.title] = response
+        return updated
     }
 
     func completeSession(_ session: ExerciseSession) -> ExerciseCompletion {

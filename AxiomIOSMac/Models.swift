@@ -112,7 +112,7 @@ enum ScoreLevel {
     }
 }
 
-struct CommunityPost: Identifiable {
+struct CommunityPost: Identifiable, Equatable {
     let id: UUID
     let beliefText: String
     let postText: String

@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var dataService = DataService.shared
     @State private var selectedTab = 0
+    @AppStorage("axiom.darkMode") private var darkMode = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -28,9 +29,17 @@ struct ContentView: View {
             // Tab bar
             HStack(spacing: 0) {
                 TabButton(title: "Beliefs", icon: "brain", isSelected: selectedTab == 0) { selectedTab = 0 }
+                .accessibilityLabel("Beliefs tab")
+                .keyboardShortcut("1", modifiers: .command)
                 TabButton(title: "Community", icon: "person.3", isSelected: selectedTab == 1) { selectedTab = 1 }
+                .accessibilityLabel("Community tab")
+                .keyboardShortcut("2", modifiers: .command)
                 TabButton(title: "Insights", icon: "chart.line.uptrend.xyaxis", isSelected: selectedTab == 2) { selectedTab = 2 }
+                .accessibilityLabel("Insights tab")
+                .keyboardShortcut("3", modifiers: .command)
                 TabButton(title: "Settings", icon: "gearshape", isSelected: selectedTab == 3) { selectedTab = 3 }
+                .accessibilityLabel("Settings tab")
+                .keyboardShortcut("4", modifiers: .command)
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
@@ -48,6 +57,7 @@ struct ContentView: View {
         }
         .frame(width: 420, height: 600)
         .background(Theme.surface)
+        .preferredColorScheme(darkMode ? .dark : .light)
     }
 }
 

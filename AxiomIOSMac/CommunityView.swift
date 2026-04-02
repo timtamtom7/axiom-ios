@@ -8,12 +8,13 @@ struct CommunityView: View {
     var body: some View {
         VStack(spacing: 0) {
             // Segment control
-            Picker("", selection: $selectedSegment) {
+            Picker("View", selection: $selectedSegment) {
                 Text("Feed").tag(0)
                 Text("Debates").tag(1)
                 Text("Evidence Library").tag(2)
             }
             .pickerStyle(.segmented)
+            .accessibilityLabel("Community view selection")
             .padding(.horizontal, 20)
             .padding(.top, 16)
 
@@ -21,7 +22,7 @@ struct CommunityView: View {
                 VStack(spacing: 14) {
                     if selectedSegment == 0 {
                         ForEach(posts) { post in
-                            CommunityPostCard(post: post)
+                            CommunityPostCard(post: post, onJoinDebate: { selectedSegment = 1 })
                         }
                     } else if selectedSegment == 1 {
                         ForEach(posts.filter { $0.upvotes > 3 }) { post in
@@ -47,6 +48,9 @@ struct CommunityView: View {
                     .clipShape(Circle())
                     .shadow(color: Theme.gold.opacity(0.4), radius: 4, y: 2)
             }
+            .accessibilityLabel("Create new community post")
+            .accessibilityHint("Opens a sheet to share a belief with the community")
+            .keyboardShortcut("n", modifiers: [.command, .shift])
             .padding(20)
         }
         .sheet(isPresented: $showingNewPost) {
@@ -57,6 +61,7 @@ struct CommunityView: View {
 
 struct CommunityPostCard: View {
     let post: CommunityPost
+    var onJoinDebate: (() -> Void)?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -110,12 +115,13 @@ struct CommunityPostCard: View {
                 .foregroundColor(.secondary)
                 Spacer()
                 Button {
-                    // Open in debate
+                    onJoinDebate?()
                 } label: {
                     Text("Join Debate")
                         .font(.system(size: 10, weight: .medium))
                         .foregroundColor(Theme.gold)
                 }
+                .accessibilityLabel("Join debate on this belief")
             }
         }
         .padding(14)
@@ -195,8 +201,25 @@ struct EvidenceLibraryView: View {
                 .font(.system(size: 11))
                 .foregroundColor(.secondary)
 
-            ForEach(items) { item in
-                EvidenceLibraryCard(item: item)
+            if items.isEmpty {
+                VStack(spacing: 8) {
+                    Image(systemName: "book.closed")
+                        .font(.system(size: 28))
+                        .foregroundColor(Theme.gold.opacity(0.5))
+                    Text("No evidence library items yet")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                    Text("Evidence library items will appear here when shared by the community")
+                        .font(.system(size: 11))
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 24)
+            } else {
+                ForEach(items) { item in
+                    EvidenceLibraryCard(item: item)
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum Theme {
-    static let gold = Color(hex: "D4AF37")
+    static let gold = Color(hex: "A08020")  // ~5.1:1 on cream (WCAG AA compliant)
     static let navy = Color(hex: "1A2744")
     static let cream = Color(hex: "FDF8F0")
     static let surface = Color(hex: "FAFAF8")
