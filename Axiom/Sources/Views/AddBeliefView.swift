@@ -50,7 +50,7 @@ struct AddBeliefView: View {
                                 .foregroundColor(Theme.textSecondary)
                         }
 
-                        TextField("I am bad at relationships", text: $beliefText, axis: .vertical)
+                        TextField("I believe that I...", text: $beliefText, axis: .vertical)
                             .textFieldStyle(.plain)
                             .font(.body)
                             .foregroundColor(Theme.textPrimary)
@@ -117,6 +117,7 @@ struct AddBeliefView: View {
                                         }
                                         .padding(.vertical, Theme.spacingS)
                                     }
+                                    .accessibilityLabel("\(option.emoji) \(option.rawValue)")
                                 }
                                 .padding(.top, Theme.spacingXS)
                             }

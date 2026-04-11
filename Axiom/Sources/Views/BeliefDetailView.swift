@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct BeliefDetailView: View {
     @StateObject private var viewModel: BeliefDetailViewModel
@@ -324,7 +325,7 @@ struct BeliefDetailView: View {
                         }
                     } catch {
                         withAnimation {
-                            opposingViewpoint = "Couldn't generate a viewpoint right now. Try again later."
+                            opposingViewpoint = "Unable to generate an opposing viewpoint. Please try again."
                         }
                     }
                     withAnimation(.easeInOut(duration: 0.3)) {
@@ -651,6 +652,7 @@ struct ConnectionsSheet: View {
                                     .background(Theme.surfaceElevated)
                                     .cornerRadius(8)
                                 }
+                                .accessibilityLabel("Link \(belief.text) to this belief")
                             }
                         }
 
@@ -847,7 +849,7 @@ struct AIAnalysisSheet: View {
                     VStack(spacing: Theme.spacingM) {
                         ProgressView()
                             .tint(Theme.accentBlue)
-                        Text("Analyzing your belief...")
+                        Text("Examining evidence patterns...")
                             .font(.callout)
                             .foregroundColor(Theme.textSecondary)
                     }
@@ -928,7 +930,7 @@ struct ShareBeliefSheet: View {
 
     private var plainTextExport: String {
         """
-        My Belief: "\(belief.text)"
+        My Belief: \(belief.text)
 
         Evidence Score: \(Int(belief.score))/100 (\(scoreDescription))
         Supporting: \(belief.supportingCount) · Contradicting: \(belief.contradictingCount)
@@ -1022,6 +1024,7 @@ struct ShareBeliefSheet: View {
                                 .background(selectedFormat == format ? Theme.accentGold.opacity(0.1) : Theme.surface)
                                 .cornerRadius(8)
                             }
+                            .accessibilityLabel("Export format: \(format.rawValue)")
                         }
                     }
 
@@ -1048,8 +1051,10 @@ struct ShareBeliefSheet: View {
 
                     Spacer()
 
-                    // Share button
-                    ShareLink(item: shareText) {
+                    // Share button — using UIActivityViewController for iOS 15+ compatibility
+                    Button {
+                        shareBelief()
+                    } label: {
                         HStack {
                             Image(systemName: "square.and.arrow.up")
                             Text("Share")
@@ -1061,6 +1066,7 @@ struct ShareBeliefSheet: View {
                         .background(Theme.accentGold)
                         .cornerRadius(12)
                     }
+                    .accessibilityLabel("Share belief as \(selectedFormat.rawValue.lowercased()) export")
                 }
                 .padding(Theme.screenMargin)
             }
@@ -1074,6 +1080,14 @@ struct ShareBeliefSheet: View {
             }
         }
         .presentationDetents([.medium, .large])
+    }
+
+    private func shareBelief() {
+        let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootVC = windowScene.windows.first?.rootViewController {
+            rootVC.present(activityVC, animated: true)
+        }
     }
 }
 

@@ -21,10 +21,12 @@ final class BeliefDetailViewModel: ObservableObject {
     }
 
     func refresh() {
-        if let updated = databaseService.allBeliefs.first(where: { $0.id == belief.id }) {
-            belief = updated
-            loadCheckpoints()
+        // Belief may have been deleted; gracefully handle nil
+        guard let updated = databaseService.allBeliefs.first(where: { $0.id == belief.id }) else {
+            return
         }
+        belief = updated
+        loadCheckpoints()
     }
 
     func loadCheckpoints() {

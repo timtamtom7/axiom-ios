@@ -77,8 +77,9 @@ struct EvidenceRow: View {
             Button(role: .destructive) {
                 onDelete()
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label("Delete evidence", systemImage: "trash")
             }
+            .accessibilityLabel("Delete evidence: \(evidence.text)")
         }
     }
 

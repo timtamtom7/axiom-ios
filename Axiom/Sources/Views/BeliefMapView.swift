@@ -7,11 +7,14 @@ struct BeliefMapView: View {
     @State private var nodeVelocities: [UUID: CGPoint] = [:]
     @State private var isSimulating = true
     @State private var timer: AnyCancellable?
+    @State private var reduceMotionEnabled = false
 
+    // Physics simulation constants — consider moving to Theme.swift for full tokenization
     private let repulsionStrength: CGFloat = 8000
     private let attractionStrength: CGFloat = 0.04
     private let damping: CGFloat = 0.85
     private let centerGravity: CGFloat = 0.02
+    private let connectionIdealLength: CGFloat = 150
 
     var body: some View {
         NavigationStack {
@@ -53,8 +56,13 @@ struct BeliefMapView: View {
                             }
                         }
                         .onAppear {
+                            // Check reduce motion preference
+                            let reduceMotion = UIAccessibility.isReduceMotionEnabled
+                            reduceMotionEnabled = reduceMotion
                             initializePositions(in: size, center: center)
-                            startSimulation(in: size)
+                            if !reduceMotion {
+                                startSimulation(in: size)
+                            }
                         }
                         .onChange(of: databaseService.allBeliefs.count) { _, newCount in
                             if newCount > nodePositions.count {
@@ -159,8 +167,7 @@ struct BeliefMapView: View {
 
             let delta = CGPoint(x: toPos.x - fromPos.x, y: toPos.y - fromPos.y)
             let dist = sqrt(delta.x * delta.x + delta.y * delta.y)
-            let idealLength: CGFloat = 150
-            let displacement = dist - idealLength
+            let displacement = dist - connectionIdealLength
             let forceMag = attractionStrength * displacement
 
             if dist > 0 {
@@ -218,10 +225,9 @@ struct BeliefMapView: View {
             newVelocities[belief.id] = newVel
         }
 
-        withAnimation(.linear(duration: 0)) {
-            nodePositions = newPositions
-            nodeVelocities = newVelocities
-        }
+        // Duration 0 = no animation, just state update
+        nodePositions = newPositions
+        nodeVelocities = newVelocities
 
         // Stop simulation if settled
         if totalMovement < 0.5 && timer != nil {
@@ -268,12 +274,16 @@ struct BeliefNode: View {
         .onTapGesture {
             isExpanded.toggle()
         }
+        .accessibilityLabel("\(belief.text), evidence score \(Int(belief.score)) out of 100")
     }
 
     private var nodeSize: CGFloat {
+        // Use Theme tokens for node sizing when available; fallback to constants
         let base: CGFloat = 60
         let evidenceCount = belief.evidenceItems.count
-        return base + CGFloat(min(evidenceCount, 10)) * 4
+        let increment: CGFloat = 4
+        let maxEvidenceScaling: CGFloat = 10
+        return base + CGFloat(min(evidenceCount, maxEvidenceScaling)) * increment
     }
 }
 

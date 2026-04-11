@@ -184,6 +184,7 @@ struct CommunityBeliefCard: View {
                     .font(.caption)
                     .foregroundColor(Theme.accentBlue)
             }
+            .accessibilityLabel(isExpanded ? "Show less about this belief" : "Show more about this belief")
         }
         .padding(Theme.spacingM)
         .background(Theme.surface)

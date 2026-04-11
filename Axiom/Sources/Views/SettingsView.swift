@@ -400,6 +400,16 @@ struct MilestoneIndicator: View {
     let completed: Bool
     let isActive: Bool
 
+    private var accessibilityStatus: String {
+        if completed {
+            return "completed"
+        } else if isActive {
+            return "current milestone"
+        } else {
+            return "pending"
+        }
+    }
+
     var body: some View {
         VStack(spacing: 4) {
             ZStack {
@@ -417,11 +427,14 @@ struct MilestoneIndicator: View {
                         .foregroundColor(isActive ? Theme.accentGold : Theme.textSecondary)
                 }
             }
+            .accessibilityLabel("Day \(day), \(accessibilityStatus)")
 
             Text("Day \(day)")
                 .font(.caption2)
                 .foregroundColor(isActive ? Theme.accentGold : Theme.textSecondary)
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Day \(day), \(accessibilityStatus)")
     }
 }
 

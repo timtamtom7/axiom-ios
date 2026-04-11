@@ -8,6 +8,7 @@ struct EmptyStateView: View {
     let actionTitle: String?
     let action: (() -> Void)?
 
+    // Note: 56 is a magic number — ideally this would be Theme.emptyStateIconSize
     @ScaledMetric private var iconSize: CGFloat = 56
 
     var body: some View {
@@ -15,6 +16,7 @@ struct EmptyStateView: View {
             Image(systemName: icon)
                 .font(.system(size: iconSize))
                 .foregroundColor(Theme.textSecondary.opacity(0.5))
+                .accessibilityLabel(title)
 
             VStack(spacing: Theme.spacingS) {
                 Text(title)
@@ -44,6 +46,7 @@ struct EmptyStateView: View {
                         .cornerRadius(12)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(actionTitle)
             }
         }
         .padding(Theme.screenMargin)

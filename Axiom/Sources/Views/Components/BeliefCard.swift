@@ -17,6 +17,7 @@ struct BeliefCard: View {
                                 .padding(.vertical, 2)
                                 .background(Theme.accentGold.opacity(0.15))
                                 .cornerRadius(4)
+                                .accessibilityLabel("Core belief")
                         }
                         Text(belief.text)
                             .font(.headline)

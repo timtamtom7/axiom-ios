@@ -22,7 +22,7 @@ struct EvidenceLibraryView: View {
                     EmptyStateView(
                         icon: "books.vertical",
                         title: "No Evidence Yet",
-                        subtitle: "Add supporting or contradicting evidence to your beliefs to build your evidence library.",
+                        subtitle: "Your evidence library is waiting. Add supporting or contradicting evidence to your beliefs to build a clearer picture of yourself.",
                         actionTitle: nil,
                         action: nil
                     )
@@ -175,6 +175,7 @@ struct FilterChip: View {
                         .stroke(isSelected ? color : Color.clear, lineWidth: 1)
                 )
         }
+        .accessibilityLabel(title)
     }
 }
 

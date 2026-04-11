@@ -73,6 +73,8 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Axiom")
+            // Note: NavigationSplitView column widths — ideally these would be Theme tokens,
+            // but they are view-specific layout values. Consider extracting to Theme if reused.
             .navigationSplitViewColumnWidth(min: 220, ideal: 260, max: 300)
         } detail: {
             // Detail column: shows selected belief detail or placeholder

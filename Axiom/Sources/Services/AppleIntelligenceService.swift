@@ -25,14 +25,17 @@ final class AppleIntelligenceService: ObservableObject {
     }
 
     private func checkAvailability() {
-        // R14: Apple Intelligence check
-        // In production, check ProcessInfo.processInfo.isiOSAppOnMac
-        // and model availability
-        #if canImport(AppleIntelligence)
-        isAppleIntelligenceAvailable = true
-        #else
-        isAppleIntelligenceAvailable = false
-        #endif
+        // R14: Apple Intelligence requires iOS 18.0+ and actual model availability
+        // Use runtime check in addition to compile-time check
+        if #available(iOS 18.0, *) {
+            #if canImport(AppleIntelligence)
+            isAppleIntelligenceAvailable = true
+            #else
+            isAppleIntelligenceAvailable = false
+            #endif
+        } else {
+            isAppleIntelligenceAvailable = false
+        }
     }
 
     /// R14: Predictive belief work - suggest beliefs based on patterns

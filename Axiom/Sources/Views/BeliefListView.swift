@@ -18,7 +18,7 @@ struct BeliefListView: View {
                         EmptyStateView(
                             icon: "brain",
                             title: "No Beliefs Yet",
-                            subtitle: "Start by recording a belief you hold about yourself.",
+                            subtitle: "Your journey of self-discovery starts here. Record your first belief and begin understanding yourself better.",
                             actionTitle: "Add First Belief"
                         ) {
                             showingAddBelief = true
@@ -125,6 +125,7 @@ struct BeliefListView: View {
                     .background(Theme.surfaceElevated)
                     .cornerRadius(8)
                 }
+                .accessibilityLabel("Check in: \(belief.text)")
             }
 
             if viewModel.beliefsDueForCheckIn.count > 3 {

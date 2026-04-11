@@ -64,9 +64,14 @@ final class LocalizationService: ObservableObject {
            let lang = AppLanguage(rawValue: saved) {
             currentLanguage = lang
         } else {
-            // Auto-detect from system
-            if let systemLang = Locale.current.language.languageCode?.identifier {
+            // Auto-detect from system bundle preferences
+            if let preferredLang = Bundle.main.preferredLocalizations.first,
+               let langCode = AppLanguage(rawValue: preferredLang) {
+                currentLanguage = langCode
+            } else if let systemLang = Locale.current.language.languageCode?.identifier {
                 currentLanguage = AppLanguage(rawValue: systemLang) ?? .english
+            } else {
+                currentLanguage = .english
             }
         }
     }
