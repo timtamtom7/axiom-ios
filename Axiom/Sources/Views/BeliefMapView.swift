@@ -281,8 +281,8 @@ struct BeliefNode: View {
         let base = Theme.beliefNodeBaseSize
         let increment = Theme.beliefNodeSizeIncrement
         let evidenceCount = belief.evidenceItems.count
-        let maxEvidenceScaling: CGFloat = 10
-        return base + CGFloat(min(evidenceCount, maxEvidenceScaling)) * increment
+        let scaledCount = min(evidenceCount, 10)
+        return base + CGFloat(scaledCount) * increment
     }
 }
 
