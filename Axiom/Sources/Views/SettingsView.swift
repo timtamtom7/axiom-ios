@@ -415,7 +415,7 @@ struct MilestoneIndicator: View {
             ZStack {
                 Circle()
                     .stroke(isActive ? Theme.accentGold : Theme.textSecondary.opacity(0.3), lineWidth: 2)
-                    .frame(width: 32, height: 32)
+                    .frame(width: Theme.milestoneIndicatorSize, height: Theme.milestoneIndicatorSize)
 
                 if completed {
                     Image(systemName: "checkmark")

@@ -8,8 +8,7 @@ struct EmptyStateView: View {
     let actionTitle: String?
     let action: (() -> Void)?
 
-    // Note: 56 is a magic number — ideally this would be Theme.emptyStateIconSize
-    @ScaledMetric private var iconSize: CGFloat = 56
+    @ScaledMetric private var iconSize: CGFloat = Theme.emptyStateIconSize
 
     var body: some View {
         VStack(spacing: Theme.spacingL) {

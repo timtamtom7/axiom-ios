@@ -39,6 +39,21 @@ enum Theme {
     static let cornerRadiusXL: CGFloat = 16   // Extra large: modals
     static let cornerRadiusXXL: CGFloat = 20  // XXL: prominent elements
     static let cornerRadiusFull: CGFloat = 9999 // Full: pills, capsules
+
+    // MARK: - Typography
+    // Brand typography scale — use these for consistent text styling
+    static let fontTitle: Font = .system(size: 28, weight: .bold)
+    static let fontHeadline: Font = .system(size: 17, weight: .semibold)
+    static let fontBody: Font = .system(size: 17, weight: .regular)
+    static let fontCaption: Font = .system(size: 12, weight: .regular)
+
+    // MARK: - Component Sizes
+    // Consistent sizing for reusable components
+    static let scoreBadgeSize: CGFloat = 40
+    static let emptyStateIconSize: CGFloat = 56
+    static let milestoneIndicatorSize: CGFloat = 32
+    static let beliefNodeBaseSize: CGFloat = 60
+    static let beliefNodeSizeIncrement: CGFloat = 4
 }
 
 extension Color {

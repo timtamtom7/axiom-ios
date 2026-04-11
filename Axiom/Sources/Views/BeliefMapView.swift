@@ -278,10 +278,9 @@ struct BeliefNode: View {
     }
 
     private var nodeSize: CGFloat {
-        // Use Theme tokens for node sizing when available; fallback to constants
-        let base: CGFloat = 60
+        let base = Theme.beliefNodeBaseSize
+        let increment = Theme.beliefNodeSizeIncrement
         let evidenceCount = belief.evidenceItems.count
-        let increment: CGFloat = 4
         let maxEvidenceScaling: CGFloat = 10
         return base + CGFloat(min(evidenceCount, maxEvidenceScaling)) * increment
     }

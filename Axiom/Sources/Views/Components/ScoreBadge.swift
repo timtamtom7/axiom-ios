@@ -18,7 +18,7 @@ struct ScoreBadge: View {
             .font(.system(.caption, design: .rounded))
             .fontWeight(.bold)
             .foregroundColor(Theme.background)
-            .frame(width: 40, height: 40) // Note: ideally Theme token — consider adding scoreBadgeSize to Theme.swift
+            .frame(width: Theme.scoreBadgeSize, height: Theme.scoreBadgeSize)
             .background(Theme.scoreColor(for: score))
             .clipShape(Circle())
             .accessibilityLabel("Evidence score \(Int(score)) out of 100, \(scoreDescription)")
