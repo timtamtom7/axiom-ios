@@ -875,6 +875,7 @@ struct AIAnalysisSheet: View {
                                 .background(Theme.surface)
                                 .cornerRadius(12)
                         }
+                        .accessibilityLabel("Close analysis")
                     }
                     .padding(Theme.screenMargin)
                 } else {
@@ -894,6 +895,7 @@ struct AIAnalysisSheet: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                        .accessibilityLabel("Done viewing analysis")
                 }
             }
         }
